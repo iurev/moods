@@ -1,6 +1,5 @@
-title: How We Feel mood catalogue
-source: How We Feel Android APK
-asset_base: /moods-assets
+title: moods
+asset_base: /moods
 items:
   - mood_abandoned
   - mood_absorbed
