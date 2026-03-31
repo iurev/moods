@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080.0 1080.0">
+<defs>
+  <linearGradient id="grad_mood_pleased_0" gradientUnits="userSpaceOnUse" x1="540.0" y1="1080.0" x2="540.0" y2="0.0">
+    <stop offset="0.0" stop-color="#ffb218" />
+    <stop offset="0.5" stop-color="#ffd04b" />
+    <stop offset="1.0" stop-color="#f8e46d" />
+  </linearGradient>
+</defs>
+  <path d="M270,0C106,123.1 0,319.2 0,540C0,760.8 106,956.9 270,1080H810C974,956.9 1080,760.8 1080,540C1080,319.2 974,123.1 810,0H270Z" fill="url(#grad_mood_pleased_0)" />
+</svg>

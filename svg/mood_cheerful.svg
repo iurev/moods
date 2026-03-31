@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080.0 1080.0">
+<defs>
+  <linearGradient id="grad_mood_cheerful_0" gradientUnits="userSpaceOnUse" x1="540.0" y1="1080.0" x2="540.0" y2="0.0">
+    <stop offset="0.0" stop-color="#ffb218" />
+    <stop offset="0.5" stop-color="#ffd04b" />
+    <stop offset="1.0" stop-color="#f8e46d" />
+  </linearGradient>
+</defs>
+  <path d="M0,360V720C540,720 540,1080 1080,1080V0C540,0 540,360 0,360Z" fill="url(#grad_mood_cheerful_0)" />
+</svg>
