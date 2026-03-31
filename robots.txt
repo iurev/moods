@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /manifest.tsv
+Disallow: /png/
+Disallow: /svg/
