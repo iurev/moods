@@ -2,19 +2,32 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>moods</title>
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex,max-image-preview:none,max-snippet:0,max-video-preview:0">
 <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex,max-image-preview:none,max-snippet:0,max-video-preview:0">
 <meta name="bingbot" content="noindex,nofollow,noarchive,nosnippet,noimageindex,max-image-preview:none,max-snippet:0,max-video-preview:0">
 <style>
+*{box-sizing:border-box}
 body{font-family:sans-serif;margin:24px;background:#f5f5f5;color:#222}
 h1{margin:0 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
-.card{background:#fff;border:1px solid #ddd;border-radius:12px;padding:12px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.card img{width:100%;height:auto;display:block;background:#fafafa;border-radius:8px}
-.name{margin-top:8px;font-size:14px;word-break:break-word}
-.links{margin-top:6px;font-size:12px}
-.links a{margin-right:8px}
+p{margin:0 0 20px;max-width:40rem;line-height:1.5}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.card{background:#fff;border:1px solid #ddd;border-radius:16px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.card img{width:100%;height:auto;display:block;background:#fafafa;border-radius:12px}
+.name{margin-top:12px;font-size:18px;font-weight:600;line-height:1.35;word-break:break-word}
+.links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.links a,.copy-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 14px;border-radius:12px;border:1px solid #cfd6dd;background:#f0f4f8;color:#222;font-size:16px;font-weight:600;line-height:1;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.copy-button{cursor:pointer;font-family:inherit}
+.links a:focus-visible,.copy-button:focus-visible{outline:3px solid #2d6cdf;outline-offset:2px}
+.copy-button.is-copied{background:#dfeee4;border-color:#8db39a}
+@media (max-width:640px){
+body{margin:16px}
+.grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.card{padding:12px}
+.name{font-size:16px}
+.links{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -1632,5 +1645,63 @@ h1{margin:0 0 16px}
 <div class="links"><a href="svg/mood_zen.svg">svg</a><a href="png/mood_zen.png">png</a></div>
 </div>
 </div>
+<script>
+function formatEmotionName(rawName) {
+  return rawName.replace(/^mood_/, "").replace(/_/g, " ");
+}
+
+async function copyEmotionName(name, button) {
+  const originalText = button.dataset.label || button.textContent;
+
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      await navigator.clipboard.writeText(name);
+    } else {
+      const fallbackField = document.createElement("textarea");
+      fallbackField.value = name;
+      fallbackField.setAttribute("readonly", "");
+      fallbackField.style.position = "fixed";
+      fallbackField.style.opacity = "0";
+      fallbackField.style.pointerEvents = "none";
+      document.body.appendChild(fallbackField);
+      fallbackField.select();
+      document.execCommand("copy");
+      fallbackField.remove();
+    }
+
+    button.textContent = "Copied";
+    button.classList.add("is-copied");
+  } catch (error) {
+    button.textContent = "Copy failed";
+    button.classList.remove("is-copied");
+  }
+
+  window.clearTimeout(button._copyResetTimer);
+  button._copyResetTimer = window.setTimeout(function () {
+    button.textContent = originalText;
+    button.classList.remove("is-copied");
+  }, 1200);
+}
+
+document.querySelectorAll(".card").forEach(function (card) {
+  const nameElement = card.querySelector(".name");
+  const linksElement = card.querySelector(".links");
+  const emotionName = formatEmotionName(nameElement.textContent.trim());
+  const copyButton = document.createElement("button");
+
+  nameElement.textContent = emotionName;
+
+  copyButton.type = "button";
+  copyButton.className = "copy-button";
+  copyButton.textContent = "Copy";
+  copyButton.dataset.label = "Copy";
+  copyButton.setAttribute("aria-label", "Copy " + emotionName + " to clipboard");
+  copyButton.addEventListener("click", function () {
+    copyEmotionName(emotionName, copyButton);
+  });
+
+  linksElement.prepend(copyButton);
+});
+</script>
 </body>
 </html>
