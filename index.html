@@ -162,7 +162,7 @@ input{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  grid-template-columns:1fr;
   gap:20px;
 }
 
@@ -295,7 +295,6 @@ input{
 @media (max-width:760px){
   .page{padding:20px 16px 36px}
   .toolbar{grid-template-columns:1fr}
-  .grid{grid-template-columns:1fr}
   .links{grid-template-columns:1fr}
 }
 </style>
@@ -345,6 +344,10 @@ input{
       <section class="detail example-section" hidden>
         <h3>Example</h3>
         <p class="example"></p>
+      </section>
+      <section class="detail tarot-section" hidden>
+        <h3>Tarot Cards</h3>
+        <ul class="tarot-cards"></ul>
       </section>
       <div class="links">
         <button class="copy-button" type="button">Copy</button>
@@ -446,6 +449,16 @@ function parseCatalogYaml(source) {
       continue;
     }
 
+    if (indent === 4 && trimmed.endsWith(":")) {
+      const listKey = trimmed.slice(0, -1);
+
+      if (listKey === "definitions" || listKey === "tarot_cards") {
+        currentItem[listKey] = [];
+        currentListKey = listKey;
+        continue;
+      }
+    }
+
     if (indent === 4 && trimmed === "definitions:") {
       currentItem.definitions = [];
       currentListKey = "definitions";
@@ -484,6 +497,7 @@ function titleCase(text) {
 function normalizeMood(item) {
   const plainName = humanizeMoodId(item.id || "");
   const definitions = Array.isArray(item.definitions) ? item.definitions.filter(Boolean) : [];
+  const tarotCards = Array.isArray(item.tarot_cards) ? item.tarot_cards.filter(Boolean) : [];
   const example = typeof item.example === "string" ? item.example.trim() : "";
 
   return {
@@ -491,10 +505,11 @@ function normalizeMood(item) {
     plainName,
     displayName: titleCase(plainName),
     definitions,
+    tarotCards,
     example,
     pngHref: "png/" + item.id + ".png",
     svgHref: "svg/" + item.id + ".svg",
-    searchText: [item.id, plainName, definitions.join(" "), example].join(" ").toLowerCase()
+    searchText: [item.id, plainName, definitions.join(" "), tarotCards.join(" "), example].join(" ").toLowerCase()
   };
 }
 
@@ -592,6 +607,8 @@ function buildCard(item) {
   const definitionsList = card.querySelector(".definitions");
   const exampleSection = card.querySelector(".example-section");
   const example = card.querySelector(".example");
+  const tarotSection = card.querySelector(".tarot-section");
+  const tarotCardsList = card.querySelector(".tarot-cards");
   const copyButton = card.querySelector(".copy-button");
   const svgLink = card.querySelector(".svg-link");
   const pngLink = card.querySelector(".png-link");
@@ -633,6 +650,19 @@ function buildCard(item) {
   if (item.example) {
     example.textContent = item.example;
     exampleSection.hidden = false;
+  }
+
+  if (item.tarotCards.length) {
+    const tarotFragment = document.createDocumentFragment();
+
+    item.tarotCards.forEach(function (entry) {
+      const listItem = document.createElement("li");
+      listItem.textContent = entry;
+      tarotFragment.appendChild(listItem);
+    });
+
+    tarotCardsList.appendChild(tarotFragment);
+    tarotSection.hidden = false;
   }
 
   copyButton.dataset.label = "Copy";
