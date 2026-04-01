@@ -269,7 +269,17 @@ input{
   text-decoration:none;
 }
 
+.example-source{
+  color:var(--accent-strong);
+  font-weight:600;
+  text-decoration:none;
+}
+
 .reddit-link:hover{
+  text-decoration:underline;
+}
+
+.example-source:hover{
   text-decoration:underline;
 }
 
@@ -367,6 +377,7 @@ input{
       <section class="detail example-section" hidden>
         <h3>Example</h3>
         <p class="example"></p>
+        <a class="example-source" href="" target="_blank" rel="noreferrer noopener">Source</a>
       </section>
       <section class="detail reddit-example-section" hidden>
         <h3>Reddit Example</h3>
@@ -523,6 +534,8 @@ function normalizeMood(item) {
   const definitions = Array.isArray(item.definitions) ? item.definitions.filter(Boolean) : [];
   const tarotCards = Array.isArray(item.tarot_cards) ? item.tarot_cards.filter(Boolean) : [];
   const example = typeof item.example === "string" ? item.example.trim() : "";
+  const exampleSourceTitle = typeof item.example_source_title === "string" ? item.example_source_title.trim() : "";
+  const exampleLink = typeof item.example_link === "string" ? item.example_link.trim() : "";
   const redditExample = typeof item.reddit_example === "string" ? item.reddit_example.trim() : "";
   const redditExampleUrl = typeof item.reddit_example_url === "string" ? item.reddit_example_url.trim() : "";
 
@@ -533,11 +546,13 @@ function normalizeMood(item) {
     definitions,
     tarotCards,
     example,
+    exampleSourceTitle,
+    exampleLink,
     redditExample,
     redditExampleUrl,
     pngHref: "png/" + item.id + ".png",
     svgHref: "svg/" + item.id + ".svg",
-    searchText: [item.id, plainName, definitions.join(" "), tarotCards.join(" "), example, redditExample].join(" ").toLowerCase()
+    searchText: [item.id, plainName, definitions.join(" "), tarotCards.join(" "), example, exampleSourceTitle, redditExample].join(" ").toLowerCase()
   };
 }
 
@@ -635,6 +650,7 @@ function buildCard(item) {
   const definitionsList = card.querySelector(".definitions");
   const exampleSection = card.querySelector(".example-section");
   const example = card.querySelector(".example");
+  const exampleSource = card.querySelector(".example-source");
   const redditExampleSection = card.querySelector(".reddit-example-section");
   const redditExample = card.querySelector(".reddit-example");
   const redditLink = card.querySelector(".reddit-link");
@@ -680,6 +696,9 @@ function buildCard(item) {
 
   if (item.example) {
     example.textContent = item.example;
+    exampleSource.href = item.exampleLink || "#";
+    exampleSource.hidden = !item.exampleLink;
+    exampleSource.textContent = item.exampleSourceTitle ? "Source: " + item.exampleSourceTitle : "Source";
     exampleSection.hidden = false;
   }
 

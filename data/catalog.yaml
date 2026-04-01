@@ -2,20 +2,74 @@ title: moods
 asset_base: /moods
 items:
   - id: mood_abandoned
+    definitions:
+      - "Abandoned is the painful feeling that people you depended on have left, ignored, or stopped caring, which makes you feel unprotected and deeply alone in a personal way."
+      - "It is the fear and hurt that come when support or love suddenly disappears, and it feels different from simple loneliness because it carries a sense of being left behind by someone who should have stayed."
+    example: "In September 2005, 34 patients died at St. Rita's nursing home in Louisiana after Hurricane Katrina because they had not been evacuated. They were elderly, unable to care for themselves, and trapped in a building where floodwater rose nearly to the ceiling. The pain in the story is not only the storm, but the terrible fact that the people responsible for their safety did not get them out."
+    example_source_title: "Owners of Nursing Home Charged"
+    example_link: "https://www.washingtonpost.com/archive/politics/2005/09/14/owners-of-nursing-home-charged/a17ff411-610a-46a0-9d0d-e88ad7849898/"
+    tarot_cards:
+      - "Five of Pentacles: This card shows the pain of being left without care or support when you most need someone to stay."
+      - "Three of Swords: This card matches the deep personal hurt of being left behind by someone you trusted to be there."
+      - "The Moon: This card reflects the fear and emotional confusion that grow when love or protection suddenly disappears."
   - id: mood_absorbed
+    definitions:
+      - "Absorbed is the feeling of being fully drawn into a task, idea, or experience because it holds your attention so strongly that the outside world fades for a while."
+      - "Absorbed means being deeply focused and mentally involved, usually when something is rich, challenging, or meaningful, and it differs from simple interest by shutting out most distractions."
+    example: "In Walter Tevis's 1983 novel The Queen's Gambit, nine-year-old Beth Harmon lies awake in a Kentucky orphanage and plays whole chess games on the ceiling above her bed. The pills are meant to keep the girls quiet, but Beth becomes so absorbed in each pattern and reply that meals, noise, and the rest of the dorm fall away. This is more than liking chess; her mind is fully inside the game."
+    example_source_title: "The Queen's Gambit (novel)"
+    example_link: "https://en.wikipedia.org/wiki/The_Queen%27s_Gambit_(novel)"
+    tarot_cards:
+      - "Eight of Pentacles: This card fits being absorbed because it shows complete attention to careful work until everything else fades away."
+      - "The Hermit: This card matches absorbed focus that turns inward, with full attention on one thought, task, or search for understanding."
+      - "The Magician: This card reflects being so mentally engaged and active that all your energy gathers around what you are doing right now."
   - id: mood_abused
     definitions:
-      - Feeling deeply hurt because someone treated you in a cruel, unsafe, or controlling way.
-      - This can leave a person feeling afraid, powerless, and damaged.
-    example: On April 23, 2024, the U.S. Justice Department agreed to pay $138.7 million to settle 139 claims linked to Larry Nassar, the former USA Gymnastics doctor who, according to DOJ, abused patients for years under the cover of medical treatment. That is what abused looks like when trust, authority, and the exam room all turn into weapons.
-    reddit_example: In January 2020, Reddit user u/YourMindbelongs2me posted in r/AmItheAsshole that at age 22 she was married to a 37-year-old man, had to keep receipts for basic purchases, and still needed permission to spend $30 on a video game even though the household income was about $9,500 a month. That is abused in a quieter but still serious way: money turned into surveillance, dependence, and permission.
-    reddit_example_url: https://www.reddit.com/r/AmItheAsshole/comments/ew0rph/aita_for_messing_with_my_husband_in_order_to/
+      - "Feeling deeply hurt because someone treated you in a cruel, unsafe, or controlling way."
+      - "This can leave a person feeling afraid, powerless, and damaged."
+    example: "On April 23, 2024, the U.S. Justice Department agreed to pay $138.7 million to settle 139 claims linked to Larry Nassar, the former USA Gymnastics doctor who, according to DOJ, abused patients for years under the cover of medical treatment. That is what abused looks like when trust, authority, and the exam room all turn into weapons."
+    example_source_title: "Justice Department Reaches Civil Settlement with Victims Abused by Lawrence Nassar"
+    example_link: "https://www.justice.gov/archives/opa/pr/justice-department-reaches-civil-settlement-victims-abused-lawrence-nassar"
+    reddit_example: "In January 2020, Reddit user u/YourMindbelongs2me posted in r/AmItheAsshole that at age 22 she was married to a 37-year-old man, had to keep receipts for basic purchases, and still needed permission to spend $30 on a video game even though the household income was about $9,500 a month. That is abused in a quieter but still serious way: money turned into surveillance, dependence, and permission."
+    reddit_example_url: "https://www.reddit.com/r/AmItheAsshole/comments/ew0rph/aita_for_messing_with_my_husband_in_order_to/"
     tarot_cards:
       - "The Devil: Matches control, manipulation, fear, and toxic attachment."
   - id: mood_accepted
+    definitions:
+      - "Accepted is the calm, secure feeling that you belong because other people welcome you as you are, which makes it different from simple praise that depends on performance."
+      - "You feel accepted when a person or group includes you without pressure to change, and the mood stands out from relief or tolerance because it carries real belonging and ease."
+    example: "In Lucy Maud Montgomery's 1908 novel Anne of Green Gables, 11-year-old orphan Anne Shirley reaches Green Gables on Prince Edward Island by mistake because Matthew and Marilla Cuthbert had asked for a boy. When they decide not to send her to Mrs. Blewett and keep her instead, Anne's panic about being passed along again starts to ease. It feels like acceptance because she is welcomed into a home before she has proved anything."
+    example_source_title: "Anne of Green Gables by L. M. Montgomery | Project Gutenberg"
+    example_link: "https://www.gutenberg.org/ebooks/45"
+    tarot_cards:
+      - "Three of Cups: It fits accepted because the card shows warm inclusion and shared joy, where you belong without needing to perform."
+      - "Ten of Cups: It matches the deep safety of being fully received by others, with love and ease that feel steady rather than conditional."
   - id: mood_accomplished
+    definitions:
+      - "Accomplished is the feeling of quiet pride and satisfaction that comes after you finish something important through your own effort, especially when the result shows clear progress or skill."
+      - "It happens when you meet a goal, solve a hard problem, or complete a meaningful task, and it feels different from simple happiness because it is tied to earned success and real competence."
+    example: "On February 18, 2021, the team at NASA's Jet Propulsion Laboratory heard that Perseverance had landed on Mars after a 203-day trip of 293 million miles. The 2,263-pound rover carried seven science instruments and the most cameras NASA had ever sent to Mars. In that control room, the mood was accomplished: years of exact work had produced a result that only skill and persistence could earn."
+    example_source_title: "Touchdown! NASA’s Mars Perseverance Rover Safely Lands on Red Planet"
+    example_link: "https://www.jpl.nasa.gov/news/touchdown-nasas-mars-perseverance-rover-safely-lands-on-red-planet/"
+    tarot_cards:
+      - "The World: This card fits accomplished because it shows the deep satisfaction of finishing an important cycle and knowing your effort brought real results."
+      - "Eight of Pentacles: This card matches the skill, focus, and steady work that often lead to a true sense of accomplishment."
+      - "Nine of Pentacles: This card reflects the quiet pride of enjoying success that you built through your own discipline and ability."
   - id: mood_adoring
+    definitions:
+      - "Adoring is a warm, glowing feeling of love and admiration that appears when someone seems deeply precious to you, and it feels more tender and devoted than simple liking or respect."
+      - "It is the mood of looking at a person with affectionate wonder because their presence, qualities, or care move you strongly, making the feeling gentler and more personal than pride or excitement."
+    example: "On a spring morning in E. B. White's Charlotte's Web, eight-year-old Fern Arable sees her father carrying an axe to kill the runt of a litter and refuses to step aside. She saves the pig, names him Wilbur, and bottle-feeds him so faithfully that the tiny animal becomes the center of her days. The mood is adoring because Fern does not simply like Wilbur; she treats him as something deeply precious, with a warm devotion that turns an ordinary barn into the place she most wants to be."
+    example_source_title: "Charlotte's Web"
+    example_link: "https://en.wikipedia.org/wiki/Charlotte%27s_Web"
+    tarot_cards:
+      - "The Lovers: It shows a deep, loving bond where someone feels warmly drawn to another in a tender and devoted way."
+      - "Queen of Cups: She matches the soft, caring side of adoring, where love feels gentle, personal, and full of feeling."
+      - "Six of Cups: It fits the sweet, affectionate warmth of seeing someone as precious and feeling simple joy in their presence."
   - id: mood_affectionate
+    definitions:
+      - "Affectionate means feeling warm, caring closeness toward someone, usually because you feel safe, fond of them, or grateful for them, and it shows more tenderness than simple friendliness."
+      - "It is the wish to give love, comfort, or gentle attention to a person, pet, or even a place that matters to you, and it is softer and steadier than excitement or desire."
   - id: mood_afraid
   - id: mood_agitated
   - id: mood_alarmed
@@ -27,24 +81,24 @@ items:
   - id: mood_amused
   - id: mood_angry
     definitions:
-      - Feeling strong displeasure because something seems wrong, unfair, or blocking you.
-      - A hot, tense mood that can make you want to argue, protect yourself, or push back.
-    example: I felt angry when they blamed me for a mistake I did not make.
+      - "Feeling strong displeasure because something seems wrong, unfair, or blocking you."
+      - "A hot, tense mood that can make you want to argue, protect yourself, or push back."
+    example: "I felt angry when they blamed me for a mistake I did not make."
   - id: mood_anguished
   - id: mood_annoyed
   - id: mood_anxious
     definitions:
-      - Feeling worried, tense, or unsafe because something bad might happen.
-      - A future-focused mood that often brings overthinking and restlessness.
-    example: She felt anxious before the interview and kept checking her notes.
+      - "Feeling worried, tense, or unsafe because something bad might happen."
+      - "A future-focused mood that often brings overthinking and restlessness."
+    example: "She felt anxious before the interview and kept checking her notes."
   - id: mood_apathetic
   - id: mood_appreciated
   - id: mood_apprehensive
   - id: mood_ashamed
     definitions:
-      - Feeling bad about yourself after doing something you see as wrong, foolish, or embarrassing.
-      - Shame often sounds like There is something wrong with me, not only with the action.
-    example: He felt ashamed after laughing at his friend's mistake.
+      - "Feeling bad about yourself after doing something you see as wrong, foolish, or embarrassing."
+      - "Shame often sounds like There is something wrong with me, not only with the action."
+    example: "He felt ashamed after laughing at his friend's mistake."
   - id: mood_astonished
   - id: mood_at_ease
   - id: mood_attentive
@@ -64,9 +118,9 @@ items:
   - id: mood_burned_out
   - id: mood_calm
     definitions:
-      - Feeling quiet, steady, and not under strong stress.
-      - Calm does not always mean happy. It can simply mean settled and clear.
-    example: After the walk, I felt calm enough to think clearly.
+      - "Feeling quiet, steady, and not under strong stress."
+      - "Calm does not always mean happy. It can simply mean settled and clear."
+    example: "After the walk, I felt calm enough to think clearly."
   - id: mood_cancelled
   - id: mood_carefree
   - id: mood_challenged
@@ -176,14 +230,14 @@ items:
   - id: mood_grumpy
   - id: mood_guilty
     definitions:
-      - Feeling bad because you think you did something wrong.
-      - Guilt often brings a wish to apologize, repair the damage, or do better next time.
-    example: I felt guilty after I lied to my friend.
+      - "Feeling bad because you think you did something wrong."
+      - "Guilt often brings a wish to apologize, repair the damage, or do better next time."
+    example: "I felt guilty after I lied to my friend."
   - id: mood_happy
     definitions:
-      - Feeling good, light, and pleased with what is happening.
-      - Happy can be quiet and peaceful or active and excited.
-    example: They felt happy when the good news finally arrived.
+      - "Feeling good, light, and pleased with what is happening."
+      - "Happy can be quiet and peaceful or active and excited."
+    example: "They felt happy when the good news finally arrived."
   - id: mood_hate
   - id: mood_heard
   - id: mood_heartbroken
@@ -220,9 +274,9 @@ items:
   - id: mood_isolated
   - id: mood_jealous
     definitions:
-      - Feeling upset or threatened because you fear losing attention, love, or closeness to someone else.
-      - Jealousy often appears in relationships and can mix fear with anger.
-    example: He felt jealous when his best friend started spending all their time with someone else.
+      - "Feeling upset or threatened because you fear losing attention, love, or closeness to someone else."
+      - "Jealousy often appears in relationships and can mix fear with anger."
+    example: "He felt jealous when his best friend started spending all their time with someone else."
   - id: mood_jilted
   - id: mood_jittery
   - id: mood_joyful
@@ -293,9 +347,9 @@ items:
   - id: mood_rushed
   - id: mood_sad
     definitions:
-      - Feeling low, heavy, or hurt after a loss, disappointment, or painful moment.
-      - Sadness often slows you down and makes you want comfort, rest, or space.
-    example: I felt sad when I read her message and knew things had changed.
+      - "Feeling low, heavy, or hurt after a loss, disappointment, or painful moment."
+      - "Sadness often slows you down and makes you want comfort, rest, or space."
+    example: "I felt sad when I read her message and knew things had changed."
   - id: mood_safe
   - id: mood_satisfied
   - id: mood_scared
