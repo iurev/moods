@@ -133,6 +133,9 @@ items:
     definitions:
       - "Alienated means feeling cut off from other people, a place, or a group because you do not feel understood, accepted, or able to belong there in a real way."
       - "Alienated can also mean feeling separated from your own work, role, or self when outside pressure, unfair treatment, or emotional distance makes your life feel unfamiliar and not fully yours."
+    example: "In Franz Kafka's 1915 novella The Metamorphosis, Gregor Samsa wakes up as a huge insect and hears his manager and his family gathering outside his locked bedroom door. He cannot make his voice understood, misses the morning train, and turns from breadwinner into a problem inside his own home. The mood is alienated because Gregor is cut off at once from work, family, and even his own human place in the world."
+    example_source_title: "The Metamorphosis"
+    example_link: "https://en.wikipedia.org/wiki/The_Metamorphosis"
   - id: mood_alive
   - id: mood_amazed
   - id: mood_ambivalent
