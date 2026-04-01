@@ -7,1650 +7,518 @@
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex,max-image-preview:none,max-snippet:0,max-video-preview:0">
 <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex,max-image-preview:none,max-snippet:0,max-video-preview:0">
 <meta name="bingbot" content="noindex,nofollow,noarchive,nosnippet,noimageindex,max-image-preview:none,max-snippet:0,max-video-preview:0">
+<meta name="application-name" content="moods">
+<meta name="apple-mobile-web-app-title" content="moods">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#ffd04b">
+<meta name="msapplication-TileColor" content="#ffd04b">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <style>
+:root{
+  --bg:#f7f1df;
+  --surface:#fffdf7;
+  --surface-strong:#fff7dc;
+  --border:#ddcfad;
+  --text:#2c2417;
+  --muted:#6c614d;
+  --accent:#f2b632;
+  --accent-strong:#a85f00;
+  --shadow:0 14px 32px rgba(97,63,0,.10);
+}
+
 *{box-sizing:border-box}
-body{font-family:sans-serif;margin:24px;background:#f5f5f5;color:#222}
-h1{margin:0 0 16px}
-p{margin:0 0 20px;max-width:40rem;line-height:1.5}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
-.card{background:#fff;border:1px solid #ddd;border-radius:16px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
-.card img{width:100%;height:auto;display:block;background:#fafafa;border-radius:12px}
-.name{margin-top:12px;font-size:18px;font-weight:600;line-height:1.35;word-break:break-word}
-.links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
-.links a,.copy-button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 14px;border-radius:12px;border:1px solid #cfd6dd;background:#f0f4f8;color:#222;font-size:16px;font-weight:600;line-height:1;text-decoration:none;-webkit-tap-highlight-color:transparent}
-.copy-button{cursor:pointer;font-family:inherit}
-.links a:focus-visible,.copy-button:focus-visible{outline:3px solid #2d6cdf;outline-offset:2px}
-.copy-button.is-copied{background:#dfeee4;border-color:#8db39a}
-@media (max-width:640px){
-body{margin:16px}
-.grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
-.card{padding:12px}
-.name{font-size:16px}
-.links{grid-template-columns:1fr}
+
+html{color-scheme:light}
+
+body{
+  margin:0;
+  font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.75), transparent 32rem),
+    linear-gradient(180deg, #fbf7ec 0%, var(--bg) 100%);
+  color:var(--text);
+}
+
+a{color:inherit}
+
+button,
+input{
+  font:inherit;
+}
+
+.page{
+  max-width:1280px;
+  margin:0 auto;
+  padding:32px 24px 48px;
+}
+
+.hero{
+  display:grid;
+  gap:18px;
+  margin-bottom:28px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(2rem, 2vw + 1.4rem, 3.2rem);
+  line-height:1;
+}
+
+.hero p{
+  margin:0;
+  max-width:44rem;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.toolbar{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:14px;
+  align-items:center;
+}
+
+.search-field input{
+  width:100%;
+  min-height:56px;
+  padding:0 18px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:rgba(255,255,255,.76);
+  box-shadow:var(--shadow);
+}
+
+.search-field input:focus-visible,
+.ghost-button:focus-visible,
+.copy-button:focus-visible,
+.favorite-button:focus-visible,
+.favorite-toggle input:focus-visible{
+  outline:3px solid #2d6cdf;
+  outline-offset:2px;
+}
+
+.favorite-toggle{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  min-height:56px;
+  padding:0 16px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:rgba(255,255,255,.76);
+  box-shadow:var(--shadow);
+  color:var(--muted);
+}
+
+.favorite-toggle input{
+  width:18px;
+  height:18px;
+  accent-color:var(--accent-strong);
+}
+
+.summary-bar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.summary-text{
+  color:var(--muted);
+  font-size:.96rem;
+}
+
+.ghost-button{
+  min-height:42px;
+  padding:10px 14px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:transparent;
+  color:var(--text);
+  cursor:pointer;
+}
+
+.message{
+  padding:20px 22px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:rgba(255,255,255,.72);
+  color:var(--muted);
+  box-shadow:var(--shadow);
+}
+
+.message.error{
+  border-color:#d4b0a6;
+  color:#7c3d2b;
+  background:#fff0eb;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:20px;
+}
+
+.card{
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
+  border:1px solid var(--border);
+  border-radius:24px;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.card-media{
+  position:relative;
+  padding:16px 16px 0;
+}
+
+.card-media img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:18px;
+  background:var(--surface-strong);
+}
+
+.favorite-button{
+  position:absolute;
+  top:28px;
+  right:28px;
+  min-width:76px;
+  min-height:38px;
+  padding:8px 12px;
+  border:1px solid rgba(102,77,13,.18);
+  border-radius:999px;
+  background:rgba(255,250,232,.92);
+  color:var(--accent-strong);
+  cursor:pointer;
+}
+
+.favorite-button.is-active{
+  background:#fff0b0;
+  border-color:#e2b13e;
+  color:#7b5200;
+}
+
+.card-body{
+  display:flex;
+  flex:1;
+  flex-direction:column;
+  gap:14px;
+  padding:16px;
+}
+
+.name{
+  margin:0;
+  font-size:1.25rem;
+  line-height:1.2;
+}
+
+.detail{
+  display:grid;
+  gap:8px;
+}
+
+.detail h3{
+  margin:0;
+  font-size:.8rem;
+  line-height:1;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.definitions{
+  display:grid;
+  gap:8px;
+  margin:0;
+  padding-left:18px;
+}
+
+.definitions li,
+.example{
+  margin:0;
+  line-height:1.55;
+  color:#433824;
+}
+
+.links{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  margin-top:auto;
+}
+
+.links a,
+.copy-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:#f8f2de;
+  color:#3f331f;
+  font-weight:600;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.copy-button.is-copied{
+  background:#e7f2dd;
+  border-color:#9eb47f;
+}
+
+.visually-hidden{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+@media (max-width:760px){
+  .page{padding:20px 16px 36px}
+  .toolbar{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .links{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-<h1>moods</h1>
-<p>Static asset index.</p>
-<div class="grid">
-<div class="card">
-<img src="png/mood_abandoned.png" alt="mood_abandoned">
-<div class="name">mood_abandoned</div>
-<div class="links"><a href="svg/mood_abandoned.svg">svg</a><a href="png/mood_abandoned.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_absorbed.png" alt="mood_absorbed">
-<div class="name">mood_absorbed</div>
-<div class="links"><a href="svg/mood_absorbed.svg">svg</a><a href="png/mood_absorbed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_abused.png" alt="mood_abused">
-<div class="name">mood_abused</div>
-<div class="links"><a href="svg/mood_abused.svg">svg</a><a href="png/mood_abused.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_accepted.png" alt="mood_accepted">
-<div class="name">mood_accepted</div>
-<div class="links"><a href="svg/mood_accepted.svg">svg</a><a href="png/mood_accepted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_accomplished.png" alt="mood_accomplished">
-<div class="name">mood_accomplished</div>
-<div class="links"><a href="svg/mood_accomplished.svg">svg</a><a href="png/mood_accomplished.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_adoring.png" alt="mood_adoring">
-<div class="name">mood_adoring</div>
-<div class="links"><a href="svg/mood_adoring.svg">svg</a><a href="png/mood_adoring.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_affectionate.png" alt="mood_affectionate">
-<div class="name">mood_affectionate</div>
-<div class="links"><a href="svg/mood_affectionate.svg">svg</a><a href="png/mood_affectionate.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_afraid.png" alt="mood_afraid">
-<div class="name">mood_afraid</div>
-<div class="links"><a href="svg/mood_afraid.svg">svg</a><a href="png/mood_afraid.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_agitated.png" alt="mood_agitated">
-<div class="name">mood_agitated</div>
-<div class="links"><a href="svg/mood_agitated.svg">svg</a><a href="png/mood_agitated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_alarmed.png" alt="mood_alarmed">
-<div class="name">mood_alarmed</div>
-<div class="links"><a href="svg/mood_alarmed.svg">svg</a><a href="png/mood_alarmed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_alert.png" alt="mood_alert">
-<div class="name">mood_alert</div>
-<div class="links"><a href="svg/mood_alert.svg">svg</a><a href="png/mood_alert.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_alienated.png" alt="mood_alienated">
-<div class="name">mood_alienated</div>
-<div class="links"><a href="svg/mood_alienated.svg">svg</a><a href="png/mood_alienated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_alive.png" alt="mood_alive">
-<div class="name">mood_alive</div>
-<div class="links"><a href="svg/mood_alive.svg">svg</a><a href="png/mood_alive.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_amazed.png" alt="mood_amazed">
-<div class="name">mood_amazed</div>
-<div class="links"><a href="svg/mood_amazed.svg">svg</a><a href="png/mood_amazed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_ambivalent.png" alt="mood_ambivalent">
-<div class="name">mood_ambivalent</div>
-<div class="links"><a href="svg/mood_ambivalent.svg">svg</a><a href="png/mood_ambivalent.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_amused.png" alt="mood_amused">
-<div class="name">mood_amused</div>
-<div class="links"><a href="svg/mood_amused.svg">svg</a><a href="png/mood_amused.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_angry.png" alt="mood_angry">
-<div class="name">mood_angry</div>
-<div class="links"><a href="svg/mood_angry.svg">svg</a><a href="png/mood_angry.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_anguished.png" alt="mood_anguished">
-<div class="name">mood_anguished</div>
-<div class="links"><a href="svg/mood_anguished.svg">svg</a><a href="png/mood_anguished.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_annoyed.png" alt="mood_annoyed">
-<div class="name">mood_annoyed</div>
-<div class="links"><a href="svg/mood_annoyed.svg">svg</a><a href="png/mood_annoyed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_anxious.png" alt="mood_anxious">
-<div class="name">mood_anxious</div>
-<div class="links"><a href="svg/mood_anxious.svg">svg</a><a href="png/mood_anxious.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_apathetic.png" alt="mood_apathetic">
-<div class="name">mood_apathetic</div>
-<div class="links"><a href="svg/mood_apathetic.svg">svg</a><a href="png/mood_apathetic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_appreciated.png" alt="mood_appreciated">
-<div class="name">mood_appreciated</div>
-<div class="links"><a href="svg/mood_appreciated.svg">svg</a><a href="png/mood_appreciated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_apprehensive.png" alt="mood_apprehensive">
-<div class="name">mood_apprehensive</div>
-<div class="links"><a href="svg/mood_apprehensive.svg">svg</a><a href="png/mood_apprehensive.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_ashamed.png" alt="mood_ashamed">
-<div class="name">mood_ashamed</div>
-<div class="links"><a href="svg/mood_ashamed.svg">svg</a><a href="png/mood_ashamed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_astonished.png" alt="mood_astonished">
-<div class="name">mood_astonished</div>
-<div class="links"><a href="svg/mood_astonished.svg">svg</a><a href="png/mood_astonished.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_at_ease.png" alt="mood_at_ease">
-<div class="name">mood_at_ease</div>
-<div class="links"><a href="svg/mood_at_ease.svg">svg</a><a href="png/mood_at_ease.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_attentive.png" alt="mood_attentive">
-<div class="name">mood_attentive</div>
-<div class="links"><a href="svg/mood_attentive.svg">svg</a><a href="png/mood_attentive.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_avoidant.png" alt="mood_avoidant">
-<div class="name">mood_avoidant</div>
-<div class="links"><a href="svg/mood_avoidant.svg">svg</a><a href="png/mood_avoidant.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_awe.png" alt="mood_awe">
-<div class="name">mood_awe</div>
-<div class="links"><a href="svg/mood_awe.svg">svg</a><a href="png/mood_awe.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_balanced.png" alt="mood_balanced">
-<div class="name">mood_balanced</div>
-<div class="links"><a href="svg/mood_balanced.svg">svg</a><a href="png/mood_balanced.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_bereft.png" alt="mood_bereft">
-<div class="name">mood_bereft</div>
-<div class="links"><a href="svg/mood_bereft.svg">svg</a><a href="png/mood_bereft.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_betrayed.png" alt="mood_betrayed">
-<div class="name">mood_betrayed</div>
-<div class="links"><a href="svg/mood_betrayed.svg">svg</a><a href="png/mood_betrayed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_bleh.png" alt="mood_bleh">
-<div class="name">mood_bleh</div>
-<div class="links"><a href="svg/mood_bleh.svg">svg</a><a href="png/mood_bleh.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_blessed.png" alt="mood_blessed">
-<div class="name">mood_blessed</div>
-<div class="links"><a href="svg/mood_blessed.svg">svg</a><a href="png/mood_blessed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_blissful.png" alt="mood_blissful">
-<div class="name">mood_blissful</div>
-<div class="links"><a href="svg/mood_blissful.svg">svg</a><a href="png/mood_blissful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_blue.png" alt="mood_blue">
-<div class="name">mood_blue</div>
-<div class="links"><a href="svg/mood_blue.svg">svg</a><a href="png/mood_blue.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_bored.png" alt="mood_bored">
-<div class="name">mood_bored</div>
-<div class="links"><a href="svg/mood_bored.svg">svg</a><a href="png/mood_bored.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_brooding.png" alt="mood_brooding">
-<div class="name">mood_brooding</div>
-<div class="links"><a href="svg/mood_brooding.svg">svg</a><a href="png/mood_brooding.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_buoyant.png" alt="mood_buoyant">
-<div class="name">mood_buoyant</div>
-<div class="links"><a href="svg/mood_buoyant.svg">svg</a><a href="png/mood_buoyant.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_burdened.png" alt="mood_burdened">
-<div class="name">mood_burdened</div>
-<div class="links"><a href="svg/mood_burdened.svg">svg</a><a href="png/mood_burdened.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_burned_out.png" alt="mood_burned_out">
-<div class="name">mood_burned_out</div>
-<div class="links"><a href="svg/mood_burned_out.svg">svg</a><a href="png/mood_burned_out.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_calm.png" alt="mood_calm">
-<div class="name">mood_calm</div>
-<div class="links"><a href="svg/mood_calm.svg">svg</a><a href="png/mood_calm.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_cancelled.png" alt="mood_cancelled">
-<div class="name">mood_cancelled</div>
-<div class="links"><a href="svg/mood_cancelled.svg">svg</a><a href="png/mood_cancelled.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_carefree.png" alt="mood_carefree">
-<div class="name">mood_carefree</div>
-<div class="links"><a href="svg/mood_carefree.svg">svg</a><a href="png/mood_carefree.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_challenged.png" alt="mood_challenged">
-<div class="name">mood_challenged</div>
-<div class="links"><a href="svg/mood_challenged.svg">svg</a><a href="png/mood_challenged.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_chatty.png" alt="mood_chatty">
-<div class="name">mood_chatty</div>
-<div class="links"><a href="svg/mood_chatty.svg">svg</a><a href="png/mood_chatty.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_cheerful.png" alt="mood_cheerful">
-<div class="name">mood_cheerful</div>
-<div class="links"><a href="svg/mood_cheerful.svg">svg</a><a href="png/mood_cheerful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_chill.png" alt="mood_chill">
-<div class="name">mood_chill</div>
-<div class="links"><a href="svg/mood_chill.svg">svg</a><a href="png/mood_chill.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_clear.png" alt="mood_clear">
-<div class="name">mood_clear</div>
-<div class="links"><a href="svg/mood_clear.svg">svg</a><a href="png/mood_clear.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_comfortable.png" alt="mood_comfortable">
-<div class="name">mood_comfortable</div>
-<div class="links"><a href="svg/mood_comfortable.svg">svg</a><a href="png/mood_comfortable.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_compassionate.png" alt="mood_compassionate">
-<div class="name">mood_compassionate</div>
-<div class="links"><a href="svg/mood_compassionate.svg">svg</a><a href="png/mood_compassionate.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_competent.png" alt="mood_competent">
-<div class="name">mood_competent</div>
-<div class="links"><a href="svg/mood_competent.svg">svg</a><a href="png/mood_competent.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_concerned.png" alt="mood_concerned">
-<div class="name">mood_concerned</div>
-<div class="links"><a href="svg/mood_concerned.svg">svg</a><a href="png/mood_concerned.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_confident.png" alt="mood_confident">
-<div class="name">mood_confident</div>
-<div class="links"><a href="svg/mood_confident.svg">svg</a><a href="png/mood_confident.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_conflicted.png" alt="mood_conflicted">
-<div class="name">mood_conflicted</div>
-<div class="links"><a href="svg/mood_conflicted.svg">svg</a><a href="png/mood_conflicted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_confused.png" alt="mood_confused">
-<div class="name">mood_confused</div>
-<div class="links"><a href="svg/mood_confused.svg">svg</a><a href="png/mood_confused.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_connected.png" alt="mood_connected">
-<div class="name">mood_connected</div>
-<div class="links"><a href="svg/mood_connected.svg">svg</a><a href="png/mood_connected.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_contemplative.png" alt="mood_contemplative">
-<div class="name">mood_contemplative</div>
-<div class="links"><a href="svg/mood_contemplative.svg">svg</a><a href="png/mood_contemplative.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_contempt.png" alt="mood_contempt">
-<div class="name">mood_contempt</div>
-<div class="links"><a href="svg/mood_contempt.svg">svg</a><a href="png/mood_contempt.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_content.png" alt="mood_content">
-<div class="name">mood_content</div>
-<div class="links"><a href="svg/mood_content.svg">svg</a><a href="png/mood_content.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_copacetic.png" alt="mood_copacetic">
-<div class="name">mood_copacetic</div>
-<div class="links"><a href="svg/mood_copacetic.svg">svg</a><a href="png/mood_copacetic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_crushed.png" alt="mood_crushed">
-<div class="name">mood_crushed</div>
-<div class="links"><a href="svg/mood_crushed.svg">svg</a><a href="png/mood_crushed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_curious.png" alt="mood_curious">
-<div class="name">mood_curious</div>
-<div class="links"><a href="svg/mood_curious.svg">svg</a><a href="png/mood_curious.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_dazed.png" alt="mood_dazed">
-<div class="name">mood_dazed</div>
-<div class="links"><a href="svg/mood_dazed.svg">svg</a><a href="png/mood_dazed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_dead_inside.png" alt="mood_dead_inside">
-<div class="name">mood_dead_inside</div>
-<div class="links"><a href="svg/mood_dead_inside.svg">svg</a><a href="png/mood_dead_inside.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_defeated.png" alt="mood_defeated">
-<div class="name">mood_defeated</div>
-<div class="links"><a href="svg/mood_defeated.svg">svg</a><a href="png/mood_defeated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_deficient.png" alt="mood_deficient">
-<div class="name">mood_deficient</div>
-<div class="links"><a href="svg/mood_deficient.svg">svg</a><a href="png/mood_deficient.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_dejected.png" alt="mood_dejected">
-<div class="name">mood_dejected</div>
-<div class="links"><a href="svg/mood_dejected.svg">svg</a><a href="png/mood_dejected.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_delighted.png" alt="mood_delighted">
-<div class="name">mood_delighted</div>
-<div class="links"><a href="svg/mood_delighted.svg">svg</a><a href="png/mood_delighted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_depressed.png" alt="mood_depressed">
-<div class="name">mood_depressed</div>
-<div class="links"><a href="svg/mood_depressed.svg">svg</a><a href="png/mood_depressed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_desire.png" alt="mood_desire">
-<div class="name">mood_desire</div>
-<div class="links"><a href="svg/mood_desire.svg">svg</a><a href="png/mood_desire.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_desolate.png" alt="mood_desolate">
-<div class="name">mood_desolate</div>
-<div class="links"><a href="svg/mood_desolate.svg">svg</a><a href="png/mood_desolate.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_despair.png" alt="mood_despair">
-<div class="name">mood_despair</div>
-<div class="links"><a href="svg/mood_despair.svg">svg</a><a href="png/mood_despair.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_despondent.png" alt="mood_despondent">
-<div class="name">mood_despondent</div>
-<div class="links"><a href="svg/mood_despondent.svg">svg</a><a href="png/mood_despondent.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_determined.png" alt="mood_determined">
-<div class="name">mood_determined</div>
-<div class="links"><a href="svg/mood_determined.svg">svg</a><a href="png/mood_determined.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disappointed.png" alt="mood_disappointed">
-<div class="name">mood_disappointed</div>
-<div class="links"><a href="svg/mood_disappointed.svg">svg</a><a href="png/mood_disappointed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_discombobulated.png" alt="mood_discombobulated">
-<div class="name">mood_discombobulated</div>
-<div class="links"><a href="svg/mood_discombobulated.svg">svg</a><a href="png/mood_discombobulated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_discomfort.png" alt="mood_discomfort">
-<div class="name">mood_discomfort</div>
-<div class="links"><a href="svg/mood_discomfort.svg">svg</a><a href="png/mood_discomfort.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disconnected.png" alt="mood_disconnected">
-<div class="name">mood_disconnected</div>
-<div class="links"><a href="svg/mood_disconnected.svg">svg</a><a href="png/mood_disconnected.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_discontented.png" alt="mood_discontented">
-<div class="name">mood_discontented</div>
-<div class="links"><a href="svg/mood_discontented.svg">svg</a><a href="png/mood_discontented.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_discouraged.png" alt="mood_discouraged">
-<div class="name">mood_discouraged</div>
-<div class="links"><a href="svg/mood_discouraged.svg">svg</a><a href="png/mood_discouraged.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disenchanted.png" alt="mood_disenchanted">
-<div class="name">mood_disenchanted</div>
-<div class="links"><a href="svg/mood_disenchanted.svg">svg</a><a href="png/mood_disenchanted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disengaged.png" alt="mood_disengaged">
-<div class="name">mood_disengaged</div>
-<div class="links"><a href="svg/mood_disengaged.svg">svg</a><a href="png/mood_disengaged.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disgraced.png" alt="mood_disgraced">
-<div class="name">mood_disgraced</div>
-<div class="links"><a href="svg/mood_disgraced.svg">svg</a><a href="png/mood_disgraced.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disgruntled.png" alt="mood_disgruntled">
-<div class="name">mood_disgruntled</div>
-<div class="links"><a href="svg/mood_disgruntled.svg">svg</a><a href="png/mood_disgruntled.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disgusted.png" alt="mood_disgusted">
-<div class="name">mood_disgusted</div>
-<div class="links"><a href="svg/mood_disgusted.svg">svg</a><a href="png/mood_disgusted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disheartened.png" alt="mood_disheartened">
-<div class="name">mood_disheartened</div>
-<div class="links"><a href="svg/mood_disheartened.svg">svg</a><a href="png/mood_disheartened.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disillusioned.png" alt="mood_disillusioned">
-<div class="name">mood_disillusioned</div>
-<div class="links"><a href="svg/mood_disillusioned.svg">svg</a><a href="png/mood_disillusioned.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_dispirited.png" alt="mood_dispirited">
-<div class="name">mood_dispirited</div>
-<div class="links"><a href="svg/mood_dispirited.svg">svg</a><a href="png/mood_dispirited.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_displeased.png" alt="mood_displeased">
-<div class="name">mood_displeased</div>
-<div class="links"><a href="svg/mood_displeased.svg">svg</a><a href="png/mood_displeased.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_disrespected.png" alt="mood_disrespected">
-<div class="name">mood_disrespected</div>
-<div class="links"><a href="svg/mood_disrespected.svg">svg</a><a href="png/mood_disrespected.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_dissatisfied.png" alt="mood_dissatisfied">
-<div class="name">mood_dissatisfied</div>
-<div class="links"><a href="svg/mood_dissatisfied.svg">svg</a><a href="png/mood_dissatisfied.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_distracted.png" alt="mood_distracted">
-<div class="name">mood_distracted</div>
-<div class="links"><a href="svg/mood_distracted.svg">svg</a><a href="png/mood_distracted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_distressed.png" alt="mood_distressed">
-<div class="name">mood_distressed</div>
-<div class="links"><a href="svg/mood_distressed.svg">svg</a><a href="png/mood_distressed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_down.png" alt="mood_down">
-<div class="name">mood_down</div>
-<div class="links"><a href="svg/mood_down.svg">svg</a><a href="png/mood_down.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_dread.png" alt="mood_dread">
-<div class="name">mood_dread</div>
-<div class="links"><a href="svg/mood_dread.svg">svg</a><a href="png/mood_dread.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_dumbfounded.png" alt="mood_dumbfounded">
-<div class="name">mood_dumbfounded</div>
-<div class="links"><a href="svg/mood_dumbfounded.svg">svg</a><a href="png/mood_dumbfounded.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_dysregulated.png" alt="mood_dysregulated">
-<div class="name">mood_dysregulated</div>
-<div class="links"><a href="svg/mood_dysregulated.svg">svg</a><a href="png/mood_dysregulated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_eager.png" alt="mood_eager">
-<div class="name">mood_eager</div>
-<div class="links"><a href="svg/mood_eager.svg">svg</a><a href="png/mood_eager.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_ecstatic.png" alt="mood_ecstatic">
-<div class="name">mood_ecstatic</div>
-<div class="links"><a href="svg/mood_ecstatic.svg">svg</a><a href="png/mood_ecstatic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_elated.png" alt="mood_elated">
-<div class="name">mood_elated</div>
-<div class="links"><a href="svg/mood_elated.svg">svg</a><a href="png/mood_elated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_embarrassed.png" alt="mood_embarrassed">
-<div class="name">mood_embarrassed</div>
-<div class="links"><a href="svg/mood_embarrassed.svg">svg</a><a href="png/mood_embarrassed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_empathetic.png" alt="mood_empathetic">
-<div class="name">mood_empathetic</div>
-<div class="links"><a href="svg/mood_empathetic.svg">svg</a><a href="png/mood_empathetic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_empowered.png" alt="mood_empowered">
-<div class="name">mood_empowered</div>
-<div class="links"><a href="svg/mood_empowered.svg">svg</a><a href="png/mood_empowered.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_empty.png" alt="mood_empty">
-<div class="name">mood_empty</div>
-<div class="links"><a href="svg/mood_empty.svg">svg</a><a href="png/mood_empty.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_enchanted.png" alt="mood_enchanted">
-<div class="name">mood_enchanted</div>
-<div class="links"><a href="svg/mood_enchanted.svg">svg</a><a href="png/mood_enchanted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_encouraged.png" alt="mood_encouraged">
-<div class="name">mood_encouraged</div>
-<div class="links"><a href="svg/mood_encouraged.svg">svg</a><a href="png/mood_encouraged.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_energized.png" alt="mood_energized">
-<div class="name">mood_energized</div>
-<div class="links"><a href="svg/mood_energized.svg">svg</a><a href="png/mood_energized.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_engaged.png" alt="mood_engaged">
-<div class="name">mood_engaged</div>
-<div class="links"><a href="svg/mood_engaged.svg">svg</a><a href="png/mood_engaged.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_engrossed.png" alt="mood_engrossed">
-<div class="name">mood_engrossed</div>
-<div class="links"><a href="svg/mood_engrossed.svg">svg</a><a href="png/mood_engrossed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_enjoyment.png" alt="mood_enjoyment">
-<div class="name">mood_enjoyment</div>
-<div class="links"><a href="svg/mood_enjoyment.svg">svg</a><a href="png/mood_enjoyment.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_enraged.png" alt="mood_enraged">
-<div class="name">mood_enraged</div>
-<div class="links"><a href="svg/mood_enraged.svg">svg</a><a href="png/mood_enraged.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_enraptured.png" alt="mood_enraptured">
-<div class="name">mood_enraptured</div>
-<div class="links"><a href="svg/mood_enraptured.svg">svg</a><a href="png/mood_enraptured.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_enthralled.png" alt="mood_enthralled">
-<div class="name">mood_enthralled</div>
-<div class="links"><a href="svg/mood_enthralled.svg">svg</a><a href="png/mood_enthralled.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_enthusiastic.png" alt="mood_enthusiastic">
-<div class="name">mood_enthusiastic</div>
-<div class="links"><a href="svg/mood_enthusiastic.svg">svg</a><a href="png/mood_enthusiastic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_envious.png" alt="mood_envious">
-<div class="name">mood_envious</div>
-<div class="links"><a href="svg/mood_envious.svg">svg</a><a href="png/mood_envious.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_euphoric.png" alt="mood_euphoric">
-<div class="name">mood_euphoric</div>
-<div class="links"><a href="svg/mood_euphoric.svg">svg</a><a href="png/mood_euphoric.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_even_tempered.png" alt="mood_even_tempered">
-<div class="name">mood_even_tempered</div>
-<div class="links"><a href="svg/mood_even_tempered.svg">svg</a><a href="png/mood_even_tempered.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_exasperated.png" alt="mood_exasperated">
-<div class="name">mood_exasperated</div>
-<div class="links"><a href="svg/mood_exasperated.svg">svg</a><a href="png/mood_exasperated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_excited.png" alt="mood_excited">
-<div class="name">mood_excited</div>
-<div class="links"><a href="svg/mood_excited.svg">svg</a><a href="png/mood_excited.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_excluded.png" alt="mood_excluded">
-<div class="name">mood_excluded</div>
-<div class="links"><a href="svg/mood_excluded.svg">svg</a><a href="png/mood_excluded.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_exhausted.png" alt="mood_exhausted">
-<div class="name">mood_exhausted</div>
-<div class="links"><a href="svg/mood_exhausted.svg">svg</a><a href="png/mood_exhausted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_exhilarated.png" alt="mood_exhilarated">
-<div class="name">mood_exhilarated</div>
-<div class="links"><a href="svg/mood_exhilarated.svg">svg</a><a href="png/mood_exhilarated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_fascinated.png" alt="mood_fascinated">
-<div class="name">mood_fascinated</div>
-<div class="links"><a href="svg/mood_fascinated.svg">svg</a><a href="png/mood_fascinated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_fatigued.png" alt="mood_fatigued">
-<div class="name">mood_fatigued</div>
-<div class="links"><a href="svg/mood_fatigued.svg">svg</a><a href="png/mood_fatigued.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_flabbergasted.png" alt="mood_flabbergasted">
-<div class="name">mood_flabbergasted</div>
-<div class="links"><a href="svg/mood_flabbergasted.svg">svg</a><a href="png/mood_flabbergasted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_focused.png" alt="mood_focused">
-<div class="name">mood_focused</div>
-<div class="links"><a href="svg/mood_focused.svg">svg</a><a href="png/mood_focused.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_fomo.png" alt="mood_fomo">
-<div class="name">mood_fomo</div>
-<div class="links"><a href="svg/mood_fomo.svg">svg</a><a href="png/mood_fomo.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_foolish.png" alt="mood_foolish">
-<div class="name">mood_foolish</div>
-<div class="links"><a href="svg/mood_foolish.svg">svg</a><a href="png/mood_foolish.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_forlorn.png" alt="mood_forlorn">
-<div class="name">mood_forlorn</div>
-<div class="links"><a href="svg/mood_forlorn.svg">svg</a><a href="png/mood_forlorn.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_fragile.png" alt="mood_fragile">
-<div class="name">mood_fragile</div>
-<div class="links"><a href="svg/mood_fragile.svg">svg</a><a href="png/mood_fragile.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_frazzled.png" alt="mood_frazzled">
-<div class="name">mood_frazzled</div>
-<div class="links"><a href="svg/mood_frazzled.svg">svg</a><a href="png/mood_frazzled.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_frightened.png" alt="mood_frightened">
-<div class="name">mood_frightened</div>
-<div class="links"><a href="svg/mood_frightened.svg">svg</a><a href="png/mood_frightened.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_frozen.png" alt="mood_frozen">
-<div class="name">mood_frozen</div>
-<div class="links"><a href="svg/mood_frozen.svg">svg</a><a href="png/mood_frozen.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_frustrated.png" alt="mood_frustrated">
-<div class="name">mood_frustrated</div>
-<div class="links"><a href="svg/mood_frustrated.svg">svg</a><a href="png/mood_frustrated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_fulfilled.png" alt="mood_fulfilled">
-<div class="name">mood_fulfilled</div>
-<div class="links"><a href="svg/mood_fulfilled.svg">svg</a><a href="png/mood_fulfilled.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_furious.png" alt="mood_furious">
-<div class="name">mood_furious</div>
-<div class="links"><a href="svg/mood_furious.svg">svg</a><a href="png/mood_furious.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_gaslit.png" alt="mood_gaslit">
-<div class="name">mood_gaslit</div>
-<div class="links"><a href="svg/mood_gaslit.svg">svg</a><a href="png/mood_gaslit.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_ghosted.png" alt="mood_ghosted">
-<div class="name">mood_ghosted</div>
-<div class="links"><a href="svg/mood_ghosted.svg">svg</a><a href="png/mood_ghosted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_glad.png" alt="mood_glad">
-<div class="name">mood_glad</div>
-<div class="links"><a href="svg/mood_glad.svg">svg</a><a href="png/mood_glad.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_glowing.png" alt="mood_glowing">
-<div class="name">mood_glowing</div>
-<div class="links"><a href="svg/mood_glowing.svg">svg</a><a href="png/mood_glowing.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_glum.png" alt="mood_glum">
-<div class="name">mood_glum</div>
-<div class="links"><a href="svg/mood_glum.svg">svg</a><a href="png/mood_glum.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_good.png" alt="mood_good">
-<div class="name">mood_good</div>
-<div class="links"><a href="svg/mood_good.svg">svg</a><a href="png/mood_good.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_goofy.png" alt="mood_goofy">
-<div class="name">mood_goofy</div>
-<div class="links"><a href="svg/mood_goofy.svg">svg</a><a href="png/mood_goofy.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_grateful.png" alt="mood_grateful">
-<div class="name">mood_grateful</div>
-<div class="links"><a href="svg/mood_grateful.svg">svg</a><a href="png/mood_grateful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_grief.png" alt="mood_grief">
-<div class="name">mood_grief</div>
-<div class="links"><a href="svg/mood_grief.svg">svg</a><a href="png/mood_grief.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_groggy.png" alt="mood_groggy">
-<div class="name">mood_groggy</div>
-<div class="links"><a href="svg/mood_groggy.svg">svg</a><a href="png/mood_groggy.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_grounded.png" alt="mood_grounded">
-<div class="name">mood_grounded</div>
-<div class="links"><a href="svg/mood_grounded.svg">svg</a><a href="png/mood_grounded.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_grumpy.png" alt="mood_grumpy">
-<div class="name">mood_grumpy</div>
-<div class="links"><a href="svg/mood_grumpy.svg">svg</a><a href="png/mood_grumpy.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_guilty.png" alt="mood_guilty">
-<div class="name">mood_guilty</div>
-<div class="links"><a href="svg/mood_guilty.svg">svg</a><a href="png/mood_guilty.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_happy.png" alt="mood_happy">
-<div class="name">mood_happy</div>
-<div class="links"><a href="svg/mood_happy.svg">svg</a><a href="png/mood_happy.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_hate.png" alt="mood_hate">
-<div class="name">mood_hate</div>
-<div class="links"><a href="svg/mood_hate.svg">svg</a><a href="png/mood_hate.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_heard.png" alt="mood_heard">
-<div class="name">mood_heard</div>
-<div class="links"><a href="svg/mood_heard.svg">svg</a><a href="png/mood_heard.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_heartbroken.png" alt="mood_heartbroken">
-<div class="name">mood_heartbroken</div>
-<div class="links"><a href="svg/mood_heartbroken.svg">svg</a><a href="png/mood_heartbroken.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_helpless.png" alt="mood_helpless">
-<div class="name">mood_helpless</div>
-<div class="links"><a href="svg/mood_helpless.svg">svg</a><a href="png/mood_helpless.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_hesitant.png" alt="mood_hesitant">
-<div class="name">mood_hesitant</div>
-<div class="links"><a href="svg/mood_hesitant.svg">svg</a><a href="png/mood_hesitant.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_hollow.png" alt="mood_hollow">
-<div class="name">mood_hollow</div>
-<div class="links"><a href="svg/mood_hollow.svg">svg</a><a href="png/mood_hollow.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_homesick.png" alt="mood_homesick">
-<div class="name">mood_homesick</div>
-<div class="links"><a href="svg/mood_homesick.svg">svg</a><a href="png/mood_homesick.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_hopeful.png" alt="mood_hopeful">
-<div class="name">mood_hopeful</div>
-<div class="links"><a href="svg/mood_hopeful.svg">svg</a><a href="png/mood_hopeful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_hopeless.png" alt="mood_hopeless">
-<div class="name">mood_hopeless</div>
-<div class="links"><a href="svg/mood_hopeless.svg">svg</a><a href="png/mood_hopeless.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_horrified.png" alt="mood_horrified">
-<div class="name">mood_horrified</div>
-<div class="links"><a href="svg/mood_horrified.svg">svg</a><a href="png/mood_horrified.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_humiliated.png" alt="mood_humiliated">
-<div class="name">mood_humiliated</div>
-<div class="links"><a href="svg/mood_humiliated.svg">svg</a><a href="png/mood_humiliated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_hurting.png" alt="mood_hurting">
-<div class="name">mood_hurting</div>
-<div class="links"><a href="svg/mood_hurting.svg">svg</a><a href="png/mood_hurting.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_hyper.png" alt="mood_hyper">
-<div class="name">mood_hyper</div>
-<div class="links"><a href="svg/mood_hyper.svg">svg</a><a href="png/mood_hyper.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_icky.png" alt="mood_icky">
-<div class="name">mood_icky</div>
-<div class="links"><a href="svg/mood_icky.svg">svg</a><a href="png/mood_icky.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_impassioned.png" alt="mood_impassioned">
-<div class="name">mood_impassioned</div>
-<div class="links"><a href="svg/mood_impassioned.svg">svg</a><a href="png/mood_impassioned.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_imperturbable.png" alt="mood_imperturbable">
-<div class="name">mood_imperturbable</div>
-<div class="links"><a href="svg/mood_imperturbable.svg">svg</a><a href="png/mood_imperturbable.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_in_awe.png" alt="mood_in_awe">
-<div class="name">mood_in_awe</div>
-<div class="links"><a href="svg/mood_in_awe.svg">svg</a><a href="png/mood_in_awe.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_in_love.png" alt="mood_in_love">
-<div class="name">mood_in_love</div>
-<div class="links"><a href="svg/mood_in_love.svg">svg</a><a href="png/mood_in_love.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_inadequate.png" alt="mood_inadequate">
-<div class="name">mood_inadequate</div>
-<div class="links"><a href="svg/mood_inadequate.svg">svg</a><a href="png/mood_inadequate.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_included.png" alt="mood_included">
-<div class="name">mood_included</div>
-<div class="links"><a href="svg/mood_included.svg">svg</a><a href="png/mood_included.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_incompetent.png" alt="mood_incompetent">
-<div class="name">mood_incompetent</div>
-<div class="links"><a href="svg/mood_incompetent.svg">svg</a><a href="png/mood_incompetent.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_indecisive.png" alt="mood_indecisive">
-<div class="name">mood_indecisive</div>
-<div class="links"><a href="svg/mood_indecisive.svg">svg</a><a href="png/mood_indecisive.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_indifferent.png" alt="mood_indifferent">
-<div class="name">mood_indifferent</div>
-<div class="links"><a href="svg/mood_indifferent.svg">svg</a><a href="png/mood_indifferent.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_indignant.png" alt="mood_indignant">
-<div class="name">mood_indignant</div>
-<div class="links"><a href="svg/mood_indignant.svg">svg</a><a href="png/mood_indignant.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_infatuated.png" alt="mood_infatuated">
-<div class="name">mood_infatuated</div>
-<div class="links"><a href="svg/mood_infatuated.svg">svg</a><a href="png/mood_infatuated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_insecure.png" alt="mood_insecure">
-<div class="name">mood_insecure</div>
-<div class="links"><a href="svg/mood_insecure.svg">svg</a><a href="png/mood_insecure.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_inspired.png" alt="mood_inspired">
-<div class="name">mood_inspired</div>
-<div class="links"><a href="svg/mood_inspired.svg">svg</a><a href="png/mood_inspired.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_interested.png" alt="mood_interested">
-<div class="name">mood_interested</div>
-<div class="links"><a href="svg/mood_interested.svg">svg</a><a href="png/mood_interested.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_invalidated.png" alt="mood_invalidated">
-<div class="name">mood_invalidated</div>
-<div class="links"><a href="svg/mood_invalidated.svg">svg</a><a href="png/mood_invalidated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_irate.png" alt="mood_irate">
-<div class="name">mood_irate</div>
-<div class="links"><a href="svg/mood_irate.svg">svg</a><a href="png/mood_irate.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_irked.png" alt="mood_irked">
-<div class="name">mood_irked</div>
-<div class="links"><a href="svg/mood_irked.svg">svg</a><a href="png/mood_irked.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_irritable.png" alt="mood_irritable">
-<div class="name">mood_irritable</div>
-<div class="links"><a href="svg/mood_irritable.svg">svg</a><a href="png/mood_irritable.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_irritated.png" alt="mood_irritated">
-<div class="name">mood_irritated</div>
-<div class="links"><a href="svg/mood_irritated.svg">svg</a><a href="png/mood_irritated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_isolated.png" alt="mood_isolated">
-<div class="name">mood_isolated</div>
-<div class="links"><a href="svg/mood_isolated.svg">svg</a><a href="png/mood_isolated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_jealous.png" alt="mood_jealous">
-<div class="name">mood_jealous</div>
-<div class="links"><a href="svg/mood_jealous.svg">svg</a><a href="png/mood_jealous.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_jilted.png" alt="mood_jilted">
-<div class="name">mood_jilted</div>
-<div class="links"><a href="svg/mood_jilted.svg">svg</a><a href="png/mood_jilted.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_jittery.png" alt="mood_jittery">
-<div class="name">mood_jittery</div>
-<div class="links"><a href="svg/mood_jittery.svg">svg</a><a href="png/mood_jittery.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_joyful.png" alt="mood_joyful">
-<div class="name">mood_joyful</div>
-<div class="links"><a href="svg/mood_joyful.svg">svg</a><a href="png/mood_joyful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_judged.png" alt="mood_judged">
-<div class="name">mood_judged</div>
-<div class="links"><a href="svg/mood_judged.svg">svg</a><a href="png/mood_judged.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_lazy.png" alt="mood_lazy">
-<div class="name">mood_lazy</div>
-<div class="links"><a href="svg/mood_lazy.svg">svg</a><a href="png/mood_lazy.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_letdown.png" alt="mood_letdown">
-<div class="name">mood_letdown</div>
-<div class="links"><a href="svg/mood_letdown.svg">svg</a><a href="png/mood_letdown.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_livid.png" alt="mood_livid">
-<div class="name">mood_livid</div>
-<div class="links"><a href="svg/mood_livid.svg">svg</a><a href="png/mood_livid.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_lonely.png" alt="mood_lonely">
-<div class="name">mood_lonely</div>
-<div class="links"><a href="svg/mood_lonely.svg">svg</a><a href="png/mood_lonely.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_longing.png" alt="mood_longing">
-<div class="name">mood_longing</div>
-<div class="links"><a href="svg/mood_longing.svg">svg</a><a href="png/mood_longing.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_lost.png" alt="mood_lost">
-<div class="name">mood_lost</div>
-<div class="links"><a href="svg/mood_lost.svg">svg</a><a href="png/mood_lost.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_loved.png" alt="mood_loved">
-<div class="name">mood_loved</div>
-<div class="links"><a href="svg/mood_loved.svg">svg</a><a href="png/mood_loved.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_lovesick.png" alt="mood_lovesick">
-<div class="name">mood_lovesick</div>
-<div class="links"><a href="svg/mood_lovesick.svg">svg</a><a href="png/mood_lovesick.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_loving.png" alt="mood_loving">
-<div class="name">mood_loving</div>
-<div class="links"><a href="svg/mood_loving.svg">svg</a><a href="png/mood_loving.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_mad.png" alt="mood_mad">
-<div class="name">mood_mad</div>
-<div class="links"><a href="svg/mood_mad.svg">svg</a><a href="png/mood_mad.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_malaised.png" alt="mood_malaised">
-<div class="name">mood_malaised</div>
-<div class="links"><a href="svg/mood_malaised.svg">svg</a><a href="png/mood_malaised.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_meh.png" alt="mood_meh">
-<div class="name">mood_meh</div>
-<div class="links"><a href="svg/mood_meh.svg">svg</a><a href="png/mood_meh.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_melancholic.png" alt="mood_melancholic">
-<div class="name">mood_melancholic</div>
-<div class="links"><a href="svg/mood_melancholic.svg">svg</a><a href="png/mood_melancholic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_mellow.png" alt="mood_mellow">
-<div class="name">mood_mellow</div>
-<div class="links"><a href="svg/mood_mellow.svg">svg</a><a href="png/mood_mellow.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_minimized.png" alt="mood_minimized">
-<div class="name">mood_minimized</div>
-<div class="links"><a href="svg/mood_minimized.svg">svg</a><a href="png/mood_minimized.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_miserable.png" alt="mood_miserable">
-<div class="name">mood_miserable</div>
-<div class="links"><a href="svg/mood_miserable.svg">svg</a><a href="png/mood_miserable.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_morose.png" alt="mood_morose">
-<div class="name">mood_morose</div>
-<div class="links"><a href="svg/mood_morose.svg">svg</a><a href="png/mood_morose.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_motivated.png" alt="mood_motivated">
-<div class="name">mood_motivated</div>
-<div class="links"><a href="svg/mood_motivated.svg">svg</a><a href="png/mood_motivated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_moved.png" alt="mood_moved">
-<div class="name">mood_moved</div>
-<div class="links"><a href="svg/mood_moved.svg">svg</a><a href="png/mood_moved.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_nauseated.png" alt="mood_nauseated">
-<div class="name">mood_nauseated</div>
-<div class="links"><a href="svg/mood_nauseated.svg">svg</a><a href="png/mood_nauseated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_neglected.png" alt="mood_neglected">
-<div class="name">mood_neglected</div>
-<div class="links"><a href="svg/mood_neglected.svg">svg</a><a href="png/mood_neglected.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_nervous.png" alt="mood_nervous">
-<div class="name">mood_nervous</div>
-<div class="links"><a href="svg/mood_nervous.svg">svg</a><a href="png/mood_nervous.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_nostalgic.png" alt="mood_nostalgic">
-<div class="name">mood_nostalgic</div>
-<div class="links"><a href="svg/mood_nostalgic.svg">svg</a><a href="png/mood_nostalgic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_numb.png" alt="mood_numb">
-<div class="name">mood_numb</div>
-<div class="links"><a href="svg/mood_numb.svg">svg</a><a href="png/mood_numb.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_obsessed.png" alt="mood_obsessed">
-<div class="name">mood_obsessed</div>
-<div class="links"><a href="svg/mood_obsessed.svg">svg</a><a href="png/mood_obsessed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_ok.png" alt="mood_ok">
-<div class="name">mood_ok</div>
-<div class="links"><a href="svg/mood_ok.svg">svg</a><a href="png/mood_ok.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_optimistic.png" alt="mood_optimistic">
-<div class="name">mood_optimistic</div>
-<div class="links"><a href="svg/mood_optimistic.svg">svg</a><a href="png/mood_optimistic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_overjoyed.png" alt="mood_overjoyed">
-<div class="name">mood_overjoyed</div>
-<div class="links"><a href="svg/mood_overjoyed.svg">svg</a><a href="png/mood_overjoyed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_overwhelmed.png" alt="mood_overwhelmed">
-<div class="name">mood_overwhelmed</div>
-<div class="links"><a href="svg/mood_overwhelmed.svg">svg</a><a href="png/mood_overwhelmed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_painful.png" alt="mood_painful">
-<div class="name">mood_painful</div>
-<div class="links"><a href="svg/mood_painful.svg">svg</a><a href="png/mood_painful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_panicked.png" alt="mood_panicked">
-<div class="name">mood_panicked</div>
-<div class="links"><a href="svg/mood_panicked.svg">svg</a><a href="png/mood_panicked.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_passionate.png" alt="mood_passionate">
-<div class="name">mood_passionate</div>
-<div class="links"><a href="svg/mood_passionate.svg">svg</a><a href="png/mood_passionate.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_pathetic.png" alt="mood_pathetic">
-<div class="name">mood_pathetic</div>
-<div class="links"><a href="svg/mood_pathetic.svg">svg</a><a href="png/mood_pathetic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_peaceful.png" alt="mood_peaceful">
-<div class="name">mood_peaceful</div>
-<div class="links"><a href="svg/mood_peaceful.svg">svg</a><a href="png/mood_peaceful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_peeved.png" alt="mood_peeved">
-<div class="name">mood_peeved</div>
-<div class="links"><a href="svg/mood_peeved.svg">svg</a><a href="png/mood_peeved.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_pensive.png" alt="mood_pensive">
-<div class="name">mood_pensive</div>
-<div class="links"><a href="svg/mood_pensive.svg">svg</a><a href="png/mood_pensive.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_pessimistic.png" alt="mood_pessimistic">
-<div class="name">mood_pessimistic</div>
-<div class="links"><a href="svg/mood_pessimistic.svg">svg</a><a href="png/mood_pessimistic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_pissed.png" alt="mood_pissed">
-<div class="name">mood_pissed</div>
-<div class="links"><a href="svg/mood_pissed.svg">svg</a><a href="png/mood_pissed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_playful.png" alt="mood_playful">
-<div class="name">mood_playful</div>
-<div class="links"><a href="svg/mood_playful.svg">svg</a><a href="png/mood_playful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_pleasant.png" alt="mood_pleasant">
-<div class="name">mood_pleasant</div>
-<div class="links"><a href="svg/mood_pleasant.svg">svg</a><a href="png/mood_pleasant.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_pleased.png" alt="mood_pleased">
-<div class="name">mood_pleased</div>
-<div class="links"><a href="svg/mood_pleased.svg">svg</a><a href="png/mood_pleased.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_poised.png" alt="mood_poised">
-<div class="name">mood_poised</div>
-<div class="links"><a href="svg/mood_poised.svg">svg</a><a href="png/mood_poised.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_poopy.png" alt="mood_poopy">
-<div class="name">mood_poopy</div>
-<div class="links"><a href="svg/mood_poopy.svg">svg</a><a href="png/mood_poopy.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_present.png" alt="mood_present">
-<div class="name">mood_present</div>
-<div class="links"><a href="svg/mood_present.svg">svg</a><a href="png/mood_present.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_pressured.png" alt="mood_pressured">
-<div class="name">mood_pressured</div>
-<div class="links"><a href="svg/mood_pressured.svg">svg</a><a href="png/mood_pressured.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_productive.png" alt="mood_productive">
-<div class="name">mood_productive</div>
-<div class="links"><a href="svg/mood_productive.svg">svg</a><a href="png/mood_productive.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_protective.png" alt="mood_protective">
-<div class="name">mood_protective</div>
-<div class="links"><a href="svg/mood_protective.svg">svg</a><a href="png/mood_protective.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_proud.png" alt="mood_proud">
-<div class="name">mood_proud</div>
-<div class="links"><a href="svg/mood_proud.svg">svg</a><a href="png/mood_proud.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_refreshed.png" alt="mood_refreshed">
-<div class="name">mood_refreshed</div>
-<div class="links"><a href="svg/mood_refreshed.svg">svg</a><a href="png/mood_refreshed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_regretful.png" alt="mood_regretful">
-<div class="name">mood_regretful</div>
-<div class="links"><a href="svg/mood_regretful.svg">svg</a><a href="png/mood_regretful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_reinvigorated.png" alt="mood_reinvigorated">
-<div class="name">mood_reinvigorated</div>
-<div class="links"><a href="svg/mood_reinvigorated.svg">svg</a><a href="png/mood_reinvigorated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_rejected.png" alt="mood_rejected">
-<div class="name">mood_rejected</div>
-<div class="links"><a href="svg/mood_rejected.svg">svg</a><a href="png/mood_rejected.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_rejuvenated.png" alt="mood_rejuvenated">
-<div class="name">mood_rejuvenated</div>
-<div class="links"><a href="svg/mood_rejuvenated.svg">svg</a><a href="png/mood_rejuvenated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_relaxed.png" alt="mood_relaxed">
-<div class="name">mood_relaxed</div>
-<div class="links"><a href="svg/mood_relaxed.svg">svg</a><a href="png/mood_relaxed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_relieved.png" alt="mood_relieved">
-<div class="name">mood_relieved</div>
-<div class="links"><a href="svg/mood_relieved.svg">svg</a><a href="png/mood_relieved.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_remorseful.png" alt="mood_remorseful">
-<div class="name">mood_remorseful</div>
-<div class="links"><a href="svg/mood_remorseful.svg">svg</a><a href="png/mood_remorseful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_repulsed.png" alt="mood_repulsed">
-<div class="name">mood_repulsed</div>
-<div class="links"><a href="svg/mood_repulsed.svg">svg</a><a href="png/mood_repulsed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_resentful.png" alt="mood_resentful">
-<div class="name">mood_resentful</div>
-<div class="links"><a href="svg/mood_resentful.svg">svg</a><a href="png/mood_resentful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_resigned.png" alt="mood_resigned">
-<div class="name">mood_resigned</div>
-<div class="links"><a href="svg/mood_resigned.svg">svg</a><a href="png/mood_resigned.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_respected.png" alt="mood_respected">
-<div class="name">mood_respected</div>
-<div class="links"><a href="svg/mood_respected.svg">svg</a><a href="png/mood_respected.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_restless.png" alt="mood_restless">
-<div class="name">mood_restless</div>
-<div class="links"><a href="svg/mood_restless.svg">svg</a><a href="png/mood_restless.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_reverent.png" alt="mood_reverent">
-<div class="name">mood_reverent</div>
-<div class="links"><a href="svg/mood_reverent.svg">svg</a><a href="png/mood_reverent.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_romantic.png" alt="mood_romantic">
-<div class="name">mood_romantic</div>
-<div class="links"><a href="svg/mood_romantic.svg">svg</a><a href="png/mood_romantic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_rushed.png" alt="mood_rushed">
-<div class="name">mood_rushed</div>
-<div class="links"><a href="svg/mood_rushed.svg">svg</a><a href="png/mood_rushed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_sad.png" alt="mood_sad">
-<div class="name">mood_sad</div>
-<div class="links"><a href="svg/mood_sad.svg">svg</a><a href="png/mood_sad.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_safe.png" alt="mood_safe">
-<div class="name">mood_safe</div>
-<div class="links"><a href="svg/mood_safe.svg">svg</a><a href="png/mood_safe.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_satisfied.png" alt="mood_satisfied">
-<div class="name">mood_satisfied</div>
-<div class="links"><a href="svg/mood_satisfied.svg">svg</a><a href="png/mood_satisfied.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_scared.png" alt="mood_scared">
-<div class="name">mood_scared</div>
-<div class="links"><a href="svg/mood_scared.svg">svg</a><a href="png/mood_scared.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_scorn.png" alt="mood_scorn">
-<div class="name">mood_scorn</div>
-<div class="links"><a href="svg/mood_scorn.svg">svg</a><a href="png/mood_scorn.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_secure.png" alt="mood_secure">
-<div class="name">mood_secure</div>
-<div class="links"><a href="svg/mood_secure.svg">svg</a><a href="png/mood_secure.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_sensual.png" alt="mood_sensual">
-<div class="name">mood_sensual</div>
-<div class="links"><a href="svg/mood_sensual.svg">svg</a><a href="png/mood_sensual.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_serene.png" alt="mood_serene">
-<div class="name">mood_serene</div>
-<div class="links"><a href="svg/mood_serene.svg">svg</a><a href="png/mood_serene.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_shocked.png" alt="mood_shocked">
-<div class="name">mood_shocked</div>
-<div class="links"><a href="svg/mood_shocked.svg">svg</a><a href="png/mood_shocked.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_silly.png" alt="mood_silly">
-<div class="name">mood_silly</div>
-<div class="links"><a href="svg/mood_silly.svg">svg</a><a href="png/mood_silly.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_sleepy.png" alt="mood_sleepy">
-<div class="name">mood_sleepy</div>
-<div class="links"><a href="svg/mood_sleepy.svg">svg</a><a href="png/mood_sleepy.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_solemn.png" alt="mood_solemn">
-<div class="name">mood_solemn</div>
-<div class="links"><a href="svg/mood_solemn.svg">svg</a><a href="png/mood_solemn.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_sorrowful.png" alt="mood_sorrowful">
-<div class="name">mood_sorrowful</div>
-<div class="links"><a href="svg/mood_sorrowful.svg">svg</a><a href="png/mood_sorrowful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_spent.png" alt="mood_spent">
-<div class="name">mood_spent</div>
-<div class="links"><a href="svg/mood_spent.svg">svg</a><a href="png/mood_spent.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_spiteful.png" alt="mood_spiteful">
-<div class="name">mood_spiteful</div>
-<div class="links"><a href="svg/mood_spiteful.svg">svg</a><a href="png/mood_spiteful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_stable.png" alt="mood_stable">
-<div class="name">mood_stable</div>
-<div class="links"><a href="svg/mood_stable.svg">svg</a><a href="png/mood_stable.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_startled.png" alt="mood_startled">
-<div class="name">mood_startled</div>
-<div class="links"><a href="svg/mood_startled.svg">svg</a><a href="png/mood_startled.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_stoked.png" alt="mood_stoked">
-<div class="name">mood_stoked</div>
-<div class="links"><a href="svg/mood_stoked.svg">svg</a><a href="png/mood_stoked.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_strained.png" alt="mood_strained">
-<div class="name">mood_strained</div>
-<div class="links"><a href="svg/mood_strained.svg">svg</a><a href="png/mood_strained.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_stressed.png" alt="mood_stressed">
-<div class="name">mood_stressed</div>
-<div class="links"><a href="svg/mood_stressed.svg">svg</a><a href="png/mood_stressed.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_stuck.png" alt="mood_stuck">
-<div class="name">mood_stuck</div>
-<div class="links"><a href="svg/mood_stuck.svg">svg</a><a href="png/mood_stuck.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_stunned.png" alt="mood_stunned">
-<div class="name">mood_stunned</div>
-<div class="links"><a href="svg/mood_stunned.svg">svg</a><a href="png/mood_stunned.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_successful.png" alt="mood_successful">
-<div class="name">mood_successful</div>
-<div class="links"><a href="svg/mood_successful.svg">svg</a><a href="png/mood_successful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_suffocated.png" alt="mood_suffocated">
-<div class="name">mood_suffocated</div>
-<div class="links"><a href="svg/mood_suffocated.svg">svg</a><a href="png/mood_suffocated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_sullen.png" alt="mood_sullen">
-<div class="name">mood_sullen</div>
-<div class="links"><a href="svg/mood_sullen.svg">svg</a><a href="png/mood_sullen.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_supported.png" alt="mood_supported">
-<div class="name">mood_supported</div>
-<div class="links"><a href="svg/mood_supported.svg">svg</a><a href="png/mood_supported.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_surprised.png" alt="mood_surprised">
-<div class="name">mood_surprised</div>
-<div class="links"><a href="svg/mood_surprised.svg">svg</a><a href="png/mood_surprised.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_sympathetic.png" alt="mood_sympathetic">
-<div class="name">mood_sympathetic</div>
-<div class="links"><a href="svg/mood_sympathetic.svg">svg</a><a href="png/mood_sympathetic.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_taken_aback.png" alt="mood_taken_aback">
-<div class="name">mood_taken_aback</div>
-<div class="links"><a href="svg/mood_taken_aback.svg">svg</a><a href="png/mood_taken_aback.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_talkative.png" alt="mood_talkative">
-<div class="name">mood_talkative</div>
-<div class="links"><a href="svg/mood_talkative.svg">svg</a><a href="png/mood_talkative.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_tenderness.png" alt="mood_tenderness">
-<div class="name">mood_tenderness</div>
-<div class="links"><a href="svg/mood_tenderness.svg">svg</a><a href="png/mood_tenderness.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_tense.png" alt="mood_tense">
-<div class="name">mood_tense</div>
-<div class="links"><a href="svg/mood_tense.svg">svg</a><a href="png/mood_tense.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_terrified.png" alt="mood_terrified">
-<div class="name">mood_terrified</div>
-<div class="links"><a href="svg/mood_terrified.svg">svg</a><a href="png/mood_terrified.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_thankful.png" alt="mood_thankful">
-<div class="name">mood_thankful</div>
-<div class="links"><a href="svg/mood_thankful.svg">svg</a><a href="png/mood_thankful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_thoughtful.png" alt="mood_thoughtful">
-<div class="name">mood_thoughtful</div>
-<div class="links"><a href="svg/mood_thoughtful.svg">svg</a><a href="png/mood_thoughtful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_thrilled.png" alt="mood_thrilled">
-<div class="name">mood_thrilled</div>
-<div class="links"><a href="svg/mood_thrilled.svg">svg</a><a href="png/mood_thrilled.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_tired.png" alt="mood_tired">
-<div class="name">mood_tired</div>
-<div class="links"><a href="svg/mood_tired.svg">svg</a><a href="png/mood_tired.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_touched.png" alt="mood_touched">
-<div class="name">mood_touched</div>
-<div class="links"><a href="svg/mood_touched.svg">svg</a><a href="png/mood_touched.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_tranquil.png" alt="mood_tranquil">
-<div class="name">mood_tranquil</div>
-<div class="links"><a href="svg/mood_tranquil.svg">svg</a><a href="png/mood_tranquil.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_trapped.png" alt="mood_trapped">
-<div class="name">mood_trapped</div>
-<div class="links"><a href="svg/mood_trapped.svg">svg</a><a href="png/mood_trapped.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_triggered.png" alt="mood_triggered">
-<div class="name">mood_triggered</div>
-<div class="links"><a href="svg/mood_triggered.svg">svg</a><a href="png/mood_triggered.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_troubled.png" alt="mood_troubled">
-<div class="name">mood_troubled</div>
-<div class="links"><a href="svg/mood_troubled.svg">svg</a><a href="png/mood_troubled.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_turned_off.png" alt="mood_turned_off">
-<div class="name">mood_turned_off</div>
-<div class="links"><a href="svg/mood_turned_off.svg">svg</a><a href="png/mood_turned_off.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_unappreciated.png" alt="mood_unappreciated">
-<div class="name">mood_unappreciated</div>
-<div class="links"><a href="svg/mood_unappreciated.svg">svg</a><a href="png/mood_unappreciated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_unbothered.png" alt="mood_unbothered">
-<div class="name">mood_unbothered</div>
-<div class="links"><a href="svg/mood_unbothered.svg">svg</a><a href="png/mood_unbothered.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_uncertain.png" alt="mood_uncertain">
-<div class="name">mood_uncertain</div>
-<div class="links"><a href="svg/mood_uncertain.svg">svg</a><a href="png/mood_uncertain.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_uncomfortable.png" alt="mood_uncomfortable">
-<div class="name">mood_uncomfortable</div>
-<div class="links"><a href="svg/mood_uncomfortable.svg">svg</a><a href="png/mood_uncomfortable.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_understood.png" alt="mood_understood">
-<div class="name">mood_understood</div>
-<div class="links"><a href="svg/mood_understood.svg">svg</a><a href="png/mood_understood.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_undervalued.png" alt="mood_undervalued">
-<div class="name">mood_undervalued</div>
-<div class="links"><a href="svg/mood_undervalued.svg">svg</a><a href="png/mood_undervalued.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_uneasy.png" alt="mood_uneasy">
-<div class="name">mood_uneasy</div>
-<div class="links"><a href="svg/mood_uneasy.svg">svg</a><a href="png/mood_uneasy.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_unhappy.png" alt="mood_unhappy">
-<div class="name">mood_unhappy</div>
-<div class="links"><a href="svg/mood_unhappy.svg">svg</a><a href="png/mood_unhappy.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_unmotivated.png" alt="mood_unmotivated">
-<div class="name">mood_unmotivated</div>
-<div class="links"><a href="svg/mood_unmotivated.svg">svg</a><a href="png/mood_unmotivated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_unseen.png" alt="mood_unseen">
-<div class="name">mood_unseen</div>
-<div class="links"><a href="svg/mood_unseen.svg">svg</a><a href="png/mood_unseen.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_unstable.png" alt="mood_unstable">
-<div class="name">mood_unstable</div>
-<div class="links"><a href="svg/mood_unstable.svg">svg</a><a href="png/mood_unstable.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_upbeat.png" alt="mood_upbeat">
-<div class="name">mood_upbeat</div>
-<div class="links"><a href="svg/mood_upbeat.svg">svg</a><a href="png/mood_upbeat.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_upset.png" alt="mood_upset">
-<div class="name">mood_upset</div>
-<div class="links"><a href="svg/mood_upset.svg">svg</a><a href="png/mood_upset.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_validated.png" alt="mood_validated">
-<div class="name">mood_validated</div>
-<div class="links"><a href="svg/mood_validated.svg">svg</a><a href="png/mood_validated.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_valued.png" alt="mood_valued">
-<div class="name">mood_valued</div>
-<div class="links"><a href="svg/mood_valued.svg">svg</a><a href="png/mood_valued.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_vengeful.png" alt="mood_vengeful">
-<div class="name">mood_vengeful</div>
-<div class="links"><a href="svg/mood_vengeful.svg">svg</a><a href="png/mood_vengeful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_vulnerable.png" alt="mood_vulnerable">
-<div class="name">mood_vulnerable</div>
-<div class="links"><a href="svg/mood_vulnerable.svg">svg</a><a href="png/mood_vulnerable.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_weary.png" alt="mood_weary">
-<div class="name">mood_weary</div>
-<div class="links"><a href="svg/mood_weary.svg">svg</a><a href="png/mood_weary.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_welp.png" alt="mood_welp">
-<div class="name">mood_welp</div>
-<div class="links"><a href="svg/mood_welp.svg">svg</a><a href="png/mood_welp.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_whole.png" alt="mood_whole">
-<div class="name">mood_whole</div>
-<div class="links"><a href="svg/mood_whole.svg">svg</a><a href="png/mood_whole.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_wishful.png" alt="mood_wishful">
-<div class="name">mood_wishful</div>
-<div class="links"><a href="svg/mood_wishful.svg">svg</a><a href="png/mood_wishful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_wistful.png" alt="mood_wistful">
-<div class="name">mood_wistful</div>
-<div class="links"><a href="svg/mood_wistful.svg">svg</a><a href="png/mood_wistful.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_worried.png" alt="mood_worried">
-<div class="name">mood_worried</div>
-<div class="links"><a href="svg/mood_worried.svg">svg</a><a href="png/mood_worried.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_worthless.png" alt="mood_worthless">
-<div class="name">mood_worthless</div>
-<div class="links"><a href="svg/mood_worthless.svg">svg</a><a href="png/mood_worthless.png">png</a></div>
-</div>
-<div class="card">
-<img src="png/mood_zen.png" alt="mood_zen">
-<div class="name">mood_zen</div>
-<div class="links"><a href="svg/mood_zen.svg">svg</a><a href="png/mood_zen.png">png</a></div>
-</div>
-</div>
+<div class="page">
+  <header class="hero">
+    <div>
+      <h1>moods</h1>
+      <p>Search moods, read definitions and examples, and keep favorites on this device.</p>
+    </div>
+    <div class="toolbar">
+      <label class="search-field">
+        <span class="visually-hidden">Search moods</span>
+        <input id="search-input" type="search" placeholder="Search names, definitions, or examples" autocomplete="off">
+      </label>
+      <label class="favorite-toggle">
+        <input id="favorites-only" type="checkbox">
+        <span>Favorites only</span>
+      </label>
+    </div>
+    <div class="summary-bar">
+      <div id="results-summary" class="summary-text">Loading moods...</div>
+      <button id="clear-search" class="ghost-button" type="button" hidden>Clear search</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="error-message" class="message error" hidden></div>
+    <div id="empty-state" class="message" hidden>No moods match the current filters.</div>
+    <div id="grid" class="grid" hidden></div>
+  </main>
+</div>
+
+<template id="card-template">
+  <article class="card">
+    <div class="card-media">
+      <img loading="lazy" decoding="async">
+      <button class="favorite-button" type="button">Save</button>
+    </div>
+    <div class="card-body">
+      <h2 class="name"></h2>
+      <section class="detail definitions-section" hidden>
+        <h3>Definitions</h3>
+        <ul class="definitions"></ul>
+      </section>
+      <section class="detail example-section" hidden>
+        <h3>Example</h3>
+        <p class="example"></p>
+      </section>
+      <div class="links">
+        <button class="copy-button" type="button">Copy</button>
+        <a class="svg-link">svg</a>
+        <a class="png-link">png</a>
+      </div>
+    </div>
+  </article>
+</template>
+
 <script>
-function formatEmotionName(rawName) {
-  return rawName.replace(/^mood_/, "").replace(/_/g, " ");
+const FAVORITES_STORAGE_KEY = "moods:favorites";
+
+const state = {
+  items: [],
+  query: "",
+  favoritesOnly: false,
+  favorites: loadFavorites()
+};
+
+const searchInput = document.getElementById("search-input");
+const favoritesOnlyInput = document.getElementById("favorites-only");
+const clearSearchButton = document.getElementById("clear-search");
+const resultsSummary = document.getElementById("results-summary");
+const errorMessage = document.getElementById("error-message");
+const emptyState = document.getElementById("empty-state");
+const grid = document.getElementById("grid");
+const cardTemplate = document.getElementById("card-template");
+
+function decodeYamlScalar(value) {
+  const trimmed = value.trim();
+
+  if (!trimmed) {
+    return "";
+  }
+
+  if (trimmed === "null") {
+    return null;
+  }
+
+  if (trimmed.startsWith('"') && trimmed.endsWith('"')) {
+    return trimmed.slice(1, -1).replace(/\\"/g, '"').replace(/\\n/g, "\n");
+  }
+
+  if (trimmed.startsWith("'") && trimmed.endsWith("'")) {
+    return trimmed.slice(1, -1).replace(/''/g, "'");
+  }
+
+  return trimmed;
 }
 
-async function copyEmotionName(name, button) {
+function parseCatalogYaml(source) {
+  const catalog = { title: "", asset_base: "", items: [] };
+  const lines = source.replace(/\r\n?/g, "\n").split("\n");
+  let currentItem = null;
+  let currentListKey = null;
+
+  for (const rawLine of lines) {
+    const line = rawLine.replace(/\t/g, "  ");
+    const trimmed = line.trim();
+
+    if (!trimmed || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    const indent = line.length - line.trimStart().length;
+
+    if (indent === 0) {
+      currentListKey = null;
+
+      if (trimmed === "items:") {
+        continue;
+      }
+
+      const topLevelMatch = trimmed.match(/^([a-zA-Z0-9_]+):\s*(.*)$/);
+
+      if (topLevelMatch) {
+        catalog[topLevelMatch[1]] = decodeYamlScalar(topLevelMatch[2]);
+      }
+
+      continue;
+    }
+
+    if (indent === 2 && trimmed.startsWith("- id:")) {
+      currentItem = { id: decodeYamlScalar(trimmed.slice(5)) };
+      catalog.items.push(currentItem);
+      currentListKey = null;
+      continue;
+    }
+
+    if (indent === 2 && trimmed.startsWith("- ")) {
+      currentItem = { id: decodeYamlScalar(trimmed.slice(2)) };
+      catalog.items.push(currentItem);
+      currentListKey = null;
+      continue;
+    }
+
+    if (!currentItem) {
+      continue;
+    }
+
+    if (indent === 4 && trimmed === "definitions:") {
+      currentItem.definitions = [];
+      currentListKey = "definitions";
+      continue;
+    }
+
+    if (indent === 4) {
+      currentListKey = null;
+      const fieldMatch = trimmed.match(/^([a-zA-Z0-9_]+):\s*(.*)$/);
+
+      if (fieldMatch) {
+        currentItem[fieldMatch[1]] = decodeYamlScalar(fieldMatch[2]);
+      }
+
+      continue;
+    }
+
+    if (indent === 6 && currentListKey === "definitions" && trimmed.startsWith("- ")) {
+      currentItem.definitions.push(decodeYamlScalar(trimmed.slice(2)));
+    }
+  }
+
+  return catalog;
+}
+
+function humanizeMoodId(id) {
+  return id.replace(/^mood_/, "").replace(/_/g, " ");
+}
+
+function titleCase(text) {
+  return text.replace(/\b[a-z]/g, function (match) {
+    return match.toUpperCase();
+  });
+}
+
+function normalizeMood(item) {
+  const plainName = humanizeMoodId(item.id || "");
+  const definitions = Array.isArray(item.definitions) ? item.definitions.filter(Boolean) : [];
+  const example = typeof item.example === "string" ? item.example.trim() : "";
+
+  return {
+    id: item.id,
+    plainName,
+    displayName: titleCase(plainName),
+    definitions,
+    example,
+    pngHref: "png/" + item.id + ".png",
+    svgHref: "svg/" + item.id + ".svg",
+    searchText: [item.id, plainName, definitions.join(" "), example].join(" ").toLowerCase()
+  };
+}
+
+function loadFavorites() {
+  try {
+    const rawValue = window.localStorage.getItem(FAVORITES_STORAGE_KEY);
+    const parsed = JSON.parse(rawValue || "[]");
+    return new Set(Array.isArray(parsed) ? parsed.filter(function (value) {
+      return typeof value === "string";
+    }) : []);
+  } catch (error) {
+    return new Set();
+  }
+}
+
+function saveFavorites() {
+  try {
+    window.localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(Array.from(state.favorites)));
+  } catch (error) {
+    // Ignore storage failures so the page still works in restrictive browsers.
+  }
+}
+
+async function copyMoodName(name, button) {
   const originalText = button.dataset.label || button.textContent;
 
   try {
@@ -1683,25 +551,165 @@ async function copyEmotionName(name, button) {
   }, 1200);
 }
 
-document.querySelectorAll(".card").forEach(function (card) {
-  const nameElement = card.querySelector(".name");
-  const linksElement = card.querySelector(".links");
-  const emotionName = formatEmotionName(nameElement.textContent.trim());
-  const copyButton = document.createElement("button");
+function filterItems() {
+  const normalizedQuery = state.query.trim().toLowerCase();
 
-  nameElement.textContent = emotionName;
+  return state.items.filter(function (item) {
+    if (state.favoritesOnly && !state.favorites.has(item.id)) {
+      return false;
+    }
 
-  copyButton.type = "button";
-  copyButton.className = "copy-button";
-  copyButton.textContent = "Copy";
-  copyButton.dataset.label = "Copy";
-  copyButton.setAttribute("aria-label", "Copy " + emotionName + " to clipboard");
-  copyButton.addEventListener("click", function () {
-    copyEmotionName(emotionName, copyButton);
+    if (!normalizedQuery) {
+      return true;
+    }
+
+    return item.searchText.includes(normalizedQuery);
+  });
+}
+
+function updateSummary(filteredCount) {
+  const totalCount = state.items.length;
+  const savedCount = state.favorites.size;
+  let summary = filteredCount === totalCount ? totalCount + " moods" : filteredCount + " of " + totalCount + " moods";
+
+  if (state.favoritesOnly) {
+    summary += " | favorites only";
+  }
+
+  if (savedCount) {
+    summary += " | " + savedCount + " saved";
+  }
+
+  resultsSummary.textContent = summary;
+}
+
+function buildCard(item) {
+  const card = cardTemplate.content.firstElementChild.cloneNode(true);
+  const image = card.querySelector("img");
+  const favoriteButton = card.querySelector(".favorite-button");
+  const name = card.querySelector(".name");
+  const definitionsSection = card.querySelector(".definitions-section");
+  const definitionsList = card.querySelector(".definitions");
+  const exampleSection = card.querySelector(".example-section");
+  const example = card.querySelector(".example");
+  const copyButton = card.querySelector(".copy-button");
+  const svgLink = card.querySelector(".svg-link");
+  const pngLink = card.querySelector(".png-link");
+  const isFavorite = state.favorites.has(item.id);
+
+  image.src = item.pngHref;
+  image.alt = item.displayName;
+
+  name.textContent = item.displayName;
+
+  favoriteButton.textContent = isFavorite ? "Saved" : "Save";
+  favoriteButton.classList.toggle("is-active", isFavorite);
+  favoriteButton.setAttribute("aria-pressed", isFavorite ? "true" : "false");
+  favoriteButton.setAttribute("aria-label", (isFavorite ? "Remove " : "Save ") + item.plainName + " as favorite");
+  favoriteButton.addEventListener("click", function () {
+    if (state.favorites.has(item.id)) {
+      state.favorites.delete(item.id);
+    } else {
+      state.favorites.add(item.id);
+    }
+
+    saveFavorites();
+    render();
   });
 
-  linksElement.prepend(copyButton);
+  if (item.definitions.length) {
+    const definitionsFragment = document.createDocumentFragment();
+
+    item.definitions.forEach(function (definition) {
+      const listItem = document.createElement("li");
+      listItem.textContent = definition;
+      definitionsFragment.appendChild(listItem);
+    });
+
+    definitionsList.appendChild(definitionsFragment);
+    definitionsSection.hidden = false;
+  }
+
+  if (item.example) {
+    example.textContent = item.example;
+    exampleSection.hidden = false;
+  }
+
+  copyButton.dataset.label = "Copy";
+  copyButton.addEventListener("click", function () {
+    copyMoodName(item.plainName, copyButton);
+  });
+
+  svgLink.href = item.svgHref;
+  svgLink.textContent = "svg";
+  pngLink.href = item.pngHref;
+  pngLink.textContent = "png";
+
+  return card;
+}
+
+function render() {
+  const filteredItems = filterItems();
+  const fragment = document.createDocumentFragment();
+
+  filteredItems.forEach(function (item) {
+    fragment.appendChild(buildCard(item));
+  });
+
+  grid.replaceChildren(fragment);
+  grid.hidden = filteredItems.length === 0;
+  emptyState.hidden = filteredItems.length !== 0;
+  clearSearchButton.hidden = !state.query;
+  updateSummary(filteredItems.length);
+}
+
+function showError(message) {
+  errorMessage.textContent = message;
+  errorMessage.hidden = false;
+  grid.hidden = true;
+  emptyState.hidden = true;
+  resultsSummary.textContent = "Could not load moods";
+}
+
+async function loadCatalog() {
+  try {
+    const response = await fetch("data/catalog.yaml", { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error("Request failed with status " + response.status);
+    }
+
+    const source = await response.text();
+    const catalog = parseCatalogYaml(source);
+    state.items = catalog.items.map(normalizeMood).filter(function (item) {
+      return Boolean(item.id);
+    });
+
+    render();
+  } catch (error) {
+    showError("Catalog failed to load. Check data/catalog.yaml and refresh.");
+  }
+}
+
+searchInput.addEventListener("input", function (event) {
+  state.query = event.target.value;
+  render();
 });
+
+favoritesOnlyInput.addEventListener("change", function (event) {
+  state.favoritesOnly = event.target.checked;
+  render();
+});
+
+clearSearchButton.addEventListener("click", function () {
+  state.query = "";
+  searchInput.value = "";
+  render();
+  searchInput.focus();
+});
+
+favoritesOnlyInput.checked = state.favoritesOnly;
+loadCatalog();
 </script>
 </body>
 </html>

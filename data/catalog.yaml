@@ -1,325 +1,357 @@
 title: moods
 asset_base: /moods
 items:
-  - mood_abandoned
-  - mood_absorbed
-  - mood_abused
-  - mood_accepted
-  - mood_accomplished
-  - mood_adoring
-  - mood_affectionate
-  - mood_afraid
-  - mood_agitated
-  - mood_alarmed
-  - mood_alert
-  - mood_alienated
-  - mood_alive
-  - mood_amazed
-  - mood_ambivalent
-  - mood_amused
-  - mood_angry
-  - mood_anguished
-  - mood_annoyed
-  - mood_anxious
-  - mood_apathetic
-  - mood_appreciated
-  - mood_apprehensive
-  - mood_ashamed
-  - mood_astonished
-  - mood_at_ease
-  - mood_attentive
-  - mood_avoidant
-  - mood_awe
-  - mood_balanced
-  - mood_bereft
-  - mood_betrayed
-  - mood_bleh
-  - mood_blessed
-  - mood_blissful
-  - mood_blue
-  - mood_bored
-  - mood_brooding
-  - mood_buoyant
-  - mood_burdened
-  - mood_burned_out
-  - mood_calm
-  - mood_cancelled
-  - mood_carefree
-  - mood_challenged
-  - mood_chatty
-  - mood_cheerful
-  - mood_chill
-  - mood_clear
-  - mood_comfortable
-  - mood_compassionate
-  - mood_competent
-  - mood_concerned
-  - mood_confident
-  - mood_conflicted
-  - mood_confused
-  - mood_connected
-  - mood_contemplative
-  - mood_contempt
-  - mood_content
-  - mood_copacetic
-  - mood_crushed
-  - mood_curious
-  - mood_dazed
-  - mood_dead_inside
-  - mood_defeated
-  - mood_deficient
-  - mood_dejected
-  - mood_delighted
-  - mood_depressed
-  - mood_desire
-  - mood_desolate
-  - mood_despair
-  - mood_despondent
-  - mood_determined
-  - mood_disappointed
-  - mood_discombobulated
-  - mood_discomfort
-  - mood_disconnected
-  - mood_discontented
-  - mood_discouraged
-  - mood_disenchanted
-  - mood_disengaged
-  - mood_disgraced
-  - mood_disgruntled
-  - mood_disgusted
-  - mood_disheartened
-  - mood_disillusioned
-  - mood_dispirited
-  - mood_displeased
-  - mood_disrespected
-  - mood_dissatisfied
-  - mood_distracted
-  - mood_distressed
-  - mood_down
-  - mood_dread
-  - mood_dumbfounded
-  - mood_dysregulated
-  - mood_eager
-  - mood_ecstatic
-  - mood_elated
-  - mood_embarrassed
-  - mood_empathetic
-  - mood_empowered
-  - mood_empty
-  - mood_enchanted
-  - mood_encouraged
-  - mood_energized
-  - mood_engaged
-  - mood_engrossed
-  - mood_enjoyment
-  - mood_enraged
-  - mood_enraptured
-  - mood_enthralled
-  - mood_enthusiastic
-  - mood_envious
-  - mood_euphoric
-  - mood_even_tempered
-  - mood_exasperated
-  - mood_excited
-  - mood_excluded
-  - mood_exhausted
-  - mood_exhilarated
-  - mood_fascinated
-  - mood_fatigued
-  - mood_flabbergasted
-  - mood_focused
-  - mood_fomo
-  - mood_foolish
-  - mood_forlorn
-  - mood_fragile
-  - mood_frazzled
-  - mood_frightened
-  - mood_frozen
-  - mood_frustrated
-  - mood_fulfilled
-  - mood_furious
-  - mood_gaslit
-  - mood_ghosted
-  - mood_glad
-  - mood_glowing
-  - mood_glum
-  - mood_good
-  - mood_goofy
-  - mood_grateful
-  - mood_grief
-  - mood_groggy
-  - mood_grounded
-  - mood_grumpy
-  - mood_guilty
-  - mood_happy
-  - mood_hate
-  - mood_heard
-  - mood_heartbroken
-  - mood_helpless
-  - mood_hesitant
-  - mood_hollow
-  - mood_homesick
-  - mood_hopeful
-  - mood_hopeless
-  - mood_horrified
-  - mood_humiliated
-  - mood_hurting
-  - mood_hyper
-  - mood_icky
-  - mood_impassioned
-  - mood_imperturbable
-  - mood_in_awe
-  - mood_in_love
-  - mood_inadequate
-  - mood_included
-  - mood_incompetent
-  - mood_indecisive
-  - mood_indifferent
-  - mood_indignant
-  - mood_infatuated
-  - mood_insecure
-  - mood_inspired
-  - mood_interested
-  - mood_invalidated
-  - mood_irate
-  - mood_irked
-  - mood_irritable
-  - mood_irritated
-  - mood_isolated
-  - mood_jealous
-  - mood_jilted
-  - mood_jittery
-  - mood_joyful
-  - mood_judged
-  - mood_lazy
-  - mood_letdown
-  - mood_livid
-  - mood_lonely
-  - mood_longing
-  - mood_lost
-  - mood_loved
-  - mood_lovesick
-  - mood_loving
-  - mood_mad
-  - mood_malaised
-  - mood_meh
-  - mood_melancholic
-  - mood_mellow
-  - mood_minimized
-  - mood_miserable
-  - mood_morose
-  - mood_motivated
-  - mood_moved
-  - mood_nauseated
-  - mood_neglected
-  - mood_nervous
-  - mood_nostalgic
-  - mood_numb
-  - mood_obsessed
-  - mood_ok
-  - mood_optimistic
-  - mood_overjoyed
-  - mood_overwhelmed
-  - mood_painful
-  - mood_panicked
-  - mood_passionate
-  - mood_pathetic
-  - mood_peaceful
-  - mood_peeved
-  - mood_pensive
-  - mood_pessimistic
-  - mood_pissed
-  - mood_playful
-  - mood_pleasant
-  - mood_pleased
-  - mood_poised
-  - mood_poopy
-  - mood_present
-  - mood_pressured
-  - mood_productive
-  - mood_protective
-  - mood_proud
-  - mood_refreshed
-  - mood_regretful
-  - mood_reinvigorated
-  - mood_rejected
-  - mood_rejuvenated
-  - mood_relaxed
-  - mood_relieved
-  - mood_remorseful
-  - mood_repulsed
-  - mood_resentful
-  - mood_resigned
-  - mood_respected
-  - mood_restless
-  - mood_reverent
-  - mood_romantic
-  - mood_rushed
-  - mood_sad
-  - mood_safe
-  - mood_satisfied
-  - mood_scared
-  - mood_scorn
-  - mood_secure
-  - mood_sensual
-  - mood_serene
-  - mood_shocked
-  - mood_silly
-  - mood_sleepy
-  - mood_solemn
-  - mood_sorrowful
-  - mood_spent
-  - mood_spiteful
-  - mood_stable
-  - mood_startled
-  - mood_stoked
-  - mood_strained
-  - mood_stressed
-  - mood_stuck
-  - mood_stunned
-  - mood_successful
-  - mood_suffocated
-  - mood_sullen
-  - mood_supported
-  - mood_surprised
-  - mood_sympathetic
-  - mood_taken_aback
-  - mood_talkative
-  - mood_tenderness
-  - mood_tense
-  - mood_terrified
-  - mood_thankful
-  - mood_thoughtful
-  - mood_thrilled
-  - mood_tired
-  - mood_touched
-  - mood_tranquil
-  - mood_trapped
-  - mood_triggered
-  - mood_troubled
-  - mood_turned_off
-  - mood_unappreciated
-  - mood_unbothered
-  - mood_uncertain
-  - mood_uncomfortable
-  - mood_understood
-  - mood_undervalued
-  - mood_uneasy
-  - mood_unhappy
-  - mood_unmotivated
-  - mood_unseen
-  - mood_unstable
-  - mood_upbeat
-  - mood_upset
-  - mood_validated
-  - mood_valued
-  - mood_vengeful
-  - mood_vulnerable
-  - mood_weary
-  - mood_welp
-  - mood_whole
-  - mood_wishful
-  - mood_wistful
-  - mood_worried
-  - mood_worthless
-  - mood_zen
+  - id: mood_abandoned
+  - id: mood_absorbed
+  - id: mood_abused
+  - id: mood_accepted
+  - id: mood_accomplished
+  - id: mood_adoring
+  - id: mood_affectionate
+  - id: mood_afraid
+  - id: mood_agitated
+  - id: mood_alarmed
+  - id: mood_alert
+  - id: mood_alienated
+  - id: mood_alive
+  - id: mood_amazed
+  - id: mood_ambivalent
+  - id: mood_amused
+  - id: mood_angry
+    definitions:
+      - Feeling strong displeasure because something seems wrong, unfair, or blocking you.
+      - A hot, tense mood that can make you want to argue, protect yourself, or push back.
+    example: I felt angry when they blamed me for a mistake I did not make.
+  - id: mood_anguished
+  - id: mood_annoyed
+  - id: mood_anxious
+    definitions:
+      - Feeling worried, tense, or unsafe because something bad might happen.
+      - A future-focused mood that often brings overthinking and restlessness.
+    example: She felt anxious before the interview and kept checking her notes.
+  - id: mood_apathetic
+  - id: mood_appreciated
+  - id: mood_apprehensive
+  - id: mood_ashamed
+    definitions:
+      - Feeling bad about yourself after doing something you see as wrong, foolish, or embarrassing.
+      - Shame often sounds like There is something wrong with me, not only with the action.
+    example: He felt ashamed after laughing at his friend's mistake.
+  - id: mood_astonished
+  - id: mood_at_ease
+  - id: mood_attentive
+  - id: mood_avoidant
+  - id: mood_awe
+  - id: mood_balanced
+  - id: mood_bereft
+  - id: mood_betrayed
+  - id: mood_bleh
+  - id: mood_blessed
+  - id: mood_blissful
+  - id: mood_blue
+  - id: mood_bored
+  - id: mood_brooding
+  - id: mood_buoyant
+  - id: mood_burdened
+  - id: mood_burned_out
+  - id: mood_calm
+    definitions:
+      - Feeling quiet, steady, and not under strong stress.
+      - Calm does not always mean happy. It can simply mean settled and clear.
+    example: After the walk, I felt calm enough to think clearly.
+  - id: mood_cancelled
+  - id: mood_carefree
+  - id: mood_challenged
+  - id: mood_chatty
+  - id: mood_cheerful
+  - id: mood_chill
+  - id: mood_clear
+  - id: mood_comfortable
+  - id: mood_compassionate
+  - id: mood_competent
+  - id: mood_concerned
+  - id: mood_confident
+  - id: mood_conflicted
+  - id: mood_confused
+  - id: mood_connected
+  - id: mood_contemplative
+  - id: mood_contempt
+  - id: mood_content
+  - id: mood_copacetic
+  - id: mood_crushed
+  - id: mood_curious
+  - id: mood_dazed
+  - id: mood_dead_inside
+  - id: mood_defeated
+  - id: mood_deficient
+  - id: mood_dejected
+  - id: mood_delighted
+  - id: mood_depressed
+  - id: mood_desire
+  - id: mood_desolate
+  - id: mood_despair
+  - id: mood_despondent
+  - id: mood_determined
+  - id: mood_disappointed
+  - id: mood_discombobulated
+  - id: mood_discomfort
+  - id: mood_disconnected
+  - id: mood_discontented
+  - id: mood_discouraged
+  - id: mood_disenchanted
+  - id: mood_disengaged
+  - id: mood_disgraced
+  - id: mood_disgruntled
+  - id: mood_disgusted
+  - id: mood_disheartened
+  - id: mood_disillusioned
+  - id: mood_dispirited
+  - id: mood_displeased
+  - id: mood_disrespected
+  - id: mood_dissatisfied
+  - id: mood_distracted
+  - id: mood_distressed
+  - id: mood_down
+  - id: mood_dread
+  - id: mood_dumbfounded
+  - id: mood_dysregulated
+  - id: mood_eager
+  - id: mood_ecstatic
+  - id: mood_elated
+  - id: mood_embarrassed
+  - id: mood_empathetic
+  - id: mood_empowered
+  - id: mood_empty
+  - id: mood_enchanted
+  - id: mood_encouraged
+  - id: mood_energized
+  - id: mood_engaged
+  - id: mood_engrossed
+  - id: mood_enjoyment
+  - id: mood_enraged
+  - id: mood_enraptured
+  - id: mood_enthralled
+  - id: mood_enthusiastic
+  - id: mood_envious
+  - id: mood_euphoric
+  - id: mood_even_tempered
+  - id: mood_exasperated
+  - id: mood_excited
+  - id: mood_excluded
+  - id: mood_exhausted
+  - id: mood_exhilarated
+  - id: mood_fascinated
+  - id: mood_fatigued
+  - id: mood_flabbergasted
+  - id: mood_focused
+  - id: mood_fomo
+  - id: mood_foolish
+  - id: mood_forlorn
+  - id: mood_fragile
+  - id: mood_frazzled
+  - id: mood_frightened
+  - id: mood_frozen
+  - id: mood_frustrated
+  - id: mood_fulfilled
+  - id: mood_furious
+  - id: mood_gaslit
+  - id: mood_ghosted
+  - id: mood_glad
+  - id: mood_glowing
+  - id: mood_glum
+  - id: mood_good
+  - id: mood_goofy
+  - id: mood_grateful
+  - id: mood_grief
+  - id: mood_groggy
+  - id: mood_grounded
+  - id: mood_grumpy
+  - id: mood_guilty
+    definitions:
+      - Feeling bad because you think you did something wrong.
+      - Guilt often brings a wish to apologize, repair the damage, or do better next time.
+    example: I felt guilty after I lied to my friend.
+  - id: mood_happy
+    definitions:
+      - Feeling good, light, and pleased with what is happening.
+      - Happy can be quiet and peaceful or active and excited.
+    example: They felt happy when the good news finally arrived.
+  - id: mood_hate
+  - id: mood_heard
+  - id: mood_heartbroken
+  - id: mood_helpless
+  - id: mood_hesitant
+  - id: mood_hollow
+  - id: mood_homesick
+  - id: mood_hopeful
+  - id: mood_hopeless
+  - id: mood_horrified
+  - id: mood_humiliated
+  - id: mood_hurting
+  - id: mood_hyper
+  - id: mood_icky
+  - id: mood_impassioned
+  - id: mood_imperturbable
+  - id: mood_in_awe
+  - id: mood_in_love
+  - id: mood_inadequate
+  - id: mood_included
+  - id: mood_incompetent
+  - id: mood_indecisive
+  - id: mood_indifferent
+  - id: mood_indignant
+  - id: mood_infatuated
+  - id: mood_insecure
+  - id: mood_inspired
+  - id: mood_interested
+  - id: mood_invalidated
+  - id: mood_irate
+  - id: mood_irked
+  - id: mood_irritable
+  - id: mood_irritated
+  - id: mood_isolated
+  - id: mood_jealous
+    definitions:
+      - Feeling upset or threatened because you fear losing attention, love, or closeness to someone else.
+      - Jealousy often appears in relationships and can mix fear with anger.
+    example: He felt jealous when his best friend started spending all their time with someone else.
+  - id: mood_jilted
+  - id: mood_jittery
+  - id: mood_joyful
+  - id: mood_judged
+  - id: mood_lazy
+  - id: mood_letdown
+  - id: mood_livid
+  - id: mood_lonely
+  - id: mood_longing
+  - id: mood_lost
+  - id: mood_loved
+  - id: mood_lovesick
+  - id: mood_loving
+  - id: mood_mad
+  - id: mood_malaised
+  - id: mood_meh
+  - id: mood_melancholic
+  - id: mood_mellow
+  - id: mood_minimized
+  - id: mood_miserable
+  - id: mood_morose
+  - id: mood_motivated
+  - id: mood_moved
+  - id: mood_nauseated
+  - id: mood_neglected
+  - id: mood_nervous
+  - id: mood_nostalgic
+  - id: mood_numb
+  - id: mood_obsessed
+  - id: mood_ok
+  - id: mood_optimistic
+  - id: mood_overjoyed
+  - id: mood_overwhelmed
+  - id: mood_painful
+  - id: mood_panicked
+  - id: mood_passionate
+  - id: mood_pathetic
+  - id: mood_peaceful
+  - id: mood_peeved
+  - id: mood_pensive
+  - id: mood_pessimistic
+  - id: mood_pissed
+  - id: mood_playful
+  - id: mood_pleasant
+  - id: mood_pleased
+  - id: mood_poised
+  - id: mood_poopy
+  - id: mood_present
+  - id: mood_pressured
+  - id: mood_productive
+  - id: mood_protective
+  - id: mood_proud
+  - id: mood_refreshed
+  - id: mood_regretful
+  - id: mood_reinvigorated
+  - id: mood_rejected
+  - id: mood_rejuvenated
+  - id: mood_relaxed
+  - id: mood_relieved
+  - id: mood_remorseful
+  - id: mood_repulsed
+  - id: mood_resentful
+  - id: mood_resigned
+  - id: mood_respected
+  - id: mood_restless
+  - id: mood_reverent
+  - id: mood_romantic
+  - id: mood_rushed
+  - id: mood_sad
+    definitions:
+      - Feeling low, heavy, or hurt after a loss, disappointment, or painful moment.
+      - Sadness often slows you down and makes you want comfort, rest, or space.
+    example: I felt sad when I read her message and knew things had changed.
+  - id: mood_safe
+  - id: mood_satisfied
+  - id: mood_scared
+  - id: mood_scorn
+  - id: mood_secure
+  - id: mood_sensual
+  - id: mood_serene
+  - id: mood_shocked
+  - id: mood_silly
+  - id: mood_sleepy
+  - id: mood_solemn
+  - id: mood_sorrowful
+  - id: mood_spent
+  - id: mood_spiteful
+  - id: mood_stable
+  - id: mood_startled
+  - id: mood_stoked
+  - id: mood_strained
+  - id: mood_stressed
+  - id: mood_stuck
+  - id: mood_stunned
+  - id: mood_successful
+  - id: mood_suffocated
+  - id: mood_sullen
+  - id: mood_supported
+  - id: mood_surprised
+  - id: mood_sympathetic
+  - id: mood_taken_aback
+  - id: mood_talkative
+  - id: mood_tenderness
+  - id: mood_tense
+  - id: mood_terrified
+  - id: mood_thankful
+  - id: mood_thoughtful
+  - id: mood_thrilled
+  - id: mood_tired
+  - id: mood_touched
+  - id: mood_tranquil
+  - id: mood_trapped
+  - id: mood_triggered
+  - id: mood_troubled
+  - id: mood_turned_off
+  - id: mood_unappreciated
+  - id: mood_unbothered
+  - id: mood_uncertain
+  - id: mood_uncomfortable
+  - id: mood_understood
+  - id: mood_undervalued
+  - id: mood_uneasy
+  - id: mood_unhappy
+  - id: mood_unmotivated
+  - id: mood_unseen
+  - id: mood_unstable
+  - id: mood_upbeat
+  - id: mood_upset
+  - id: mood_validated
+  - id: mood_valued
+  - id: mood_vengeful
+  - id: mood_vulnerable
+  - id: mood_weary
+  - id: mood_welp
+  - id: mood_whole
+  - id: mood_wishful
+  - id: mood_wistful
+  - id: mood_worried
+  - id: mood_worthless
+  - id: mood_zen
