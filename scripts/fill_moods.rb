@@ -129,6 +129,9 @@ def prompt_for(field, item, instructions)
       - Do not use markdown beyond the plain strings.
     TEXT
   when "reddit_example"
+    source_url = item["reddit_source_url"].to_s.strip
+    source_notes = item["reddit_source_notes"].to_s.strip
+    source_username = item["reddit_source_username"].to_s.strip
     <<~TEXT
       #{shared_header}
 
@@ -136,11 +139,17 @@ def prompt_for(field, item, instructions)
 
       #{example_context(item)}
 
+      Source to use (required):
+      - Reddit URL: #{source_url}
+      - Reddit username: #{source_username}
+      - Source notes: #{source_notes}
+
       Requirements:
       - Return exactly 1 Reddit-based personal example paragraph as a string.
-      - The example must come from a real Reddit post in AITA, AITAH, relationships, relationship_advice, or similar.
+      - The example must come from the provided real Reddit source only.
+      - Do not browse the web or search for any other source.
       - Do not invent a scene, account, or numbers.
-      - Mention the Reddit username in the paragraph.
+      - Mention the Reddit username exactly as provided in the paragraph.
       - Return the source URL in `reddit_example_url`.
       - Use 2 to 4 short sentences.
       - It should read like a magazine lead paragraph with concrete details when available.
@@ -322,6 +331,9 @@ end
 options = {
   emotion: nil,
   field: nil,
+  source_url: nil,
+  source_notes: nil,
+  source_username: nil,
   dry_run: false
 }
 
@@ -334,6 +346,18 @@ OptionParser.new do |parser|
 
   parser.on("--field=NAME", String, "Target one field: definitions, example, tarot_cards, example_reddit") do |value|
     options[:field] = value
+  end
+
+  parser.on("--source-url=URL", String, "Source URL for reddit_example generation") do |value|
+    options[:source_url] = value
+  end
+
+  parser.on("--source-notes=TEXT", String, "Source notes for reddit_example generation") do |value|
+    options[:source_notes] = value
+  end
+
+  parser.on("--source-username=NAME", String, "Source username for reddit_example generation, format u/name") do |value|
+    options[:source_username] = value
   end
 
   parser.on("--dry-run", "Print the next target and prompt, but do not call Codex") do
@@ -366,6 +390,18 @@ if item.nil?
 end
 
 field = normalized_field
+
+if field == "reddit_example"
+  if blank?(options[:source_url].to_s.strip) || blank?(options[:source_notes].to_s.strip) || blank?(options[:source_username].to_s.strip)
+    warn "For --field=example_reddit, provide --source-url=..., --source-notes=..., and --source-username=..."
+    exit 1
+  end
+
+  item["reddit_source_url"] = options[:source_url].to_s.strip
+  item["reddit_source_notes"] = options[:source_notes].to_s.strip
+  item["reddit_source_username"] = options[:source_username].to_s.strip
+end
+
 instructions = File.read(INSTRUCTION_PATH).strip
 prompt = prompt_for(field, item, instructions)
 
@@ -418,6 +454,10 @@ end
 validated.each do |key, value|
   item[key] = value
 end
+
+item.delete("reddit_source_url")
+item.delete("reddit_source_notes")
+item.delete("reddit_source_username")
 
 write_catalog(catalog)
 

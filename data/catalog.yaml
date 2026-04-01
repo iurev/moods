@@ -70,11 +70,69 @@ items:
     definitions:
       - "Affectionate means feeling warm, caring closeness toward someone, usually because you feel safe, fond of them, or grateful for them, and it shows more tenderness than simple friendliness."
       - "It is the wish to give love, comfort, or gentle attention to a person, pet, or even a place that matters to you, and it is softer and steadier than excitement or desire."
+    example: "In E. B. White's 1952 novel Charlotte's Web, eight-year-old Fern Arable stops her father from killing the runt of a litter and takes the piglet, Wilbur, into her arms. She promises to feed him with a bottle like a baby and treats him with a warmth that is more tender than simple kindness. The scene feels affectionate because Fern is not excited or dramatic; she is gently protective, deeply fond, and already acting as if Wilbur is someone she loves."
+    example_source_title: "Charlotte’s Web | Summary, Characters, & Facts | Britannica"
+    example_link: "https://www.britannica.com/topic/Charlottes-Web"
+    tarot_cards:
+      - "The Empress: This card matches affectionate warmth that wants to nurture, comfort, and help someone feel cared for."
+      - "Queen of Cups: This card fits gentle, steady tenderness that comes from deep feeling rather than excitement or drama."
+      - "Two of Cups: This card reflects affectionate closeness where care is shared and the bond feels warm, safe, and sincere."
   - id: mood_afraid
+    definitions:
+      - "Afraid means feeling that something dangerous or harmful may happen, usually because you sense a threat and your mind shifts into protection mode."
+      - "Afraid is the uneasy, alert feeling that appears when you expect pain, loss, or trouble, and it differs from general worry because it is tied to a more immediate sense of danger."
+    example: "On August 8, 2023, Mike Cicchino hid in the back of a van in Lahaina, Hawaii, while flames, black smoke, and explosions closed in around him and his wife, Andreza. He was so afraid he called his mother, his brother, and then his 4-year-old daughter to say he loved them, thinking he might die there. The danger was not abstract or far away; the fire was already around the vehicle, and every breath felt hard to take."
+    example_source_title: "As flames swallowed Maui, survivors made harrowing escapes"
+    example_link: "https://apnews.com/article/888a08a4968d615c483e5715c8a84d98"
+    reddit_example: "In a January 2020 Reddit post, u/YourMindbelongs2me described being 22 and married to a 37-year-old husband who made her keep receipts and ask permission before spending $30, even with a household income of about $9,500 a month. The rules were so controlling and intimidating that she sounded afraid of what would happen if she stepped out of line. This fits afraid because the threat was not vague worry but daily fear inside her own marriage."
+    reddit_example_url: "https://www.reddit.com/r/AmItheAsshole/comments/ew0rph/aita_for_messing_with_my_husband_in_order_to/"
+    tarot_cards:
+      - "Nine of Swords: This card matches afraid because it shows a mind overwhelmed by the sense that harm may be close."
+      - "The Moon: This card fits afraid when danger feels real but unclear, making instinct and fear grow in the dark."
+      - "Eight of Swords: This card reflects afraid because fear can make a person feel trapped, tense, and unable to see a safe way out."
   - id: mood_agitated
+    definitions:
+      - "Agitated means feeling keyed up and unable to settle because stress, pressure, or irritation is pushing your body and mind into restless motion, not just making you worried or angry."
+      - "Agitated is the tense, unsettled state that comes when something feels too much, too close, or too hard to control, and it stands out from nearby moods by creating a strong urge to move, react, or snap."
+    example: "In Edgar Allan Poe's 1843 story The Tell-Tale Heart, the narrator spends seven nights creeping into an old man's room at midnight, then unravels after hiding the body under the floorboards. While three police officers sit calmly in the house, the narrator grows more and more keyed up, sure that the dead man's heart is beating louder every minute. He talks faster, cannot stay still, and bursts into a confession, which makes the mood feel agitated rather than simply afraid."
+    example_source_title: "The Tell-Tale Heart"
+    example_link: "https://en.wikipedia.org/wiki/The_Tell-Tale_Heart"
+    reddit_example: "In a January 2020 Reddit post, u/YourMindbelongs2me describes being 22 and married to a 37-year-old man who made her keep receipts and ask permission before spending even $30, though the household brought in about $9,500 a month. The marriage feels full of control and intimidation, so even small choices turn tense and loaded. That makes the mood feel agitated: she is not only unhappy, but keyed up and unable to relax because pressure is always close and she expects conflict."
+    reddit_example_url: "https://www.reddit.com/r/AmItheAsshole/comments/ew0rph/aita_for_messing_with_my_husband_in_order_to/"
+    tarot_cards:
+      - "Knight of Swords: fast, sharp energy that rushes forward before the mind or body can settle."
+      - "Eight of Wands: pressure builds so quickly that everything feels urgent, active, and hard to slow down."
+      - "Nine of Swords: inner strain and nervous overload keep the person tense, restless, and unable to relax."
   - id: mood_alarmed
+    definitions:
+      - "Alarmed is a sharp feeling that something dangerous or badly wrong may happen very soon, often after a sudden sign, warning, or shock."
+      - "It is stronger and more urgent than ordinary worry because your attention narrows fast and your body feels ready to react at once."
+    example: "On April 13, 1970, Apollo 13 was about 200,000 miles from Earth when an oxygen tank exploded and warning lights flashed across the spacecraft. Jim Lovell, Jack Swigert, and Fred Haise were not just worried; they were alarmed, because the blast meant they could lose power, water, and breathable oxygen in minutes. The mission stopped being a moon landing and became a race to keep three astronauts alive."
+    example_source_title: "Apollo 13: Mission Details - NASA"
+    example_link: "https://www.nasa.gov/mission_pages/apollo/missions/apollo13.html"
+    reddit_example: "In a January 2020 Reddit post, u/YourMindbelongs2me described being 22 and married to a 37-year-old husband who controlled the money so tightly that she had to keep receipts and ask permission to spend $30, even with household income around $9,500 a month. The mood is alarmed because this was not normal stress about budgeting; it was the sharp, urgent fear that came from living with control and intimidation inside her own marriage. Small choices could quickly turn into conflict, so her attention stayed fixed on what might go wrong next."
+    reddit_example_url: "https://www.reddit.com/r/AmItheAsshole/comments/ew0rph/aita_for_messing_with_my_husband_in_order_to/"
+    tarot_cards:
+      - "The Tower: A sudden shock or warning breaks normal life and creates an urgent sense that something is going badly wrong."
+      - "Nine of Swords: This card fits the mind racing into fear when danger feels close and impossible to ignore."
+      - "Page of Swords: It matches the tense alertness of noticing a threat early and reacting fast before it grows worse."
   - id: mood_alert
+    definitions:
+      - "Alert is a focused, ready feeling that appears when your mind notices possible change, risk, or importance, and it differs from fear because you are prepared rather than overwhelmed."
+      - "Alert is the state of paying sharp attention because something may need a quick response, and it is different from simple curiosity because your body and mind are both on notice."
+    example: "On April 13, 1970, after an oxygen tank exploded aboard Apollo 13, Flight Director Gene Kranz and Mission Control in Houston did not freeze. With the spacecraft about 205,000 miles from Earth and less than two hours of power generation left, they stayed sharply alert, tracking each warning light and testing the Lunar Module as a lifeboat. It fits this mood because the danger was real, but their attention stayed focused and ready instead of sliding into panic."
+    example_source_title: "50 Years Ago: “Houston, We’ve Had a Problem”"
+    example_link: "https://www.nasa.gov/history/50-years-ago-houston-weve-had-a-problem/"
+    reddit_example: "In a January 2020 Reddit post, u/YourMindbelongs2me wrote that she was 22 and married to a 37-year-old husband who made her keep receipts and ask permission before spending even $30, though the household brought in about $9,500 a month. She describes a home where control and intimidation could turn any small purchase into a problem, so she stayed alert, watching his reactions and trying to avoid the next conflict. It fits this mood because her attention was not casual curiosity or full panic; it was a constant state of readiness inside a tense marriage."
+    reddit_example_url: "https://www.reddit.com/r/AmItheAsshole/comments/ew0rph/aita_for_messing_with_my_husband_in_order_to/"
+    tarot_cards:
+      - "Page of Swords: This card matches alert because it shows a sharp, watchful mind that is ready to notice trouble and respond fast."
+      - "Nine of Wands: This card fits alert as a guarded, battle-ready state where you stay awake to risk without giving in to panic."
+      - "Queen of Swords: This card reflects alert through clear, steady attention that cuts through confusion when something important may change."
   - id: mood_alienated
+    definitions:
+      - "Alienated means feeling cut off from other people, a place, or a group because you do not feel understood, accepted, or able to belong there in a real way."
+      - "Alienated can also mean feeling separated from your own work, role, or self when outside pressure, unfair treatment, or emotional distance makes your life feel unfamiliar and not fully yours."
   - id: mood_alive
   - id: mood_amazed
   - id: mood_ambivalent
