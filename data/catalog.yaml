@@ -216,37 +216,280 @@ items:
     example: "In the 2018 U.S. Open final in New York, Serena Williams grew visibly angry after chair umpire Carlos Ramos gave her three code violations during her match with Naomi Osaka. With a 24th Grand Slam title slipping away, she argued that she was being treated unfairly, called Ramos a \"thief,\" and later received a $17,000 fine. The scene fits anger because it is not quiet sadness or fear; it is hot protest against a rule and an authority figure that felt wrong to her."
     example_source_title: "Serena Williams Fined $17,000 for Code Violations During U.S. Open Final"
     example_link: "https://www.si.com/tennis/2018/09/09/serena-williams-fine-us-open-code-violations"
+    reddit_example: "In a 2024 r/AITAH post, u/Dingo_baby-75 described getting angry after two relatives, ages 43 and 73, arrived high to a rare family lunch that happens only two or three times a year. The post says there was no alcohol at the gathering, two younger teens were present, and the writer's older child and husband both had a past problem with marijuana, so the choice felt reckless and disrespectful. This fits anger because the feeling is not quiet hurt; it is a hot reaction to adults crossing a clear boundary and ruining a family event that was meant to feel safe."
+    reddit_example_url: "https://www.reddit.com/r/AITAH/comments/1ifjpqq/aitah_for_being_upset_that_my_husband_and_i_were/"
+    tarot_cards:
+      - "Five of Wands: Conflict, friction, and clashing wills match the heated pushback of anger."
+      - "Queen of Swords: Sharp judgment and a strong sense of fairness fit anger that rises when something feels wrong."
+      - "The Tower: Sudden emotional eruption reflects anger that breaks out when pressure gets too high."
   - id: mood_anguished
+    definitions:
+      - "Anguished means feeling deep mental or emotional pain when a loss, fear, or moral conflict hits so hard that it is hard to think calmly or find relief."
+      - "Anguished is stronger than ordinary sadness or worry because it comes from severe distress and feels sharp, urgent, and deeply personal."
+    example: "In William Styron's 1979 novel Sophie's Choice, Sophie Zawistowska arrives at Auschwitz with her two children and is forced by a Nazi officer to decide, in a few seconds, which child will live and which will die. The pain is so extreme that it breaks normal thought: her fear, guilt, and helplessness all crash together in one unbearable moment. That is anguish, not simple sadness, because the loss is immediate, personal, and morally crushing."
+    example_source_title: "Sophie's Choice (novel)"
+    example_link: "https://en.wikipedia.org/wiki/Sophie%27s_Choice_%28novel%29"
+    reddit_example: "On Reddit, u/Main-Ganache-7158 described a separated marriage turning brutal when his wife finally revealed she had cancer after months of exhaustion that doctors, and even she, had dismissed as laziness. In the update, she sobbed that she hid the diagnosis because she feared he would come back out of duty and sacrifice himself for her, while he had to face the pain of realizing he had left during a real illness. That is anguish because fear, guilt, love, and possible loss all crash together at once, leaving no calm or easy answer."
+    reddit_example_url: "https://www.reddit.com/r/BORUpdates/comments/1aek4a7"
+    tarot_cards:
+      - "Nine of Swords: intense mental suffering keeps the pain active through fear, guilt, and sleepless thought."
+      - "Three of Swords: sharp emotional wounding captures the personal shock and heartbreak at the center of anguish."
+      - "Judgement: a heavy moral reckoning fits anguish that comes from a choice, loss, or truth that feels impossible to carry."
   - id: mood_annoyed
+    definitions:
+      - "Annoyed is a mild feeling of displeasure that comes when something keeps bothering you, interrupting you, or not going as it should, without feeling serious enough to become real anger."
+      - "Annoyed means feeling irritated by a person, habit, or situation that seems unnecessary or repeated, and it is different from stronger moods because the problem feels small but still hard to ignore."
+    example: "In a 2016 Guardian piece, a British Airways shareholder and frequent flyer describes being bumped from a flight to Chicago after nearly 30 years of business travel with the airline. What makes the mood feel annoyed, not furious, is the slow, nagging insult of it: not one dramatic disaster, but an overbooked seat and what he calls repeated lies from staff. The problem is serious enough to spoil the trip, yet the feeling sits in that familiar space where something keeps going wrong and becomes hard to ignore."
+    example_source_title: "British Airways overbooked my flight and left me grounded"
+    example_link: "https://www.theguardian.com/money/2016/jul/16/british-airways-overbooked-flight-no-compensation"
+    reddit_example: "In a May 2020 r/relationship_advice post, ForRedditPagelol says he accused a woman he was seeing of cheating on the first day of lockdown because he got annoyed when he thought they were supposed to meet and she did not show. What makes this feel annoyed, not full rage, is the small trigger: a frustrating change of plans that he could not shake off. The irritation stayed in his head long enough to spoil the connection and turn into a bigger mistake."
+    reddit_example_url: "https://www.reddit.com/r/relationship_advice/comments/ghk18n"
+    tarot_cards:
+      - "Five of Wands: Small clashes and repeated friction make this card fit the tense, bothered feeling of being annoyed."
+      - "Knight of Swords: This card matches the sharp, reactive energy that appears when something keeps getting on your nerves."
+      - "Page of Swords: It reflects a watchful, edgy state where minor problems or irritating behavior become hard to ignore."
   - id: mood_anxious
     definitions:
       - "Feeling worried, tense, or unsafe because something bad might happen."
       - "A future-focused mood that often brings overthinking and restlessness."
-    example: "She felt anxious before the interview and kept checking her notes."
+    example: "On 5 August 2010, Luis Urzua and 32 other miners were trapped 700 meters underground in Chile's San Jose mine, with no safe ladder out and no clear idea when help would reach them. For 17 days, before a drill bit brought back their note saying they were alive, every hour forced them to wait, guess, and fear what the next sound in the rock might mean. That is anxious: tense and restless because the danger is not over, and everything depends on what happens next."
+    example_source_title: "2010 Copiapó mining accident"
+    example_link: "https://en.wikipedia.org/wiki/2010_Copiap%C3%B3_mining_accident"
+    reddit_example: "On Reddit, u/Throwaway223321e wrote that his girlfriend had spent months fearing he would leave her one day because he wanted children and she did not, until the fear grew so strong she thought about ending their nearly four-year relationship first. He said she had been quietly carrying that worry for months, getting more down as she pictured a heartbreak that had not even happened. It fits anxious because the mood is driven by what might come next, and the fear becomes strong enough to shape real choices."
+    reddit_example_url: "https://www.reddit.com/r/relationship_advice/comments/etpi7u/my_girlfriend_25_thinks_im_going_to_leave_her/"
+    tarot_cards:
+      - "Nine of Swords: This card shows anxious thoughts that grow at night and make fear feel bigger than the facts."
+      - "The Moon: This card fits anxiety because uncertainty, confusion, and imagined danger make it hard to feel safe."
+      - "Eight of Swords: This card matches the trapped, restless side of anxiety, when fear makes every option seem blocked."
   - id: mood_apathetic
+    definitions:
+      - "Apathetic means feeling little interest, care, or emotion because you believe nothing will matter much or change anything."
+      - "It is a flat, disconnected mood that often comes after stress, boredom, or repeated disappointment, and it feels different from sadness because the main feeling is not pain but lack of concern."
+    example: "In Albert Camus's 1942 novel The Stranger, Meursault learns that his mother has died and goes to her funeral in Marengo with almost no visible feeling. During the night watch, he drinks coffee, smokes, and worries more about the heat and his tired body than about the loss itself. The next day he returns to Algiers and spends time swimming with Marie, which makes his mood feel not sad but deeply apathetic, as if nothing carries enough meaning to move him."
+    example_source_title: "The Stranger (novel by Camus) | Summary & Analysis | Britannica"
+    example_link: "https://www.britannica.com/topic/The-Stranger-novel-by-Camus"
+    reddit_example: "In a March 19, 2026 r/relationship_advice post, u/GuantanamoWaterPark said his 33-year-old wife admitted that after years of depression, work stress, and old resentment, she felt numb and was not sure she loved him anymore. They had been together 15 years, married 10, and had two children, but her strongest reaction was not open anger or grief. The mood fits apathy because the post shows a flat loss of care, as if even a long marriage no longer felt important enough to move her."
+    reddit_example_url: "https://www.reddit.com/r/relationship_advice/comments/1jlbtvj/my_35m_wife_33f_says_she_doesnt_love_me_anymore/"
+    tarot_cards:
+      - "Four of Cups: This card matches apathy because it shows emotional withdrawal, boredom, and a lack of interest in what is being offered."
+      - "Eight of Cups: This card fits when someone feels so disconnected or disappointed that they quietly stop caring and turn away."
+      - "The Hanged Man: This card reflects a paused, detached state where action feels pointless and nothing seems urgent enough to matter."
   - id: mood_appreciated
+    definitions:
+      - "Appreciated is the warm feeling that comes when someone clearly notices your value or effort, which makes it different from general happiness because it depends on being seen and recognized."
+      - "Appreciated means feeling respected and valued after another person shows thanks, care, or credit, and it is distinct from pride because the feeling is created by their response, not only by your own view of yourself."
+    example: "At the end of The Return of the King, Aragorn is crowned in Minas Tirith after the war for Middle-earth. Instead of taking all the honor for himself, he stops before Frodo, Sam, Merry, and Pippin and has the whole court rise to honor them for saving the world. After months of fear, wounds, and being overlooked, they are not just relieved; they feel deeply appreciated."
+    example_source_title: "The Return of the King"
+    example_link: "https://en.wikipedia.org/wiki/The_Return_of_the_King"
+    reddit_example: "In a 2021 r/MadeMeSmile post, BruceWilliz used a trick link so each reader landed on a page that seemed to call them the sweetest user on Reddit. The surprise was simple, but several people said it lifted a hard day, and one told BruceWilliz that the post had made their day. It fits appreciated because the warm feeling came from being personally noticed and praised, not just from feeling happy for no reason."
+    reddit_example_url: "https://www.reddit.com/r/MadeMeSmile/comments/pd649y"
+    tarot_cards:
+      - "Six of Wands: This card fits feeling appreciated because your effort is seen openly and others give you clear praise."
+      - "Three of Pentacles: This card matches being appreciated for your skill and work, especially when others notice your real contribution."
+      - "Ten of Cups: This card reflects the warm, secure feeling of being valued and welcomed by the people around you."
   - id: mood_apprehensive
+    definitions:
+      - "Apprehensive means feeling uneasy because you expect something difficult or unpleasant may happen soon, but you are not fully sure what it will be."
+      - "Apprehensive is a tense, watchful worry caused by uncertainty or possible trouble, and it is different from panic because the fear is controlled and focused on what might come next."
+    example: "In The Hunger Games, Katniss Everdeen stands in District 12 on the morning of the 74th Hunger Games reaping, where one boy and one girl will be chosen for a televised fight to the death. She is not in full panic yet, but she is tense and watchful, studying the stage and the crowd because disaster may be only minutes away. That controlled dread, before her sister’s name is called, is what apprehensive feels like."
+    example_source_title: "The Hunger Games"
+    example_link: "https://en.wikipedia.org/wiki/The_Hunger_Games"
+    reddit_example: "In a r/TrueOffMyChest post, Reddit user OrdinaryTurnover5235 says she stayed quiet for five months after several miscarriages, even though she was thrilled to be pregnant again. She was not in panic; she was holding back because telling her husband and six-year-old daughter too soon could mean crushing them again if the pregnancy failed. That tense hope, with her joy mixed with watchful fear before the next doctor visit, is what apprehensive feels like."
+    reddit_example_url: "https://www.reddit.com/r/TrueOffMyChest/comments/zp2lhn/ive_been_lying_to_my_husband_and_daughter_for_the/"
+    tarot_cards:
+      - "Nine of Swords: It fits the tense worry of imagining that something bad may happen soon, even before it fully arrives."
+      - "Page of Swords: It matches a watchful, alert mood where you scan for signs of trouble and expect possible problems ahead."
+      - "The Moon: It reflects fear shaped by uncertainty, where the danger is not fully clear but still feels close and unsettling."
   - id: mood_ashamed
     definitions:
       - "Feeling bad about yourself after doing something you see as wrong, foolish, or embarrassing."
       - "Shame often sounds like There is something wrong with me, not only with the action."
-    example: "He felt ashamed after laughing at his friend's mistake."
+    example: "In January 1998, Monica Lewinsky was 24 and suddenly became the center of a national scandal after her relationship with President Bill Clinton was exposed. A former White House intern was now being discussed on every screen, while secret tapes, a sworn affidavit, and an impeachment inquiry turned one private mistake into public disgrace. The feeling is not just fear of punishment; it is shame, the crushing sense that the whole country now sees something wrong in you."
+    example_source_title: "Monica Lewinsky | Biography, Bill Clinton, & Facts | Britannica"
+    example_link: "https://www.britannica.com/biography/Monica-Lewinsky"
+    reddit_example: "On Reddit, u/Efficient_Proof4738 wrote that after four months with a 29-year-old married woman he met at his gym, the thrill collapsed into self-disgust. At 24, he said losing his virginity and getting his first girlfriend had made him feel life was finally starting, then left him ashamed because he had become the kind of cheater he always hated. This fits shame, not only guilt, because the post is about more than a bad choice; it is about feeling that the choice says something ugly about who he is."
+    reddit_example_url: "https://www.reddit.com/r/BestofRedditorUpdates/comments/1cfps5m/aitah_for_wanting_to_reveal_my_affair_partners/"
+    tarot_cards:
+      - "Judgement: This card fits shame because it feels like your actions are exposed and you are judging yourself harshly."
+      - "Five of Pentacles: This card matches shame when you feel cast out, small, and unworthy after doing something embarrassing or wrong."
+      - "Nine of Swords: This card reflects the painful replay of shame, when guilt turns into deep self-blame at night."
   - id: mood_astonished
+    definitions:
+      - "Astonished means feeling suddenly overwhelmed by surprise when something very unexpected happens, and it is stronger and more absorbing than ordinary surprise."
+      - "Astonished is the feeling you get when a fact, event, or sight seems almost hard to believe, because it breaks what you thought was possible or likely."
+    example: "On December 24, 1968, Apollo 8 astronaut Bill Anders came around the far side of the Moon and suddenly saw Earth rising above the gray horizon. In NASA's account, he burst out, \"Oh my God,\" then grabbed the camera because the sight was so strange and beautiful that it seemed almost impossible. That is astonishment: not simple surprise, but a moment so unexpected that even trained astronauts struggled to take in what they were seeing."
+    example_source_title: "Earthrise Revisited"
+    example_link: "https://science.nasa.gov/earth/earth-observatory/earthrise-revisited-82693"
+    reddit_example: "In a Reddit post, u/Throwrasecrets27 describes the moment her family learned that her father had a 32-year-old son from a hidden second family, kept secret for decades. The truth came out only because that nephew needed a bone marrow transplant and blood relatives were the best chance, turning one medical emergency into a revelation that seemed almost impossible to believe. The mood is astonished because the news did not just surprise her; it broke her whole picture of her family in one sudden, overwhelming shock."
+    reddit_example_url: "https://www.reddit.com/r/BestofRedditorUpdates/comments/1ce5b7z"
+    tarot_cards:
+      - "The Tower: a shocking event breaks normal expectations so fast that the mind struggles to catch up."
+      - "Judgement: a world-changing moment feels so sudden and important that it seems almost impossible at first."
+      - "Page of Cups: an unexpected sight or message creates a fresh, wide-eyed sense of wonder."
   - id: mood_at_ease
+    definitions:
+      - "At ease is the feeling of being calm and comfortable because nothing seems demanding or threatening, and it is gentler and more settled than excitement or joy."
+      - "At ease means your body and mind can relax in a place, situation, or with people you trust, which makes it different from simple tiredness because it includes a sense of safety."
+    example: "In Kenneth Grahame's 1908 novel The Wind in the Willows, Mole walks out on spring cleaning and reaches the river for the first time. Rat takes him into a rowboat, and the day slows into lunch, talk, and drifting on the water. Mole is not excited in a sharp way; he is at ease because the place feels safe, the company is gentle, and nothing seems to press on him."
+    example_source_title: "The Wind in the Willows"
+    example_link: "https://en.wikipedia.org/wiki/The_Wind_in_the_Willows"
+    reddit_example: "In a 2026 post on r/introvert, Reddit user ChubbyNUgly22 says home is the one place where they can lie in bed, sit in the quiet, and stop bracing for other people. The details are plain, just their own room and their own thoughts, but that is what makes the mood at ease: nothing is demanding, and the space feels safe enough for their body and mind to loosen. The post fits this feeling because the comfort comes from calm and safety, not from excitement or simple tiredness."
+    reddit_example_url: "https://www.reddit.com/r/introvert/comments/1qyt9zb/does_anyone_else_literally_love_being_at_home_in/"
+    tarot_cards:
+      - "Temperance: This card fits being at ease because it shows a calm, balanced state where nothing feels too intense or out of place."
+      - "Four of Swords: This card matches the quiet relief of resting when your mind and body finally feel safe enough to relax."
+      - "Nine of Pentacles: This card reflects being at ease in a comfortable setting where you can settle in and enjoy peace without pressure."
   - id: mood_attentive
+    definitions:
+      - "Attentive is the feeling of being fully focused on what is happening because something seems important, useful, or easy to miss, and it is more active than simply being calm or awake."
+      - "Attentive means your mind stays closely on a person, task, or detail after interest, care, or possible risk pulls your attention in, which makes it different from general curiosity or concern."
+    example: "In Arthur Conan Doyle’s The Adventure of the Blue Carbuncle, Sherlock Holmes gives a battered hat more attention than most people would give a jewel case. While London is busy with Christmas and the police are chasing the theft of the Blue Carbuncle, he studies small signs in the hat because he knows important facts can hide in ordinary objects. The mood is attentive because Holmes stays fixed on details that look trivial until they open the way to the real crime."
+    example_source_title: "The Adventure of the Blue Carbuncle"
+    example_link: "https://en.wikipedia.org/wiki/The_Adventure_of_the_Blue_Carbuncle"
+    reddit_example: "In a March 2026 r/MadeMeSmile post, u/AccomplishedWatch834 recalls a first girlfriend who kept catching the same tiny details at the same moment, even sending the same random SpongeBob line within seconds. The story feels attentive because the bond depends on close, active notice, not just affection. Their focus stays on small things that most people would miss, and that is what makes the post feel so personal."
+    reddit_example_url: "https://www.reddit.com/r/MadeMeSmile/comments/1rvd9ts/little_things_go_a_long_way/"
+    tarot_cards:
+      - "Page of Swords: This card fits attentive because it shows a mind that stays alert, watches closely, and notices small changes before others do."
+      - "Eight of Pentacles: This card matches attentive through careful focus on fine details and steady attention to doing one thing well."
+      - "The Hermit: This card reflects attentive observation because it suggests quiet concentration and the search for truth in what others might overlook."
   - id: mood_avoidant
+    definitions:
+      - "Avoidant means wanting to keep distance from a person, task, or feeling because getting close seems risky, stressful, or too demanding."
+      - "It is the mood of pulling back to protect yourself from discomfort or rejection, and it is different from simple shyness because the main goal is to escape contact or pressure."
+    example: "At the 2021 French Open, Naomi Osaka kept pulling away from the room around her. After winning her first-round match, she skipped the required press conference, was fined $15,000, and then withdrew from the tournament, saying the media setting brought her huge anxiety. It reads as avoidant because the move was not simple shyness; she created distance from a public duty that felt too stressful to face."
+    example_source_title: "Naomi Osaka withdraws from French Open amid row over press conferences"
+    example_link: "https://www.theguardian.com/sport/2021/may/31/naomi-osaka-withdraws-french-open-press-conference-fines-tennis"
+    reddit_example: "On Reddit, throwaway_3759384 described being a 16-year-old who hid in a small attic space off her bedroom so her stepmother could not push her into babysitting two stepbrothers, ages 8 and 6, or pile on more chores. She even sent her dad her phone location while staying hidden, then slipped back to bed before he got home, which turned the whole scene into an argument between the adults. It feels avoidant because she was not simply shy or quiet; she pulled back and created literal distance from family pressure that felt too stressful to face directly."
+    reddit_example_url: "https://www.reddit.com/r/AmItheAsshole/comments/118agzn/aita_for_making_my_stepmom_look_crazy_so_i_can/"
+    tarot_cards:
+      - "The Hermit: This card fits avoidant because it shows pulling back from people or pressure to feel safer and more in control."
+      - "Four of Swords: This card matches avoidant when someone steps away from stress, conflict, or demands instead of facing them directly."
+      - "Seven of Wands: This card fits the defensive side of avoidant, where keeping distance feels like the only way to protect yourself from more pressure."
   - id: mood_awe
+    definitions:
+      - "Awe is the feeling of meeting something so vast, beautiful, or powerful that it stretches your mind and makes ordinary concerns feel small."
+      - "Awe happens when you face greatness in nature, art, ideas, or human action, and it stands out from simple surprise because it mixes wonder with deep respect."
+    example: "On July 11, 2022, President Joe Biden unveiled Webb’s first deep field, an image of galaxy cluster SMACS 0723 so crowded with light that thousands of galaxies appeared in a patch of sky no bigger than a grain of sand held at arm’s length. That is awe: one tiny dark spot opened into a vast history of the universe, and ordinary human scale suddenly felt small."
+    example_source_title: "NASA’s Webb Delivers Deepest Infrared Image of Universe Yet"
+    example_link: "https://www.nasa.gov/image-article/nasas-webb-delivers-deepest-infrared-image-of-universe-yet/"
+    reddit_example: "In a post on r/CasualConversation, user u/Adept-Notice-9973 shared their experience of driving to a dark sky park to see the Milky Way for the first time. They described the sight as \"truly, TRULY breathtaking,\" a vision so powerful it felt like looking at the universe's own blueprint. This moment of witnessing the immense scale of the cosmos, far from city lights, perfectly captures the feeling of awe."
+    reddit_example_url: "https://www.reddit.com/r/CasualConversation/comments/wz9i7p/i_saw_the_milky_way_for_the_first_time_last/"
+    tarot_cards:
+      - "The Star: This card reflects the feeling of wonder and deep connection to the universe that comes with awe."
+      - "The Sun: This card represents the overwhelming joy and clarity that can happen in a moment of true awe."
   - id: mood_balanced
+    definitions:
+      - "Feeling balanced is a sense of inner stability that comes when different parts of your life, like work and personal time, are in harmony, creating a feeling of steadiness rather than a peak of excitement."
+      - "A feeling of balance is a state of emotional stability that happens when you successfully manage your responsibilities and personal needs without feeling overwhelmed."
+    example: "In 1845, writer Henry David Thoreau moved into a small cabin he built by Walden Pond to conduct an experiment in simple living. He spent two years there, working just enough to support his basic needs and dedicating the rest of his time to reading, writing, and observing nature. This deliberate arrangement gave him a deep sense of inner stability and freedom from the pressures of mainstream society."
+    example_source_title: "Walden; or, Life in the Woods"
+    example_link: "https://en.wikipedia.org/wiki/Walden"
   - id: mood_bereft
+    definitions:
+      - "Being bereft is feeling a deep emptiness after the death of a loved one, a loss that is more profound and permanent than simple sadness."
+      - "Feeling bereft means being stripped of something essential, like hope or a close relationship, which creates a hollow feeling that is deeper than just loneliness."
+    example: "After her husband Prince Albert died in 1861, Queen Victoria fell into a deep and lasting grief, describing her life as a 'long, weary, desolate path.' She wore black for the remaining 40 years of her life, a constant public symbol of her loss. Her withdrawal from public duties showed a nation what it meant to be utterly bereft of a loved one."
+    example_source_title: "Victoria, Queen of United Kingdom: Widowhood"
+    example_link: "https://www.britannica.com/biography/Victoria-queen-of-United-Kingdom/Widowhood"
   - id: mood_betrayed
+    definitions:
+      - "Feeling betrayed is the deep and personal hurt that happens when someone you trust violates your confidence or loyalty for their own benefit."
+      - "Betrayal is the devastating feeling that arises when a person or institution you depend on for support or protection intentionally acts against your best interests."
+    example: "For decades, thousands of ordinary people, major charities, and even celebrities trusted Bernard Madoff with their life savings, believing he was a financial genius. In 2008, the world learned that his investment firm was a massive Ponzi scheme, the largest in history. The feeling of betrayal was immense as investors discovered their trusted advisor had stolen an estimated $65 billion, leaving many completely ruined."
+    example_source_title: "Bernard Madoff"
+    example_link: "https://en.wikipedia.org/wiki/Bernard_Madoff"
+    reddit_example: "In 2010, a user on Reddit posted about being \"seriously betrayed\" by a woman, leaving them with a deep sense of disillusionment and an inability to trust others. The user, whose account has since been deleted, reached out to the community for advice on how to get over such a profound breach of trust. This user's plea highlights the long-lasting impact of betrayal on one's ability to form new relationships and move forward."
+    reddit_example_url: "https://www.reddit.com/r/self/comments/a714m/reddit_i_was_seriously_betrayed_by_a_female_some/"
+    tarot_cards:
+      - "Three of Swords: This card shows a heart pierced by three swords, representing the sharp, painful sorrow that comes from betrayal."
+      - "Ten of Swords: This card illustrates the ultimate feeling of being stabbed in the back and the complete ruin that follows a devastating deception."
+      - "The Tower: This card signifies the sudden, shocking moment when a betrayal is revealed, shattering your world and false beliefs."
   - id: mood_bleh
+    definitions:
+      - "Bleh is a feeling of mild dissatisfaction and low energy that occurs when you feel slightly unwell or uninspired, but without a strong reason for being truly sad or angry."
+      - "Bleh describes a general sense of low-grade unease or boredom, often triggered by something uninteresting or gloomy, which distinguishes it from more intense negative emotions."
+    example: "Since his comic strip debut in 1978, Garfield the cat has become a symbol of the Monday morning slump. He often wakes up with a familiar sense of dread and a complete lack of motivation for the week ahead. It is not a deep despair, but a classic case of feeling 'bleh,' where the only cure seems to be more sleep and a tray of lasagna."
+    example_source_title: "Garfield"
+    example_link: "https://en.wikipedia.org/wiki/Garfield"
+    reddit_example: "In a 2010 post, Reddit user throwaway123456789 described a classic 'bleh' feeling, calling himself a 'selfish and unmotivated father.' He wasn't deeply depressed but felt stuck in a low-energy rut, unable to find the willpower to study for career certifications despite having a loving family. This sense of being stuck and vaguely dissatisfied, without a major crisis, is a perfect example of feeling bleh."
+    reddit_example_url: "https://www.reddit.com/r/self/comments/anm8v/im_a_selfish_and_unmotivated_father_how_do_i/"
+    tarot_cards:
+      - "Four of Cups: This card shows a state of apathy and discontent, where even new opportunities don't spark interest, much like a classic case of feeling 'bleh'."
+      - "The Hanged Man: This card reflects a period of suspension and inaction, capturing the low energy and lack of motivation that defines a 'bleh' mood."
+      - "Two of Swords: This card represents a mental stalemate and emotional blockage, leading to the kind of uninspired listlessness that feels 'bleh'."
   - id: mood_blessed
+    definitions:
+      - "Feeling blessed is a deep sense of peace and thankfulness for the good things in your life, which you feel you've received as a special gift rather than earned yourself."
+      - "Being blessed is the feeling that you are specially protected or favored, leading to a sense of security and good fortune that seems to come from an outside source."
+    example: "In 1971, seventeen-year-old Juliane Koepcke fell two miles from a disintegrating plane into the Amazon rainforest and lived. She was the sole survivor of LANSA Flight 508. After eleven days of walking through the jungle with a broken collarbone, she found her way to a small camp and was saved, an outcome many called a miracle."
+    example_source_title: "Wings of Hope (film, 2000)"
+    example_link: "https://en.wikipedia.org/wiki/Wings_of_Hope_(2000_film)"
+    reddit_example: "In 2010, Reddit user carrions_comfort described surviving a car crash that completely destroyed their vehicle. They walked away from a wreck that should have been fatal with only minor injuries. This profound experience left them feeling incredibly lucky and with a renewed sense of appreciation for life."
+    reddit_example_url: "https://www.reddit.com/r/IAmA/comments/d075d/i_survived_a_car_crash_that_should_have_killed/"
+    tarot_cards:
+      - "The Star: This card represents renewed hope and a sense of spiritual guidance after a period of difficulty, much like receiving an unexpected blessing."
+      - "Nine of Cups: Often called the 'wish' card, it signifies deep contentment and satisfaction, reflecting a state of being grateful for one's good fortune."
+      - "The Sun: This card symbolizes pure joy, success, and vitality, capturing the feeling of warmth and abundance that comes with being blessed."
   - id: mood_blissful
+    definitions:
+      - "Blissful is a feeling of complete and perfect happiness, often happening when you are totally at peace with yourself and your surroundings, making it more intense than just feeling happy."
+      - "To feel blissful is to experience a deep and peaceful joy, a state that comes from a sense of total fulfillment and makes you forget all your worries."
+    example: "After a lifetime of restless searching, the Brahmin's son Siddhartha sits by the river, no longer fighting his own thoughts. In the rushing water, he hears the sound of all creation in a single syllable, 'Om,' and his long struggle ends. A radiant smile fills his face as he finds a perfect, peaceful unity with the world around him."
+    example_source_title: "Siddhartha"
+    example_link: "https://en.wikipedia.org/wiki/Siddhartha_(novel)"
+    reddit_example: "In a 2009 discussion about relaxing video games, user jedberg described the experience of playing Katamari Damacy as 'just blissful.' They pointed to the combination of the game's music and colorful graphics as the source of this feeling. The simple, repetitive joy of rolling up objects into a giant ball created a purely happy and peaceful state for the player."
+    reddit_example_url: "https://www.reddit.com/r/gaming/comments/7y4vn/flower_for_the_ps3_is_the_most_relaxing_game_ive/c07s4d7/"
+    tarot_cards:
+      - "The Sun: The Sun card shows a moment of pure, clear happiness and enlightenment, just like the radiant joy of feeling blissful."
+      - "The World: The World card represents reaching a state of perfect completion and unity, matching the feeling of total fulfillment in bliss."
+      - "Ten of Cups: The Ten of Cups pictures a scene of perfect emotional harmony and contentment, reflecting the deep, peaceful joy of bliss."
   - id: mood_blue
+    definitions:
+      - "Feeling blue is a gentle sadness or melancholy that often lacks a specific cause, making it feel more like a temporary mood than a reaction to a specific event."
+      - "This form of sadness is a low-energy feeling of discouragement, which is less intense than depression and not as specific as the feeling of being disappointed by a single event."
+    example: "Around 1903, W.C. Handy was waiting for a long-delayed train in Tutwiler, Mississippi, when he heard a man singing a mournful tune. The man was pressing a knife to the strings of his guitar, creating a sound that was full of a strange, primitive sadness. This lonely, melancholy music at the deserted train station was what Handy would later call \"the blues.\""
+    example_source_title: "Father of the Blues: An Autobiography"
+    example_link: "https://en.wikipedia.org/wiki/Father_of_the_Blues_(autobiography)"
+    reddit_example: "In a 2010 post, Reddit user throwaway1928 described feeling like a bad son because he wanted to become a teacher while his parents wanted him to be a doctor. He wasn't fighting with them, but he felt a \"shitty cloud\" hanging over him because of their disapproval. This persistent, low-energy sadness about disappointing his parents left him feeling discouraged and blue."
+    reddit_example_url: "https://www.reddit.com/r/offmychest/comments/f11ss/im_a_bad_son/"
+    tarot_cards:
+      - "Five of Cups: This card points to a quiet sadness that comes from focusing on disappointment or what has been lost."
+      - "Four of Cups: This card shows emotional withdrawal and apathy, reflecting a lack of engagement with the outside world."
+      - "The Moon: This card represents a state of vague, unclear feelings, matching a melancholy mood that has no specific cause."
   - id: mood_bored
+    definitions:
+      - "Boredom is the unpleasant feeling of being uninterested in your surroundings or tasks, which often happens when activities feel repetitive and your mind is not stimulated."
+      - "You feel bored when you want to be engaged in a meaningful activity but cannot find one, leading to a state of dissatisfaction and weariness that is different from simply being relaxed."
+    example: "Emma Bovary, the wife of a simple country doctor, finds her provincial life in the town of Yonville to be an endless stretch of empty days. She longs for the Parisian high society and passionate romance she only finds in novels. This deep and persistent boredom becomes an unbearable state of dissatisfaction, driving her to seek escape in reckless affairs and ruinous debt."
+    example_source_title: "Madame Bovary by Gustave Flaubert"
+    example_link: "https://en.wikipedia.org/wiki/Madame_Bovary"
+    reddit_example: "A Reddit user, whose account is now deleted, posted about being so bored with their life that they were crying. Their daily routine was always the same: wake up, go to school, come home, and get on the internet until it was time to sleep. This simple, repeating cycle created a feeling of being trapped and deeply unsatisfied, showing a powerful kind of boredom that comes from a lack of any meaningful or exciting activity."
+    reddit_example_url: "https://www.reddit.com/r/self/comments/d9pas/my_life_is_so_boring_im_literally_crying_out_of/"
+    tarot_cards:
+      - "Four of Cups: This card shows apathy and withdrawal, where you refuse new opportunities because you're lost in dissatisfaction."
+      - "The Hanged Man: This card represents a period of forced waiting and inaction, leading to a sense of being stuck and stagnant."
+      - "Eight of Cups: This card suggests walking away from something that was once satisfying but is now emotionally empty and unfulfilling."
   - id: mood_brooding
+    definitions:
+      - "Brooding is when you keep thinking about something that makes you sad or angry, replaying it in your mind without finding any answers."
+      - "To brood is to be in a long, gloomy state of thought, focused on your own sadness or anger about something that has happened."
+    example: "At Thornfield Hall, Mr. Rochester is a man trapped by his past. For a decade, he has been legally bound to a mad wife hidden on the third floor, a secret that sours his every interaction. He walks his own halls in a state of gloomy, resentful thought, unable to escape the consequences of a youthful mistake."
+    example_source_title: "Jane Eyre"
+    example_link: "https://en.wikipedia.org/wiki/Jane_Eyre"
   - id: mood_buoyant
+    definitions:
+      - "Buoyancy is a light, cheerful feeling that comes from good news or positive situations, making you feel like you are floating, which is gentler than the energetic feeling of excitement."
+      - "The feeling of buoyancy describes being able to recover quickly and feel happy again after facing a difficult time, showing a resilience that is different from simple happiness."
+    example: "After a year of rejections from twelve publishers, the manuscript for Harry Potter finally landed J.K. Rowling a deal in 1996. A small British publisher offered a £1,500 advance, a small sum that would change her life. For the struggling single mother who had been living on state benefits, the news brought a buoyant feeling that she was finally floating free from her difficult circumstances."
+    example_source_title: "J. K. Rowling - Wikipedia"
+    example_link: "https://en.wikipedia.org/wiki/J._K._Rowling"
   - id: mood_burdened
+    definitions:
+      - "Being burdened means feeling like you are carrying a heavy emotional or mental weight, often caused by having too many responsibilities or problems that feel too difficult to manage."
+      - "Burdened describes the heavy feeling of having a responsibility or problem that weighs on your mind and energy, making it hard to feel light or free."
+    example: "For nine companions, the journey began as a shared quest, but the true weight fell on Frodo Baggins alone. He carried the One Ring, a small object with a will of its own that held the fate of Middle-earth in its golden band. This secret and terrible responsibility isolated him from his friends and slowly drained the life from him as he walked toward the fires of Mordor."
+    example_source_title: "The Lord of the Rings"
+    example_link: "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings"
   - id: mood_burned_out
   - id: mood_calm
     definitions:

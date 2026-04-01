@@ -19,5 +19,7 @@
 - Every example must point to a real article, book, or story that the example comes from.
 - Save the source URL in `example_link`.
 - If the source is a book or story, use a stable public page for that work.
+- Use examples tied to year 2010 or earlier only.
+- Do not use politics or politician figures in examples.
 - For `abused`, the best examples usually have:
   `year + institution/person + number + betrayal of trust + damage`

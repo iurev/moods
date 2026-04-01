@@ -155,6 +155,8 @@ def prompt_for(field, item, instructions)
       - Return exactly 1 example paragraph as a string.
       - The example must come from a real article, book, or story.
       - Do not invent a scene.
+      - Use a source tied to year 2010 or earlier only.
+      - Do not use politics or politician figures in any way.
       - Return the source title and a stable public URL for that source in the `example_link` field.
       - If the source is a book or story, the URL can be a canonical page for the work, such as Wikipedia, Britannica, Project Gutenberg, or the publisher.
       - Use 2 to 4 short sentences.
@@ -167,6 +169,7 @@ def prompt_for(field, item, instructions)
       - Do not use an unnamed invented person like "she" or "he" unless the real source itself keeps the person unnamed.
       - Do not start with "Imagine".
       - Do not use markdown.
+      - Return JSON with exactly these keys: `example`, `example_source_title`, `example_link`.
     TEXT
   when "tarot_cards"
     <<~TEXT
@@ -247,6 +250,9 @@ def prompt_for(field, item, instructions)
       - Return exactly 1 Reddit-based personal example paragraph as a string.
       #{source_requirements}
       - Do not invent a scene, account, or numbers.
+      - Use Reddit posts from year 2010 or earlier only.
+      - Do not use politics or politician figures in any way.
+      - Pick one qualifying source quickly; avoid deep searching.
       - Use 2 to 4 short sentences.
       - It should read like a magazine lead paragraph with concrete details when available.
       - Show why the chosen mood fits the post.
@@ -406,26 +412,36 @@ def write_catalog(catalog)
   File.write(CATALOG_PATH, lines.join("\n") + "\n")
 end
 
-def codex_command(schema_path, response_path, timeout_seconds)
+def llm_command(timeout_seconds, model_name)
   [
     "timeout",
     "--signal=TERM",
     "--kill-after=10s",
     "#{timeout_seconds}s",
-    "codex",
-    "exec",
+    "gemini",
     "--model",
-    "gpt-5.4",
-    "--config",
-    'model_reasoning_effort="medium"',
-    "--color",
-    "never",
-    "--output-schema",
-    schema_path,
-    "-o",
-    response_path,
-    "-"
+    model_name,
+    "--prompt",
+    "",
+    "--output-format",
+    "text",
+    "--approval-mode",
+    "yolo"
   ]
+end
+
+def extract_json_text(raw_response)
+  raw = raw_response.to_s.strip
+  return raw if raw.start_with?("{") && raw.end_with?("}")
+
+  fenced = raw.match(/```(?:json)?\s*(\{.*\})\s*```/im)
+  return fenced[1].strip if fenced
+
+  first = raw.index("{")
+  last = raw.rindex("}")
+  return raw[first..last].strip if first && last && last > first
+
+  raw
 end
 
 options = {
@@ -433,6 +449,7 @@ options = {
   field: nil,
   limit: nil,
   timeout_seconds: 240,
+  model: "gemini-2.5-pro",
   source_url: nil,
   source_notes: nil,
   source_username: nil,
@@ -456,6 +473,10 @@ OptionParser.new do |parser|
 
   parser.on("--timeout-seconds=N", Integer, "Max seconds for one codex call (default: 240)") do |value|
     options[:timeout_seconds] = value
+  end
+
+  parser.on("--model=NAME", String, "Model for gemini CLI (default: gemini-2.5-pro)") do |value|
+    options[:model] = value
   end
 
   parser.on("--source-url=URL", String, "Source URL for reddit_example generation") do |value|
@@ -503,13 +524,11 @@ def run_fill_for_field(catalog:, item:, field:, instructions:, options:)
   FileUtils.mkdir_p(LOG_DIR)
 
   prompt_path = File.join(LOG_DIR, "#{slug}.prompt.txt")
-  schema_path = File.join(LOG_DIR, "#{slug}.schema.json")
   stdout_path = File.join(LOG_DIR, "#{slug}.stdout.txt")
   stderr_path = File.join(LOG_DIR, "#{slug}.stderr.txt")
   response_path = File.join(LOG_DIR, "#{slug}.response.json")
 
   File.write(prompt_path, prompt)
-  File.write(schema_path, JSON.pretty_generate(schema_for(field)))
 
   if options[:dry_run]
     puts "Target: #{item.fetch('id')} -> #{field_label}"
@@ -518,28 +537,24 @@ def run_fill_for_field(catalog:, item:, field:, instructions:, options:)
     return :ok
   end
 
-  stdout, stderr, status = Open3.capture3(*codex_command(schema_path, response_path, options[:timeout_seconds]), stdin_data: prompt, chdir: ROOT)
+  stdout, stderr, status = Open3.capture3(*llm_command(options[:timeout_seconds], options[:model]), stdin_data: prompt, chdir: ROOT)
   File.write(stdout_path, stdout)
   File.write(stderr_path, stderr)
 
   unless status.success?
     if status.exitstatus == 124
-      warn "Codex exec timed out after #{options[:timeout_seconds]}s for #{item.fetch('id')} -> #{field_label}"
+      warn "Gemini exec timed out after #{options[:timeout_seconds]}s for #{item.fetch('id')} -> #{field_label}"
     end
-    warn "Codex exec failed for #{item.fetch('id')} -> #{field_label}"
+    warn "Gemini exec failed for #{item.fetch('id')} -> #{field_label}"
     warn "See #{stderr_path} and #{stdout_path}"
     return :error
   end
 
-  unless File.exist?(response_path)
-    warn "Codex did not write a response file: #{response_path}"
-    return :error
-  end
-
-  raw_response = File.read(response_path).strip
+  raw_response = stdout.to_s.strip
+  File.write(response_path, raw_response + "\n")
 
   begin
-    payload = JSON.parse(raw_response)
+    payload = JSON.parse(extract_json_text(raw_response))
     validated = validate_payload(field, payload)
   rescue StandardError => error
     warn "Response validation failed for #{item.fetch('id')} -> #{field_label}: #{error.message}"
