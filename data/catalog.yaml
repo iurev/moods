@@ -4,6 +4,14 @@ items:
   - id: mood_abandoned
   - id: mood_absorbed
   - id: mood_abused
+    definitions:
+      - Feeling deeply hurt because someone treated you in a cruel, unsafe, or controlling way.
+      - This can leave a person feeling afraid, powerless, and damaged.
+    example: On April 23, 2024, the U.S. Justice Department agreed to pay $138.7 million to settle 139 claims linked to Larry Nassar, the former USA Gymnastics doctor who, according to DOJ, abused patients for years under the cover of medical treatment. That is what abused looks like when trust, authority, and the exam room all turn into weapons.
+    reddit_example: In January 2020, Reddit user u/YourMindbelongs2me posted in r/AmItheAsshole that at age 22 she was married to a 37-year-old man, had to keep receipts for basic purchases, and still needed permission to spend $30 on a video game even though the household income was about $9,500 a month. That is abused in a quieter but still serious way: money turned into surveillance, dependence, and permission.
+    reddit_example_url: https://www.reddit.com/r/AmItheAsshole/comments/ew0rph/aita_for_messing_with_my_husband_in_order_to/
+    tarot_cards:
+      - "The Devil: Matches control, manipulation, fear, and toxic attachment."
   - id: mood_accepted
   - id: mood_accomplished
   - id: mood_adoring

@@ -167,8 +167,9 @@ input{
 }
 
 .card{
-  display:flex;
-  flex-direction:column;
+  display:grid;
+  grid-template-columns:minmax(220px,280px) minmax(0,1fr);
+  align-items:start;
   min-height:100%;
   border:1px solid var(--border);
   border-radius:24px;
@@ -179,7 +180,7 @@ input{
 
 .card-media{
   position:relative;
-  padding:16px 16px 0;
+  padding:16px;
 }
 
 .card-media img{
@@ -215,7 +216,8 @@ input{
   flex:1;
   flex-direction:column;
   gap:14px;
-  padding:16px;
+  min-width:0;
+  padding:16px 16px 16px 0;
 }
 
 .name{
@@ -245,11 +247,30 @@ input{
   padding-left:18px;
 }
 
+.tarot-cards{
+  display:grid;
+  gap:8px;
+  margin:0;
+  padding-left:18px;
+}
+
 .definitions li,
-.example{
+.tarot-cards li,
+.example,
+.reddit-example{
   margin:0;
   line-height:1.55;
   color:#433824;
+}
+
+.reddit-link{
+  color:var(--accent-strong);
+  font-weight:600;
+  text-decoration:none;
+}
+
+.reddit-link:hover{
+  text-decoration:underline;
 }
 
 .links{
@@ -295,6 +316,8 @@ input{
 @media (max-width:760px){
   .page{padding:20px 16px 36px}
   .toolbar{grid-template-columns:1fr}
+  .card{grid-template-columns:1fr}
+  .card-body{padding:0 16px 16px}
   .links{grid-template-columns:1fr}
 }
 </style>
@@ -344,6 +367,11 @@ input{
       <section class="detail example-section" hidden>
         <h3>Example</h3>
         <p class="example"></p>
+      </section>
+      <section class="detail reddit-example-section" hidden>
+        <h3>Reddit Example</h3>
+        <p class="reddit-example"></p>
+        <a class="reddit-link" href="" target="_blank" rel="noreferrer noopener">Source</a>
       </section>
       <section class="detail tarot-section" hidden>
         <h3>Tarot Cards</h3>
@@ -459,12 +487,6 @@ function parseCatalogYaml(source) {
       }
     }
 
-    if (indent === 4 && trimmed === "definitions:") {
-      currentItem.definitions = [];
-      currentListKey = "definitions";
-      continue;
-    }
-
     if (indent === 4) {
       currentListKey = null;
       const fieldMatch = trimmed.match(/^([a-zA-Z0-9_]+):\s*(.*)$/);
@@ -476,8 +498,10 @@ function parseCatalogYaml(source) {
       continue;
     }
 
-    if (indent === 6 && currentListKey === "definitions" && trimmed.startsWith("- ")) {
-      currentItem.definitions.push(decodeYamlScalar(trimmed.slice(2)));
+    if (indent === 6 && trimmed.startsWith("- ")) {
+      if (currentListKey === "definitions" || currentListKey === "tarot_cards") {
+        currentItem[currentListKey].push(decodeYamlScalar(trimmed.slice(2)));
+      }
     }
   }
 
@@ -499,6 +523,8 @@ function normalizeMood(item) {
   const definitions = Array.isArray(item.definitions) ? item.definitions.filter(Boolean) : [];
   const tarotCards = Array.isArray(item.tarot_cards) ? item.tarot_cards.filter(Boolean) : [];
   const example = typeof item.example === "string" ? item.example.trim() : "";
+  const redditExample = typeof item.reddit_example === "string" ? item.reddit_example.trim() : "";
+  const redditExampleUrl = typeof item.reddit_example_url === "string" ? item.reddit_example_url.trim() : "";
 
   return {
     id: item.id,
@@ -507,9 +533,11 @@ function normalizeMood(item) {
     definitions,
     tarotCards,
     example,
+    redditExample,
+    redditExampleUrl,
     pngHref: "png/" + item.id + ".png",
     svgHref: "svg/" + item.id + ".svg",
-    searchText: [item.id, plainName, definitions.join(" "), tarotCards.join(" "), example].join(" ").toLowerCase()
+    searchText: [item.id, plainName, definitions.join(" "), tarotCards.join(" "), example, redditExample].join(" ").toLowerCase()
   };
 }
 
@@ -607,6 +635,9 @@ function buildCard(item) {
   const definitionsList = card.querySelector(".definitions");
   const exampleSection = card.querySelector(".example-section");
   const example = card.querySelector(".example");
+  const redditExampleSection = card.querySelector(".reddit-example-section");
+  const redditExample = card.querySelector(".reddit-example");
+  const redditLink = card.querySelector(".reddit-link");
   const tarotSection = card.querySelector(".tarot-section");
   const tarotCardsList = card.querySelector(".tarot-cards");
   const copyButton = card.querySelector(".copy-button");
@@ -650,6 +681,13 @@ function buildCard(item) {
   if (item.example) {
     example.textContent = item.example;
     exampleSection.hidden = false;
+  }
+
+  if (item.redditExample) {
+    redditExample.textContent = item.redditExample;
+    redditLink.href = item.redditExampleUrl || "#";
+    redditLink.hidden = !item.redditExampleUrl;
+    redditExampleSection.hidden = false;
   }
 
   if (item.tarotCards.length) {
