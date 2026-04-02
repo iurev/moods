@@ -220,6 +220,21 @@ input{
   padding:16px 16px 16px 0;
 }
 
+.title-row{
+  display:flex;
+  align-items:baseline;
+  gap:12px;
+}
+
+.emotion-number{
+  flex:0 0 auto;
+  min-width:2ch;
+  font-size:.9rem;
+  font-weight:700;
+  line-height:1;
+  color:var(--muted);
+}
+
 .name{
   margin:0;
   font-size:1.25rem;
@@ -328,6 +343,7 @@ input{
   .toolbar{grid-template-columns:1fr}
   .card{grid-template-columns:1fr}
   .card-body{padding:0 16px 16px}
+  .title-row{gap:10px}
   .links{grid-template-columns:1fr}
 }
 </style>
@@ -369,7 +385,10 @@ input{
       <button class="favorite-button" type="button">Save</button>
     </div>
     <div class="card-body">
-      <h2 class="name"></h2>
+      <div class="title-row">
+        <span class="emotion-number"></span>
+        <h2 class="name"></h2>
+      </div>
       <section class="detail definitions-section" hidden>
         <h3>Definitions</h3>
         <ul class="definitions"></ul>
@@ -529,6 +548,16 @@ function titleCase(text) {
   });
 }
 
+function compareMoods(a, b) {
+  return a.displayName.localeCompare(b.displayName) || a.id.localeCompare(b.id);
+}
+
+function assignOrdinals(items) {
+  return items.map(function (item, index) {
+    return Object.assign({}, item, { ordinal: index + 1 });
+  });
+}
+
 function normalizeMood(item) {
   const plainName = humanizeMoodId(item.id || "");
   const definitions = Array.isArray(item.definitions) ? item.definitions.filter(Boolean) : [];
@@ -645,6 +674,7 @@ function buildCard(item) {
   const card = cardTemplate.content.firstElementChild.cloneNode(true);
   const image = card.querySelector("img");
   const favoriteButton = card.querySelector(".favorite-button");
+  const emotionNumber = card.querySelector(".emotion-number");
   const name = card.querySelector(".name");
   const definitionsSection = card.querySelector(".definitions-section");
   const definitionsList = card.querySelector(".definitions");
@@ -664,6 +694,7 @@ function buildCard(item) {
   image.src = item.pngHref;
   image.alt = item.displayName;
 
+  emotionNumber.textContent = String(item.ordinal);
   name.textContent = item.displayName;
 
   favoriteButton.textContent = isFavorite ? "Saved" : "Save";
@@ -768,9 +799,14 @@ async function loadCatalog() {
 
     const source = await response.text();
     const catalog = parseCatalogYaml(source);
-    state.items = catalog.items.map(normalizeMood).filter(function (item) {
-      return Boolean(item.id);
-    });
+    state.items = assignOrdinals(
+      catalog.items
+        .map(normalizeMood)
+        .filter(function (item) {
+          return Boolean(item.id);
+        })
+        .sort(compareMoods)
+    );
 
     render();
   } catch (error) {

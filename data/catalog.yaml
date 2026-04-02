@@ -384,6 +384,15 @@ items:
     example: "In 1845, writer Henry David Thoreau moved into a small cabin he built by Walden Pond to conduct an experiment in simple living. He spent two years there, working just enough to support his basic needs and dedicating the rest of his time to reading, writing, and observing nature. This deliberate arrangement gave him a deep sense of inner stability and freedom from the pressures of mainstream society."
     example_source_title: "Walden; or, Life in the Woods"
     example_link: "https://en.wikipedia.org/wiki/Walden"
+    reddit_example: "In 2010, Reddit user u/rhoner shared a story about his car breaking down in Mexico when a poor family stopped to help. They towed his car 50 miles and refused payment, with the father explaining, \"Today you, tomorrow me.\" This selfless act, built on the trust that kindness will be returned to the world, created a powerful sense of social harmony and balance."
+    reddit_example_url: "https://www.reddit.com/r/AskReddit/comments/elal2/have_you_ever_picked_up_a_hitchhiker/c18z0z2/"
+    tarot_cards:
+      - "Temperance: This card represents finding a harmonious middle ground by blending different areas of life, which is the essence of feeling balanced."
+      - "Two of Pentacles: This card shows the act of skillfully managing daily tasks and priorities to maintain stability, reflecting the practical side of balance."
+      - "Justice: This card suggests that your current sense of balance is the fair and logical result of your past actions and decisions."
+    reddit_source_notes: "AskReddit (2010): Today you, tomorrow me comment"
+    reddit_source_url: "https://www.reddit.com/r/AskReddit/comments/elal2/have_you_ever_picked_up_a_hitchhiker/c18z0z2/"
+    reddit_source_username: "u/rhoner"
   - id: mood_bereft
     definitions:
       - "Being bereft is feeling a deep emptiness after the death of a loved one, a loss that is more profound and permanent than simple sadness."
@@ -391,6 +400,12 @@ items:
     example: "After her husband Prince Albert died in 1861, Queen Victoria fell into a deep and lasting grief, describing her life as a 'long, weary, desolate path.' She wore black for the remaining 40 years of her life, a constant public symbol of her loss. Her withdrawal from public duties showed a nation what it meant to be utterly bereft of a loved one."
     example_source_title: "Victoria, Queen of United Kingdom: Widowhood"
     example_link: "https://www.britannica.com/biography/Victoria-queen-of-United-Kingdom/Widowhood"
+    reddit_example: "In 2010, a Reddit user named GunsGermsAndSteel shared his profound sense of loss after his wife of two years died in his arms just after their anniversary. He described no longer feeling like a real person, but simply a machine that does a job with no joy or life. The comment illustrates a hollow existence, showing a man utterly bereft of his partner and the future they shared."
+    reddit_example_url: "https://www.reddit.com/r/AskReddit/comments/d0517/whats_your_this_is_my_life_moment/c0wcpci/"
+    tarot_cards:
+      - "Three of Swords: This card shows the sharp, piercing sorrow and heartbreak that comes with a profound loss."
+      - "Five of Cups: This card reflects the state of mourning, where one is so focused on what has been lost that it is difficult to see anything else."
+      - "Ten of Swords: This card signifies a devastating and final ending, capturing the feeling of hitting rock bottom after a great loss."
   - id: mood_betrayed
     definitions:
       - "Feeling betrayed is the deep and personal hurt that happens when someone you trust violates your confidence or loyalty for their own benefit."
@@ -490,16 +505,66 @@ items:
     example: "For nine companions, the journey began as a shared quest, but the true weight fell on Frodo Baggins alone. He carried the One Ring, a small object with a will of its own that held the fate of Middle-earth in its golden band. This secret and terrible responsibility isolated him from his friends and slowly drained the life from him as he walked toward the fires of Mordor."
     example_source_title: "The Lord of the Rings"
     example_link: "https://en.wikipedia.org/wiki/The_Lord_of_the_Rings"
+    reddit_example: "In 2010, Reddit user CalamitysChild shared the heavy weight of their student loan debt, which had grown to over $120,000. They described feeling trapped, facing decades of payments that would control their future. This massive financial obligation felt like a crushing load they would have to carry for most of their adult life."
+    reddit_example_url: "https://www.reddit.com/r/AskReddit/comments/dce6i/hey_reddit_whats_your_current_debt_situation/d4ofrr5/"
+    tarot_cards:
+      - "Ten of Wands: This card shows a figure struggling to carry a heavy load, which directly represents being overwhelmed by too many responsibilities."
+      - "The Devil: This card can signify being chained to a heavy obligation or situation, feeling trapped under a weight you cannot escape."
+      - "Nine of Wands: This card reflects the weariness that comes from carrying the weight of past battles and the expectation of more challenges to come."
   - id: mood_burned_out
+    definitions:
+      - "To feel burned out is to be completely exhausted emotionally, physically, and mentally because of long-term stress, making it hard to handle daily tasks."
+      - "Burnout happens when you feel detached and negative about your work, often feeling like you are no longer effective in your job after a period of being overwhelmed."
+    example: "By the late 1970s, many U.S. air traffic controllers were working six-day weeks under intense pressure, responsible for thousands of lives daily. The relentless stress, combined with outdated equipment, led to widespread physical and emotional exhaustion. This collective burnout culminated in the 1981 PATCO strike, where over 11,000 controllers walked off the job after feeling they had nothing left to give."
+    example_source_title: "1981 PATCO strike"
+    example_link: "https://en.wikipedia.org/wiki/1981_PATCO_strike"
   - id: mood_calm
     definitions:
       - "Feeling quiet, steady, and not under strong stress."
       - "Calm does not always mean happy. It can simply mean settled and clear."
-    example: "After the walk, I felt calm enough to think clearly."
+    example: "In 1966, the Buddhist monk Thich Nhat Hanh met with Martin Luther King Jr. to ask him to publicly oppose the Vietnam War. After their meeting, King felt a deep sense of peace and clarity about his own role in the conflict. He later spoke of the monk's quiet confidence and how it gave him the calm strength to speak out against the war, even when it was unpopular."
+    example_source_title: "King's 1967 'Beyond Vietnam' Speech"
+    example_link: "https://kinginstitute.stanford.edu/encyclopedia/beyond-vietnam"
   - id: mood_cancelled
+    definitions:
+      - "To feel cancelled is to experience a sudden and overwhelming withdrawal of public support and opportunity due to a perceived offense, going beyond mere disapproval to a state of social invalidation."
+      - "This feeling comes from being publicly shamed and rejected by a large group, often online, which is different from simple criticism because it includes a call for the person to lose their job or social standing."
+    example: "In 1992, after tearing a photo of the Pope on live television to protest abuse, Sinéad O'Connor was booed off the stage at a Bob Dylan tribute concert just two weeks later. The incident caused radio stations to refuse to play her songs and she was publicly condemned. This single act of protest effectively ended her mainstream pop career in the United States."
+    example_source_title: "Sinead O'Connor, Who 'Had to Be the One to Ring the Bell' in Protest"
+    example_link: "https://www.nytimes.com/2023/07/26/arts/music/sinead-oconnor-pope-photo.html"
+    reddit_example: "In a 2010 post on r/relationships, user throwawaysplitus described how their girlfriend's entire friend group had turned against them. The friends believed the user was a bad influence and were actively trying to get their girlfriend to break up with them, effectively excluding them from their social circle. This small-scale social rejection mirrors the dynamics of cancellation, where a person is suddenly ostracized and invalidated by a group based on a perceived wrongdoing."
+    reddit_example_url: "https://www.reddit.com/r/relationships/comments/e6365/my_gfs_friends_are_trying_to_split_us_up/"
+    tarot_cards:
+      - "The Tower: It represents a sudden and dramatic fall from a position of security, much like a career being destroyed overnight."
+      - "Ten of Swords: This card signifies ultimate defeat and public betrayal, capturing the feeling of being socially and professionally ruined."
+      - "Judgement: It reflects the moment of public reckoning and condemnation, where a person's actions are judged harshly by the collective."
   - id: mood_carefree
+    definitions:
+      - "Carefree is the feeling of being free from worries and responsibilities, which lets you feel light and without any stress."
+      - "The carefree feeling comes when you have no problems or duties to think about, leaving your mind peaceful and open to enjoyment."
+    example: "For Huckleberry Finn and his friend Jim, life on their raft drifting down the Mississippi River was simple and free. They let the current take them, hiding during the day and floating under the stars at night. With no rules to follow or clocks to watch, they felt 'mighty free and easy and comfortable,' living a lazy and peaceful life on the water, away from all the troubles of the world on shore."
+    example_source_title: "Adventures of Huckleberry Finn"
+    example_link: "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn"
+    reddit_example: "In a 2010 discussion on Reddit, user boogada remembered what it was like to be a carefree kid. He said that life had no worries and no responsibilities. The only rule was simple: go outside, play, and be back home when the street lights came on."
+    reddit_example_url: "https://www.reddit.com/r/AskReddit/comments/c7qkn/what_is_something_you_miss_about_being_a_kid/c0qsnx4/"
+    tarot_cards:
+      - "The Fool: This card shows a person stepping into the unknown without a worry, enjoying the freedom of a new beginning."
+      - "The Sun: This card represents a time of pure joy and clarity, where all doubts and fears have vanished."
+      - "Nine of Cups: This card signifies a moment of deep contentment and satisfaction, where all is well and there is nothing to worry about."
   - id: mood_challenged
+    definitions:
+      - "Feeling challenged means you are facing a difficult but stimulating situation that requires great effort, making it a positive state of arousal unlike being overwhelmed, which feels crushing."
+      - "The feeling of being challenged comes from a difficult task that tests your skills, but unlike frustration, it includes a sense of hope and engagement."
+    example: "On January 15, 2009, Captain Sully Sullenberger had only 208 seconds after his Airbus A320 lost all engine power over New York City. He faced the immense challenge of finding a safe place to land with 155 people on board. Instead of attempting a risky return to an airport, he chose to attempt a water landing in the Hudson River, a maneuver that had never been successfully performed in a modern jetliner."
+    example_source_title: "US Airways Flight 1549"
+    example_link: "https://en.wikipedia.org/wiki/US_Airways_Flight_1549"
   - id: mood_chatty
+    definitions:
+      - "Feeling chatty is having a strong desire to talk and share your thoughts, often because you are feeling energetic, happy, or excited about something."
+      - "This is a social mood where you are very talkative and enjoy conversation, usually happening when you feel comfortable with people or have many ideas to express."
+    example: "In Jane Austen's 1813 novel \"Pride and Prejudice,\" the arrival of the wealthy and single Charles Bingley sends Mrs. Bennet into a state of excited talkativeness. She relentlessly presses her husband to visit the newcomer, absolutely certain that one of their five daughters is destined to marry him. Her every conversation revolves around the topic, planning the social conquest long before any of the young people have even met."
+    example_source_title: "Pride and Prejudice"
+    example_link: "https://en.wikipedia.org/wiki/Pride_and_Prejudice"
   - id: mood_cheerful
   - id: mood_chill
   - id: mood_clear

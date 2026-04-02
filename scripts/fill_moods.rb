@@ -192,11 +192,11 @@ def prompt_for(field, item, instructions)
     subreddit_hint =
       case tone
       when :positive
-        "Prefer wholesome/supportive communities for positive stories, like r/MadeMeSmile, r/HumansBeingBros, r/CongratsLikeImFive, r/CasualConversation, or r/BenignExistence."
+        "Prefer older positive or reflective communities that existed before 2011, especially classic r/AskReddit threads or older personal-story discussions that are easy to verify."
       when :negative
-        "Prefer conflict/distress communities for negative stories, like r/AITAH, r/AmItheAsshole, r/relationship_advice, r/TrueOffMyChest, or r/offmychest."
+        "Prefer older conflict, confession, or distress discussions that existed before 2011, especially classic r/AskReddit, r/relationships, r/offmychest, or similar early Reddit threads that are easy to verify."
       else
-        "Pick a subreddit that naturally matches this mood, and keep the source emotionally aligned."
+        "Pick an older pre-2011 Reddit thread that naturally matches this mood and is easy to verify from search results."
       end
 
     source_url = item["reddit_source_url"].to_s.strip
@@ -206,8 +206,9 @@ def prompt_for(field, item, instructions)
       if source_url.empty? || source_notes.empty? || source_username.empty?
         <<~TEXT
           Source selection:
-          - Use web search to find one real post from Reddit, preferably from AITA-style personal-conflict subreddits.
+          - Use web search to find one real Reddit thread or comment from 2010 or earlier.
           - #{subreddit_hint}
+          - Prefer older, widely cited Reddit threads that are easy to verify quickly from search results.
           - Use that one post as the only source.
           - Include the Reddit username and public Reddit URL in the result.
         TEXT
@@ -252,7 +253,7 @@ def prompt_for(field, item, instructions)
       - Do not invent a scene, account, or numbers.
       - Use Reddit posts from year 2010 or earlier only.
       - Do not use politics or politician figures in any way.
-      - Pick one qualifying source quickly; avoid deep searching.
+      - Pick the first strong qualifying source quickly; avoid deep searching.
       - Use 2 to 4 short sentences.
       - It should read like a magazine lead paragraph with concrete details when available.
       - Show why the chosen mood fits the post.
