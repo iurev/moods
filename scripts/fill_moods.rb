@@ -17,7 +17,7 @@ FIELD_ALIASES = {
 }.freeze
 ALLOWED_FIELDS = %w[definitions example tarot_cards reddit_example].freeze
 FIELD_ORDER = %w[definitions example reddit_example tarot_cards].freeze
-KNOWN_ITEM_KEYS = %w[id definitions example example_source_title example_link reddit_example reddit_example_url tarot_cards].freeze
+KNOWN_ITEM_KEYS = %w[id important definitions example example_source_title example_link reddit_example reddit_example_url tarot_cards].freeze
 
 def blank?(value)
   value.nil? || (value.respond_to?(:empty?) && value.empty?)
@@ -37,6 +37,11 @@ end
 
 def find_item_by_id(items, emotion_id)
   items.find { |item| item["id"] == emotion_id }
+end
+
+def important_item?(item)
+  value = item["important"]
+  value == true || value.to_s.strip == "true"
 end
 
 def field_filled?(item, field)
@@ -377,8 +382,17 @@ def json_scalar(value)
   JSON.generate(value.to_s)
 end
 
-def plain_scalar(value)
-  value.to_s
+def yaml_scalar(value)
+  case value
+  when true
+    "true"
+  when false
+    "false"
+  when Numeric
+    value.to_s
+  else
+    JSON.generate(value.to_s)
+  end
 end
 
 def item_key_order(item)
@@ -388,12 +402,12 @@ end
 
 def write_catalog(catalog)
   lines = []
-  lines << "title: #{plain_scalar(catalog.fetch('title'))}"
-  lines << "asset_base: #{plain_scalar(catalog.fetch('asset_base'))}"
+  lines << "title: #{yaml_scalar(catalog.fetch('title'))}"
+  lines << "asset_base: #{yaml_scalar(catalog.fetch('asset_base'))}"
   lines << "items:"
 
   catalog.fetch("items").each do |item|
-    lines << "  - id: #{plain_scalar(item.fetch('id'))}"
+    lines << "  - id: #{yaml_scalar(item.fetch('id'))}"
 
     item_key_order(item).each do |key|
       next if key == "id"
@@ -405,10 +419,10 @@ def write_catalog(catalog)
       if value.is_a?(Array)
         lines << "    #{key}:"
         value.each do |entry|
-          lines << "      - #{json_scalar(entry)}"
+          lines << "      - #{yaml_scalar(entry)}"
         end
       else
-        lines << "    #{key}: #{json_scalar(value)}"
+        lines << "    #{key}: #{yaml_scalar(value)}"
       end
     end
   end
@@ -483,6 +497,7 @@ end
 
 options = {
   runner: "codex",
+  important_only: true,
   emotion: nil,
   field: nil,
   limit: nil,
@@ -500,6 +515,10 @@ OptionParser.new do |parser|
 
   parser.on("--runner=NAME", String, "LLM runner: codex or gemini (default: codex)") do |value|
     options[:runner] = value
+  end
+
+  parser.on("--all", "In batch mode, include non-important moods too") do
+    options[:important_only] = false
   end
 
   parser.on("--emotion=ID", String, "Target one mood id, for example mood_abandoned") do |value|
@@ -681,7 +700,11 @@ if single_mode
   exit(run_fill_for_field(catalog: catalog, item: item, field: normalized_field, instructions: instructions, options: options) == :ok ? 0 : 1)
 end
 
-items = catalog.fetch("items").first(options[:limit])
+items = if options[:important_only]
+  catalog.fetch("items").select { |item| important_item?(item) }.first(options[:limit])
+else
+  catalog.fetch("items").first(options[:limit])
+end
 errors = []
 updates = 0
 skipped_emotions = 0

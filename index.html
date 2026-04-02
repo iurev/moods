@@ -446,6 +446,14 @@ function decodeYamlScalar(value) {
     return null;
   }
 
+  if (trimmed === "true") {
+    return true;
+  }
+
+  if (trimmed === "false") {
+    return false;
+  }
+
   if (trimmed.startsWith('"') && trimmed.endsWith('"')) {
     return trimmed.slice(1, -1).replace(/\\"/g, '"').replace(/\\n/g, "\n");
   }
@@ -567,9 +575,11 @@ function normalizeMood(item) {
   const exampleLink = typeof item.example_link === "string" ? item.example_link.trim() : "";
   const redditExample = typeof item.reddit_example === "string" ? item.reddit_example.trim() : "";
   const redditExampleUrl = typeof item.reddit_example_url === "string" ? item.reddit_example_url.trim() : "";
+  const important = item.important === true || item.important === "true";
 
   return {
     id: item.id,
+    important,
     plainName,
     displayName: titleCase(plainName),
     definitions,
@@ -803,7 +813,7 @@ async function loadCatalog() {
       catalog.items
         .map(normalizeMood)
         .filter(function (item) {
-          return Boolean(item.id);
+          return Boolean(item.id) && item.important;
         })
         .sort(compareMoods)
     );
