@@ -812,9 +812,6 @@ async function loadCatalog() {
     state.items = assignOrdinals(
       catalog.items
         .map(normalizeMood)
-        .filter(function (item) {
-          return Boolean(item.id) && item.important;
-        })
         .sort(compareMoods)
     );
 
