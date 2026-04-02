@@ -491,6 +491,12 @@ items:
     example: "At Thornfield Hall, Mr. Rochester is a man trapped by his past. For a decade, he has been legally bound to a mad wife hidden on the third floor, a secret that sours his every interaction. He walks his own halls in a state of gloomy, resentful thought, unable to escape the consequences of a youthful mistake."
     example_source_title: "Jane Eyre"
     example_link: "https://en.wikipedia.org/wiki/Jane_Eyre"
+    reddit_example: "On Reddit, u/oceanrainbows wrote that she was weeks from marrying a good man, yet after five years she still kept replaying her old relationship in her head. She says she thinks about her ex almost every day, checks his Instagram, and even dreams that he comes back, although she knows the relationship was bad and he cheated on her. That makes this brooding: she is stuck in long, dark thought, turning the same loss over and over without finding peace."
+    reddit_example_url: "https://www.reddit.com/r/relationships/comments/wpxxlr/broke_up_5_years_ago_and_engaged_to_another_man/"
+    tarot_cards:
+      - "Four of Swords: This card signifies a period of mental withdrawal and rumination, often replaying past events without finding a path forward."
+      - "Nine of Swords: This card reflects intense worry, anxiety, and a mind consumed by sad or angry thoughts that lead to distress and sleeplessness."
+      - "Eight of Swords: This card represents feeling mentally trapped and restricted by one's own negative thoughts, unable to see solutions or move past a difficult situation."
   - id: mood_buoyant
     definitions:
       - "Buoyancy is a light, cheerful feeling that comes from good news or positive situations, making you feel like you are floating, which is gentler than the energetic feeling of excitement."
@@ -498,6 +504,12 @@ items:
     example: "After a year of rejections from twelve publishers, the manuscript for Harry Potter finally landed J.K. Rowling a deal in 1996. A small British publisher offered a £1,500 advance, a small sum that would change her life. For the struggling single mother who had been living on state benefits, the news brought a buoyant feeling that she was finally floating free from her difficult circumstances."
     example_source_title: "J. K. Rowling - Wikipedia"
     example_link: "https://en.wikipedia.org/wiki/J._K._Rowling"
+    reddit_example: "On Reddit, user MTBerrl shared a photo on r/MadeMeSmile on the first day of a new career, writing that at age 30 they had finally turned life around. The mood feels buoyant because the post is not wild or loud; it carries the light lift that comes when a hard stretch gives way to a real opening. After years of feeling stuck, that first workday reads like the moment their life started to float upward again."
+    reddit_example_url: "https://www.reddit.com/r/MadeMeSmile/comments/102p08s/oclets_try_this_againfirst_day_of_my_new_career/"
+    tarot_cards:
+      - "The Star: It fits buoyancy because hope returns in a calm, rising way after strain, bringing lightness without the rush of high excitement."
+      - "Six of Wands: It matches the lifted feeling that comes when good news or earned success makes you feel carried upward by relief and confidence."
+      - "Page of Cups: It reflects the gentle, floating happiness that comes with welcome news or a sweet surprise that opens the heart."
   - id: mood_burdened
     definitions:
       - "Being burdened means feeling like you are carrying a heavy emotional or mental weight, often caused by having too many responsibilities or problems that feel too difficult to manage."
@@ -518,6 +530,12 @@ items:
     example: "By the late 1970s, many U.S. air traffic controllers were working six-day weeks under intense pressure, responsible for thousands of lives daily. The relentless stress, combined with outdated equipment, led to widespread physical and emotional exhaustion. This collective burnout culminated in the 1981 PATCO strike, where over 11,000 controllers walked off the job after feeling they had nothing left to give."
     example_source_title: "1981 PATCO strike"
     example_link: "https://en.wikipedia.org/wiki/1981_PATCO_strike"
+    reddit_example: "In a 2025 post on r/offmychest, Reddit user 1anonymous2345 says they work full time, run the home, cook, clean, handle repairs, and care for a sick partner while also planning to take a second job because life is so expensive. The post fits burned out because the stress is not from one bad day but from carrying too much for too long, until they feel emotionally flat, physically tired, and unable to give any more to other people. Even seeing friends feels like another demand, which shows the detached and exhausted state that makes burnout different from ordinary stress."
+    reddit_example_url: "https://www.reddit.com/r/offmychest/comments/1jm17ix/burnout_i_am_fried/"
+    tarot_cards:
+      - "Ten of Wands: This card fits burnout because it shows the crushing weight of too many duties carried for too long."
+      - "Four of Swords: This card reflects the deep rest and withdrawal needed when your mind and body are worn down."
+      - "Eight of Pentacles: This card points to work that has become draining through constant effort, routine, and pressure to keep producing."
   - id: mood_calm
     definitions:
       - "Feeling quiet, steady, and not under strong stress."
@@ -525,6 +543,8 @@ items:
     example: "In 1966, the Buddhist monk Thich Nhat Hanh met with Martin Luther King Jr. to ask him to publicly oppose the Vietnam War. After their meeting, King felt a deep sense of peace and clarity about his own role in the conflict. He later spoke of the monk's quiet confidence and how it gave him the calm strength to speak out against the war, even when it was unpopular."
     example_source_title: "King's 1967 'Beyond Vietnam' Speech"
     example_link: "https://kinginstitute.stanford.edu/encyclopedia/beyond-vietnam"
+    reddit_example: "In a 2023 r/BenignExistence post, Reddit user nilherm wrote that they got up at 5 a.m. after a fussy night with their child just to drink a hot coffee in a quiet house. They noticed the full moon lighting the snow outside and the fact that nothing was pulling at them for a moment. The scene fits calm because the feeling is not excitement or joy, but a steady, clear pause after stress."
+    reddit_example_url: "https://www.reddit.com/r/BenignExistence/comments/11kvqff/i_got_up_at_5am_solely_to_enjoy_a_quiet_coffee/"
   - id: mood_cancelled
     definitions:
       - "To feel cancelled is to experience a sudden and overwhelming withdrawal of public support and opportunity due to a perceived offense, going beyond mere disapproval to a state of social invalidation."
@@ -558,6 +578,12 @@ items:
     example: "On January 15, 2009, Captain Sully Sullenberger had only 208 seconds after his Airbus A320 lost all engine power over New York City. He faced the immense challenge of finding a safe place to land with 155 people on board. Instead of attempting a risky return to an airport, he chose to attempt a water landing in the Hudson River, a maneuver that had never been successfully performed in a modern jetliner."
     example_source_title: "US Airways Flight 1549"
     example_link: "https://en.wikipedia.org/wiki/US_Airways_Flight_1549"
+    reddit_example: "In a 2020 post on r/C25K, Reddit user chemist_running described returning to the Couch to 5K plan after years of stops caused by surgery, bad winters, and a long recovery from illness. Instead of only trying to finish again, chemist_running set a harder goal and pushed from a usual 10 to 11 minute mile pace to just under 8 minutes per mile by week 4, day 3. The post fits feeling challenged because the task is clearly difficult, but the writer sounds engaged, hopeful, and eager to see what comes next."
+    reddit_example_url: "https://th.reddit.com/r/C25K/comments/jhp1le/challenging_myself_this_time/"
+    tarot_cards:
+      - "Strength: This card fits feeling challenged because it shows calm courage and steady effort when something hard asks for your best."
+      - "Seven of Wands: This card matches the mood of being tested, where pressure is real but you still feel ready to hold your ground."
+      - "The Chariot: This card reflects a difficult challenge that pushes skill and focus, with a strong sense that success is possible."
   - id: mood_chatty
     definitions:
       - "Feeling chatty is having a strong desire to talk and share your thoughts, often because you are feeling energetic, happy, or excited about something."

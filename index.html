@@ -358,7 +358,7 @@ input{
     <div class="toolbar">
       <label class="search-field">
         <span class="visually-hidden">Search moods</span>
-        <input id="search-input" type="search" placeholder="Search names, definitions, or examples" autocomplete="off">
+        <input id="search-input" type="search" placeholder="Search emotion names" autocomplete="off">
       </label>
       <label class="favorite-toggle">
         <input id="favorites-only" type="checkbox">
@@ -581,7 +581,7 @@ function normalizeMood(item) {
     redditExampleUrl,
     pngHref: "png/" + item.id + ".png",
     svgHref: "svg/" + item.id + ".svg",
-    searchText: [item.id, plainName, definitions.join(" "), tarotCards.join(" "), example, exampleSourceTitle, redditExample].join(" ").toLowerCase()
+    searchText: plainName.toLowerCase()
   };
 }
 

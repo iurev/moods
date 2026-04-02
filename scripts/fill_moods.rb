@@ -192,11 +192,11 @@ def prompt_for(field, item, instructions)
     subreddit_hint =
       case tone
       when :positive
-        "Prefer older positive or reflective communities that existed before 2011, especially classic r/AskReddit threads or older personal-story discussions that are easy to verify."
+        "Prefer positive or reflective communities with personal stories that are easy to verify, including AskReddit, MadeMeSmile, BenignExistence, or similar threads."
       when :negative
-        "Prefer older conflict, confession, or distress discussions that existed before 2011, especially classic r/AskReddit, r/relationships, r/offmychest, or similar early Reddit threads that are easy to verify."
+        "Prefer conflict, confession, or distress discussions that are easy to verify, especially AskReddit, relationships, offmychest, AITAH, or similar story-driven threads."
       else
-        "Pick an older pre-2011 Reddit thread that naturally matches this mood and is easy to verify from search results."
+        "Pick a Reddit thread that naturally matches this mood and is easy to verify from search results."
       end
 
     source_url = item["reddit_source_url"].to_s.strip
@@ -206,9 +206,11 @@ def prompt_for(field, item, instructions)
       if source_url.empty? || source_notes.empty? || source_username.empty?
         <<~TEXT
           Source selection:
-          - Use web search to find one real Reddit thread or comment from 2010 or earlier.
+          - Use web search to find one real Reddit thread or comment that clearly fits the mood.
           - #{subreddit_hint}
           - Prefer older, widely cited Reddit threads that are easy to verify quickly from search results.
+          - Use at most 3 web searches before choosing a source.
+          - Spend at most about 60 seconds picking the source.
           - Use that one post as the only source.
           - Include the Reddit username and public Reddit URL in the result.
         TEXT
@@ -251,9 +253,10 @@ def prompt_for(field, item, instructions)
       - Return exactly 1 Reddit-based personal example paragraph as a string.
       #{source_requirements}
       - Do not invent a scene, account, or numbers.
-      - Use Reddit posts from year 2010 or earlier only.
+      - Recent Reddit posts are allowed if they are a strong match and easy to verify.
       - Do not use politics or politician figures in any way.
-      - Pick the first strong qualifying source quickly; avoid deep searching.
+      - Pick the first credible qualifying source quickly; do not keep searching for a perfect match.
+      - If the post clearly shows the mood, use it even if the title does not literally name the mood.
       - Use 2 to 4 short sentences.
       - It should read like a magazine lead paragraph with concrete details when available.
       - Show why the chosen mood fits the post.
@@ -359,7 +362,7 @@ def validate_payload(field, payload)
     reddit_example = payload.fetch("reddit_example").to_s.strip
     reddit_url = payload.fetch("reddit_example_url").to_s.strip
     raise "reddit_example is too short" if reddit_example.length < 80
-    raise "reddit example url is invalid" unless reddit_url.match?(%r{\Ahttps://(www\.)?reddit\.com/}i)
+    raise "reddit example url is invalid" unless reddit_url.match?(%r{\Ahttps://([a-z0-9-]+\.)?reddit\.com/}i)
     raise "reddit example should not start with Imagine" if reddit_example.match?(/\Aimagine\b/i)
     {
       "reddit_example" => reddit_example,
@@ -413,22 +416,55 @@ def write_catalog(catalog)
   File.write(CATALOG_PATH, lines.join("\n") + "\n")
 end
 
-def llm_command(timeout_seconds, model_name)
-  [
-    "timeout",
-    "--signal=TERM",
-    "--kill-after=10s",
-    "#{timeout_seconds}s",
-    "gemini",
-    "--model",
-    model_name,
-    "--prompt",
-    "",
-    "--output-format",
-    "text",
-    "--approval-mode",
-    "yolo"
-  ]
+def default_model_for(runner)
+  case runner
+  when "codex"
+    "gpt-5.4"
+  when "gemini"
+    "gemini-2.5-pro"
+  else
+    raise "Unsupported runner: #{runner}"
+  end
+end
+
+def llm_command(options, response_path)
+  case options[:runner]
+  when "codex"
+    [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=10s",
+      "#{options[:timeout_seconds]}s",
+      "codex",
+      "exec",
+      "--dangerously-bypass-approvals-and-sandbox",
+      "--model",
+      options[:model],
+      "--config",
+      %(model_reasoning_effort="#{options[:reasoning_effort]}"),
+      "--output-last-message",
+      response_path,
+      "-"
+    ]
+  when "gemini"
+    [
+      "timeout",
+      "--signal=TERM",
+      "--kill-after=10s",
+      "#{options[:timeout_seconds]}s",
+      "gemini",
+      "--model",
+      options[:model],
+      "--prompt",
+      "",
+      "--output-format",
+      "text",
+      "--approval-mode",
+      "yolo"
+    ]
+  else
+    raise "Unsupported runner: #{options[:runner]}"
+  end
 end
 
 def extract_json_text(raw_response)
@@ -446,11 +482,13 @@ def extract_json_text(raw_response)
 end
 
 options = {
+  runner: "codex",
   emotion: nil,
   field: nil,
   limit: nil,
   timeout_seconds: 240,
-  model: "gemini-2.5-pro",
+  model: nil,
+  reasoning_effort: "medium",
   source_url: nil,
   source_notes: nil,
   source_username: nil,
@@ -459,6 +497,10 @@ options = {
 
 OptionParser.new do |parser|
   parser.banner = "Usage: ruby scripts/fill_moods.rb [options]"
+
+  parser.on("--runner=NAME", String, "LLM runner: codex or gemini (default: codex)") do |value|
+    options[:runner] = value
+  end
 
   parser.on("--emotion=ID", String, "Target one mood id, for example mood_abandoned") do |value|
     options[:emotion] = value
@@ -472,12 +514,16 @@ OptionParser.new do |parser|
     options[:limit] = value
   end
 
-  parser.on("--timeout-seconds=N", Integer, "Max seconds for one codex call (default: 240)") do |value|
+  parser.on("--timeout-seconds=N", Integer, "Max seconds for one LLM call (default: 240)") do |value|
     options[:timeout_seconds] = value
   end
 
-  parser.on("--model=NAME", String, "Model for gemini CLI (default: gemini-2.5-pro)") do |value|
+  parser.on("--model=NAME", String, "Model for the selected runner") do |value|
     options[:model] = value
+  end
+
+  parser.on("--reasoning-effort=LEVEL", String, "Codex reasoning effort: low, medium, high") do |value|
+    options[:reasoning_effort] = value
   end
 
   parser.on("--source-url=URL", String, "Source URL for reddit_example generation") do |value|
@@ -538,21 +584,31 @@ def run_fill_for_field(catalog:, item:, field:, instructions:, options:)
     return :ok
   end
 
-  stdout, stderr, status = Open3.capture3(*llm_command(options[:timeout_seconds], options[:model]), stdin_data: prompt, chdir: ROOT)
+  stdout, stderr, status = Open3.capture3(*llm_command(options, response_path), stdin_data: prompt, chdir: ROOT)
   File.write(stdout_path, stdout)
   File.write(stderr_path, stderr)
 
   unless status.success?
     if status.exitstatus == 124
-      warn "Gemini exec timed out after #{options[:timeout_seconds]}s for #{item.fetch('id')} -> #{field_label}"
+      warn "#{options[:runner].capitalize} exec timed out after #{options[:timeout_seconds]}s for #{item.fetch('id')} -> #{field_label}"
     end
-    warn "Gemini exec failed for #{item.fetch('id')} -> #{field_label}"
+    warn "#{options[:runner].capitalize} exec failed for #{item.fetch('id')} -> #{field_label}"
     warn "See #{stderr_path} and #{stdout_path}"
     return :error
   end
 
-  raw_response = stdout.to_s.strip
-  File.write(response_path, raw_response + "\n")
+  raw_response =
+    if options[:runner] == "codex"
+      if File.exist?(response_path)
+        File.read(response_path).to_s.strip
+      else
+        stdout.to_s.strip
+      end
+    else
+      stdout.to_s.strip
+    end
+
+  File.write(response_path, raw_response + "\n") unless options[:runner] == "codex"
 
   begin
     payload = JSON.parse(extract_json_text(raw_response))
@@ -580,6 +636,14 @@ ensure
 end
 
 normalized_field = normalize_field(options[:field])
+options[:runner] = options[:runner].to_s.strip.downcase
+
+unless %w[codex gemini].include?(options[:runner])
+  warn "Unsupported --runner: #{options[:runner]}. Allowed: codex, gemini"
+  exit 1
+end
+
+options[:model] = default_model_for(options[:runner]) if blank?(options[:model].to_s.strip)
 
 if !blank?(normalized_field) && !ALLOWED_FIELDS.include?(normalized_field)
   warn "Unsupported field: #{options[:field]}. Allowed: #{(ALLOWED_FIELDS + FIELD_ALIASES.keys).join(', ')}"
